@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <!-- Charger MathJax pour les formules mathématiques -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Charger Plotly pour le graphique -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="chapter-subtitle">
+            <h2>1.1 Définition d'une fonction</h2>
+        </div>
+        <p>
+            Une <strong>fonction</strong> est un concept fondamental en mathématiques. Elle est utilisée pour associer
+            deux ensembles de manière précise et structurée.
+        </p>
+
+        <h3>1.1.1 La notion de fonction</h3>
+        <p>
+            Une <strong>fonction</strong> est une relation entre deux ensembles : un ensemble d'éléments appelés le
+            <strong>domaine</strong> de la fonction, et un ensemble d'éléments appelés l'<strong>ensemble
+                d'arrivée</strong> ou le <strong>codomaine</strong>.
+        </p>
+        <p>On écrit cela formellement comme suit :</p>
+        <p style="margin-left: 20rem;">\( f: D \to C \)</p>
+        <p>Cela signifie que la fonction <em>f</em> associe un élément <em>f(x)</em> de l'ensemble <em>C</em> à chaque
+            élément <em>x</em> de l'ensemble <em>D</em>.</p>
+
+        <ul>
+            <li><strong>D</strong> est le <strong>domaine de définition</strong> de la fonction.</li>
+            <li><strong>C</strong> est le <strong>codomaine</strong> de la fonction.</li>
+        </ul>
+
+        <h3>1.1.2 Exemples simples de fonctions</h3>
+        <ul>
+            <li><strong>Fonction constante :</strong> Une fonction qui associe à chaque valeur de <em>x</em> une même
+                valeur.</li>
+            <p>
+                \[
+                \begin{aligned}
+                f : \mathbb{R} &\to \mathbb{R} \\
+                x &\mapsto a
+                \end{aligned}
+                \]
+            </p>
+            <li><strong>Fonction affine :</strong> Une fonction de la forme <p>
+                    \[
+                    \begin{aligned}
+                    f : \mathbb{R} &\to \mathbb{R} \\
+                    x &\mapsto ax + b
+                    \end{aligned}
+                    \]
+                </p> qui représente une
+                droite.</li>
+            <li><strong>Fonction quadratique :</strong> Une fonction de la forme <p>
+                    \[
+                    \begin{aligned}
+                    f : \mathbb{R} &\to \mathbb{R} \\
+                    x &\mapsto ax^2 + bx + c
+                    \end{aligned}
+                    \]
+                </p>, dont le
+                graphique est une parabole.</li>
+            <li><strong>Fonction trigonométrique :</strong> Par exemple <p>
+                    \[
+                    \begin{aligned}
+                    f : \mathbb{R} &\to \mathbb{R} \\
+                    x &\mapsto \sin(x)
+                    \end{aligned}
+                    \]
+                </p>.</li>
+        </ul>
+
+        <h3>1.1.3 Domaine et image d’une fonction</h3>
+        <ul>
+            <li><strong>Domaine de définition :</strong> L'ensemble des valeurs de <em>x</em> pour lesquelles la
+                fonction est définie.</li>
+            <li><strong>Image de la fonction :</strong> L'ensemble des valeurs que la fonction peut prendre.</li>
+        </ul>
+
+        <h4>1.1.3.1 Exercices</h4>
+
+        <div class="question">
+            <strong>1.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : \mathbb{R} &\to \mathbb{R} \\
+            x &\mapsto 2x
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q1"> A) \( \mathbb{R} \)</label>
+                <label><input type="radio" name="q1"> B) \( \mathbb{R}^+ \)</label>
+                <label><input type="radio" name="q1"> C) \( \mathbb{R}^- \)</label>
+                <label><input type="radio" name="q1"> D) \( [0, +\infty[ \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>2.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : \mathbb{R} &\to \mathbb{R} \\
+            x &\mapsto x^2
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q2"> A) \( \mathbb{R} \)</label>
+                <label><input type="radio" name="q2"> B) \( [0, +\infty[ \)</label>
+                <label><input type="radio" name="q2"> C) \( ]-\infty, 0] \)</label>
+                <label><input type="radio" name="q2"> D) \( \mathbb{R}^* \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>3.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : [0, +\infty[ &\to \mathbb{R} \\
+            x &\mapsto \sqrt{x}
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q3"> A) \( \mathbb{R} \)</label>
+                <label><input type="radio" name="q3"> B) \( [0, +\infty[ \)</label>
+                <label><input type="radio" name="q3"> C) \( \mathbb{R}^* \)</label>
+                <label><input type="radio" name="q3"> D) \( [-1,1] \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>4.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : \mathbb{R}^* &\to \mathbb{R} \\
+            x &\mapsto \dfrac{1}{x}
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q4"> A) \( \mathbb{R} \)</label>
+                <label><input type="radio" name="q4"> B) \( \mathbb{R}^* \)</label>
+                <label><input type="radio" name="q4"> C) \( [0, +\infty[ \)</label>
+                <label><input type="radio" name="q4"> D) \( ]-\infty, 0] \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>5.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : \mathbb{R} &\to \mathbb{R} \\
+            x &\mapsto -x^2
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q5"> A) \( \mathbb{R}^+ \)</label>
+                <label><input type="radio" name="q5"> B) \( \mathbb{R}^- \)</label>
+                <label><input type="radio" name="q5"> C) \( ]-\infty, 0] \)</label>
+                <label><input type="radio" name="q5"> D) \( [0, +\infty[ \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>6.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : \mathbb{R} &\to \mathbb{R} \\
+            x &\mapsto \cos(x)
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q6"> A) \( [0,1] \)</label>
+                <label><input type="radio" name="q6"> B) \( [-1,1] \)</label>
+                <label><input type="radio" name="q6"> C) \( [0,+\infty[ \)</label>
+                <label><input type="radio" name="q6"> D) \( \mathbb{R} \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>7.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : \mathbb{R} &\to \mathbb{R} \\
+            x &\mapsto 3x + 5
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q7"> A) \( \mathbb{R} \)</label>
+                <label><input type="radio" name="q7"> B) \( [5,+\infty[ \)</label>
+                <label><input type="radio" name="q7"> C) \( [0,+\infty[ \)</label>
+                <label><input type="radio" name="q7"> D) \( \mathbb{R}^+ \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>8.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : ]0, +\infty[ &\to \mathbb{R} \\
+            x &\mapsto \ln(x)
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q8"> A) \( [0, +\infty[ \)</label>
+                <label><input type="radio" name="q8"> B) \( \mathbb{R} \)</label>
+                <label><input type="radio" name="q8"> C) \( [-1,1] \)</label>
+                <label><input type="radio" name="q8"> D) \( ]-\infty, 0] \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>9.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : \mathbb{R} &\to \mathbb{R} \\
+            x &\mapsto |x|
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q9"> A) \( \mathbb{R} \)</label>
+                <label><input type="radio" name="q9"> B) \( [0, +\infty[ \)</label>
+                <label><input type="radio" name="q9"> C) \( \mathbb{R}^- \)</label>
+                <label><input type="radio" name="q9"> D) \( ]-\infty, 0] \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>10.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : \mathbb{R} &\to \mathbb{R} \\
+            x &\mapsto x^3
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q10"> A) \( [0, +\infty[ \)</label>
+                <label><input type="radio" name="q10"> B) \( ]-\infty, 0] \)</label>
+                <label><input type="radio" name="q10"> C) \( \mathbb{R} \)</label>
+                <label><input type="radio" name="q10"> D) \( \mathbb{R}^+ \)</label>
+            </div>
+        </div>
+
+        <h4>1.1.4.1 Exercices avancés</h4>
+
+        <div class="question">
+            <strong>1.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : \mathbb{N} &\to \mathbb{N} \\
+            x &\mapsto x \bmod 3
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q1"> A) \( \{0,1,2\} \)</label>
+                <label><input type="radio" name="q1"> B) \( \mathbb{N} \)</label>
+                <label><input type="radio" name="q1"> C) \( \{0,1,2,3\} \)</label>
+                <label><input type="radio" name="q1"> D) \( \{1,2,3\} \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>2.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : \mathbb{R} &\to \mathbb{R} \\
+            x &\mapsto \lfloor x \rfloor
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q2"> A) \( \mathbb{R} \)</label>
+                <label><input type="radio" name="q2"> B) \( \mathbb{Z} \)</label>
+                <label><input type="radio" name="q2"> C) \( \mathbb{Q} \)</label>
+                <label><input type="radio" name="q2"> D) \( \mathbb{N} \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>3.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            \begin{aligned}
+            f : \mathbb{Q} &\to \mathbb{Q} \\
+            x &\mapsto \frac{x}{x+1}
+            \end{aligned}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q3"> A) \( \mathbb{Q} \setminus \{1\} \)</label>
+                <label><input type="radio" name="q3"> B) \( ]-\infty,1[ \)</label>
+                <label><input type="radio" name="q3"> C) \( \mathbb{Q} \setminus \{0\} \)</label>
+                <label><input type="radio" name="q3"> D) \( \mathbb{Q} \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>4.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            f(x) = \begin{cases}
+            0 & \text{si } x \leq 0, \\
+            1 & \text{si } x > 0
+            \end{cases}
+            \quad f : \mathbb{R} \to \mathbb{N}
+            \]
+            <div class="options">
+                <label><input type="radio" name="q4"> A) \( \{0\} \)</label>
+                <label><input type="radio" name="q4"> B) \( \{0,1\} \)</label>
+                <label><input type="radio" name="q4"> C) \( \mathbb{N} \)</label>
+                <label><input type="radio" name="q4"> D) \( \mathbb{R} \)</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>5.</strong> Quel est le codomaine de la fonction suivante ?
+            \[
+            f(x) = \begin{cases}
+            x^2 & \text{si } x \geq 0, \\
+            -x & \text{si } x < 0 \end{cases} \quad f : \mathbb{R} \to \mathbb{R} \] <div class="options">
+                <label><input type="radio" name="q5"> A) \( [0, +\infty[ \)</label>
+                <label><input type="radio" name="q5"> B) \( \mathbb{R} \)</label>
+                <label><input type="radio" name="q5"> C) \( \mathbb{R}^* \)</label>
+                <label><input type="radio" name="q5"> D) \( \mathbb{N} \)</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>6.</strong> Quel est le codomaine de la fonction suivante ?
+        \[
+        \begin{aligned}
+        f : \mathbb{N} &\to \mathbb{N} \\
+        x &\mapsto \lfloor \sqrt{x} \rfloor
+        \end{aligned}
+        \]
+        <div class="options">
+            <label><input type="radio" name="q6"> A) \( \mathbb{N} \)</label>
+            <label><input type="radio" name="q6"> B) \( \mathbb{N}^* \)</label>
+            <label><input type="radio" name="q6"> C) \( \{0,1\} \)</label>
+            <label><input type="radio" name="q6"> D) \( [0,1] \)</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>7.</strong> Quel est le codomaine de la fonction suivante ?
+        \[
+        \begin{aligned}
+        f : \mathbb{N} &\to \mathbb{N} \\
+        x &\mapsto
+        \begin{cases}
+        1 & \text{si } x \text{ impair},\\
+        0 & \text{si } x \text{ pair}.
+        \end{cases}
+        \end{aligned}
+        \]
+        <div class="options">
+            <label><input type="radio" name="q7"> A) \( \{0,1\} \)</label>
+            <label><input type="radio" name="q7"> B) \( \mathbb{N} \)</label>
+            <label><input type="radio" name="q7"> C) \( \{1\} \)</label>
+            <label><input type="radio" name="q7"> D) \( \{0\} \)</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>8.</strong> Quel est le codomaine de la fonction suivante ?
+        \[
+        \begin{aligned}
+        f : \mathbb{Q} &\to \mathbb{Q} \\
+        x &\mapsto x^2
+        \end{aligned}
+        \]
+        <div class="options">
+            <label><input type="radio" name="q8"> A) \( [0,+\infty[ \cap \mathbb{Q} \)</label>
+            <label><input type="radio" name="q8"> B) \( \mathbb{Q} \)</label>
+            <label><input type="radio" name="q8"> C) \( [0,+\infty[ \)</label>
+            <label><input type="radio" name="q8"> D) \( \mathbb{R} \)</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>9.</strong> Quel est le codomaine de la fonction suivante ?
+        \[
+        \begin{aligned}
+        f : \mathbb{N}^* &\to \mathbb{N} \\
+        x &\mapsto \lfloor \frac{10}{x} \rfloor
+        \end{aligned}
+        \]
+        <div class="options">
+            <label><input type="radio" name="q9"> A) \( \{0,1,2,3,4,5,6,7,8,9\} \)</label>
+            <label><input type="radio" name="q9"> B) \( \mathbb{N} \)</label>
+            <label><input type="radio" name="q9"> C) \( [0,10] \)</label>
+            <label><input type="radio" name="q9"> D) \( \mathbb{N}^* \)</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>10.</strong> Quel est le codomaine de la fonction suivante ?
+        \[
+        \begin{aligned}
+        f : \mathbb{R} &\to \mathbb{R} \\
+        x &\mapsto \left| \sin(x) \right|
+        \end{aligned}
+        \]
+        <div class="options">
+            <label><input type="radio" name="q10"> A) \( [0,1] \)</label>
+            <label><input type="radio" name="q10"> B) \( [-1,1] \)</label>
+            <label><input type="radio" name="q10"> C) \( [0,+\infty[ \)</label>
+            <label><input type="radio" name="q10"> D) \( \mathbb{R} \)</label>
+        </div>
+    </div>
+
+    <h3>1.1.4 La représentation graphique d’une fonction</h3>
+    <p>
+        La <strong>représentation graphique</strong> est une manière visuelle de décrire la relation entre l’entrée
+        <em>x</em> et la sortie <em>f(x)</em>.
+    </p>
+
+    <p>
+        \[
+        \begin{aligned}
+        f : \mathbb{R} &\to \mathbb{R} \\
+        x &\mapsto x^2
+        \end{aligned}
+        \]
+    </p>
+    <!-- Graphique -->
+    <div id="graph"></div>
+
+    <script src="../rep_graphique.js"></script>
+
+    <h3>1.1.4.1 Exercices</h3>
+
+    <div class="question">
+        <strong>1.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = x^2
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q1a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q1b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q1c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q1d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q1"> A</label>
+            <label><input type="radio" name="q1"> B</label>
+            <label><input type="radio" name="q1"> C</label>
+            <label><input type="radio" name="q1"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>2.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = x^3
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q2a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q2b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q2c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q2d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q2"> A</label>
+            <label><input type="radio" name="q2"> B</label>
+            <label><input type="radio" name="q2"> C</label>
+            <label><input type="radio" name="q2"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>3.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = \sin(x)
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q3a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q3b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q3c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q3d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q3"> A</label>
+            <label><input type="radio" name="q3"> B</label>
+            <label><input type="radio" name="q3"> C</label>
+            <label><input type="radio" name="q3"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>4.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = |x|
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q4a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q4b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q4c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q4d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q4"> A</label>
+            <label><input type="radio" name="q4"> B</label>
+            <label><input type="radio" name="q4"> C</label>
+            <label><input type="radio" name="q4"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>5.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = \cos(x)
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q5a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q5b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q5c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q5d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q5"> A</label>
+            <label><input type="radio" name="q5"> B</label>
+            <label><input type="radio" name="q5"> C</label>
+            <label><input type="radio" name="q5"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>6.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = -\frac{1}{x}
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q6a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q6b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q6c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q6d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q6"> A</label>
+            <label><input type="radio" name="q6"> B</label>
+            <label><input type="radio" name="q6"> C</label>
+            <label><input type="radio" name="q6"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>7.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = \frac{1}{x}
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q7a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q7b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q7c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q7d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q7"> A</label>
+            <label><input type="radio" name="q7"> B</label>
+            <label><input type="radio" name="q7"> C</label>
+            <label><input type="radio" name="q7"> D</label>
+        </div>
+    </div>
+
+    <h3>1.1.4.2 Exercices sur les fonctions affines</h3>
+
+
+
+    <div class="question">
+        <strong>8.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = 2x + 3
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q8a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q8b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q8c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q8d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q8"> A</label>
+            <label><input type="radio" name="q8"> B</label>
+            <label><input type="radio" name="q8"> C</label>
+            <label><input type="radio" name="q8"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>9.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = -x + 4
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q9a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q9b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q9c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q9d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q9"> A</label>
+            <label><input type="radio" name="q9"> B</label>
+            <label><input type="radio" name="q9"> C</label>
+            <label><input type="radio" name="q9"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>10.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = 3x - 1
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q10a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q10b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q10c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q10d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q10"> A</label>
+            <label><input type="radio" name="q10"> B</label>
+            <label><input type="radio" name="q10"> C</label>
+            <label><input type="radio" name="q10"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>11.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = |x + 2| - 1
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q11a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q11b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q11c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q11d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q11"> A</label>
+            <label><input type="radio" name="q11"> B</label>
+            <label><input type="radio" name="q11"> C</label>
+            <label><input type="radio" name="q11"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>12.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = |2x - 5|
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q12a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q12b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q12c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q12d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q12"> A</label>
+            <label><input type="radio" name="q12"> B</label>
+            <label><input type="radio" name="q12"> C</label>
+            <label><input type="radio" name="q12"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>13.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = -4x + 7
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q13a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q13b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q13c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q13d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q13"> A</label>
+            <label><input type="radio" name="q13"> B</label>
+            <label><input type="radio" name="q13"> C</label>
+            <label><input type="radio" name="q13"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>14.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = 5x + 2
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q14a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q14b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q14c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q14d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q14"> A</label>
+            <label><input type="radio" name="q14"> B</label>
+            <label><input type="radio" name="q14"> C</label>
+            <label><input type="radio" name="q14"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>15.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = 3|x| - 1
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q15a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q15b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q15c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q15d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q15"> A</label>
+            <label><input type="radio" name="q15"> B</label>
+            <label><input type="radio" name="q15"> C</label>
+            <label><input type="radio" name="q15"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>16.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = |x - 3| + 4
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q16a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q16b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q16c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q16d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q16"> A</label>
+            <label><input type="radio" name="q16"> B</label>
+            <label><input type="radio" name="q16"> C</label>
+            <label><input type="radio" name="q16"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>17.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = -3|x + 1| + 2
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q17a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q17b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q17c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q17d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q17"> A</label>
+            <label><input type="radio" name="q17"> B</label>
+            <label><input type="radio" name="q17"> C</label>
+            <label><input type="radio" name="q17"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>18.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = -2x - 4
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q18a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q18b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q18c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q18d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q18"> A</label>
+            <label><input type="radio" name="q18"> B</label>
+            <label><input type="radio" name="q18"> C</label>
+            <label><input type="radio" name="q18"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>19.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = 4x - 6
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q19a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q19b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q19c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q19d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q19"> A</label>
+            <label><input type="radio" name="q19"> B</label>
+            <label><input type="radio" name="q19"> C</label>
+            <label><input type="radio" name="q19"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>20.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = -|x - 1| + 5
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q20a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q20b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q20c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q20d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q20"> A</label>
+            <label><input type="radio" name="q20"> B</label>
+            <label><input type="radio" name="q20"> C</label>
+            <label><input type="radio" name="q20"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>21.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = 3|x + 4| - 2
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q21a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q21b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q21c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q21d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q21"> A</label>
+            <label><input type="radio" name="q21"> B</label>
+            <label><input type="radio" name="q21"> C</label>
+            <label><input type="radio" name="q21"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>22.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = -x + 2
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q22a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q22b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q22c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q22d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q22"> A</label>
+            <label><input type="radio" name="q22"> B</label>
+            <label><input type="radio" name="q22"> C</label>
+            <label><input type="radio" name="q22"> D</label>
+        </div>
+    </div>
+
+    <h3>1.1.4.3 Exercices sur les polynômes de degré 2</h3>
+
+    <div class="question">
+        <strong>23.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = -x + 2
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q23a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q23b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q23c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q23d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q23"> A</label>
+            <label><input type="radio" name="q23"> B</label>
+            <label><input type="radio" name="q23"> C</label>
+            <label><input type="radio" name="q23"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>24.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = -x + 2
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q24a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q24b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q24c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q24d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q24"> A</label>
+            <label><input type="radio" name="q24"> B</label>
+            <label><input type="radio" name="q24"> C</label>
+            <label><input type="radio" name="q24"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>25.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = -x + 2
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q25a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q25b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q25c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q25d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q25"> A</label>
+            <label><input type="radio" name="q25"> B</label>
+            <label><input type="radio" name="q25"> C</label>
+            <label><input type="radio" name="q25"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>26.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = -x + 2
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q26a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q26b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q26c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q26d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q26"> A</label>
+            <label><input type="radio" name="q26"> B</label>
+            <label><input type="radio" name="q26"> C</label>
+            <label><input type="radio" name="q26"> D</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <strong>27.</strong> Quelle est la représentation graphique de la fonction suivante ?
+        \[
+        f(x) = -x + 2
+        \]
+        <div class="plots-grid">
+            <div class="plot-wrapper">
+                <span class="plot-label">A</span>
+                <div id="q27a" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">B</span>
+                <div id="q27b" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">C</span>
+                <div id="q27c" class="question-plot-container"></div>
+            </div>
+            <div class="plot-wrapper">
+                <span class="plot-label">D</span>
+                <div id="q27d" class="question-plot-container"></div>
+            </div>
+        </div>
+        <div class="options inline-options">
+            <label><input type="radio" name="q27"> A</label>
+            <label><input type="radio" name="q27"> B</label>
+            <label><input type="radio" name="q27"> C</label>
+            <label><input type="radio" name="q27"> D</label>
+        </div>
+    </div>
+
+    <!-- Ajouter ici d'autres questions -->
+
+    <script>
+        function plotFunction(id, func, color = "blue") {
+            const x = [];
+            const y = [];
+            for (let i = -5; i <= 5; i += 0.1) {
+                x.push(i);
+                y.push(func(i));
+            }
+            const trace = {
+                x: x,
+                y: y,
+                mode: 'lines',
+                line: { color: color },
+            };
+            const layout = {
+                margin: { l: 30, r: 10, b: 30, t: 10 },
+                xaxis: { range: [-5, 5] },
+                yaxis: { range: [-5, 5] },
+            };
+            Plotly.newPlot(id, [trace], layout, { displayModeBar: false });
+        }
+
+        // Question 1
+        plotFunction('q1a', x => x ** 2);      // Correct
+        plotFunction('q1b', x => Math.sin(x));
+        plotFunction('q1c', x => Math.abs(x));
+        plotFunction('q1d', x => x);
+
+        // Question 2
+        plotFunction('q2a', x => x ** 2);      // Correct
+        plotFunction('q2b', x => Math.sin(x));
+        plotFunction('q2c', x => x ** 3);
+        plotFunction('q2d', x => Math.tan(x));
+
+        // Question 3
+        plotFunction('q3a', x => Math.sin(x));
+        plotFunction('q3b', x => x ** 2);
+        plotFunction('q3c', x => Math.cos(x));
+        plotFunction('q3d', x => Math.abs(x));
+
+        // Question 4
+        plotFunction('q4a', x => Math.abs(x));
+        plotFunction('q4b', x => x ** 2);
+        plotFunction('q4c', x => Math.sin(x));
+        plotFunction('q4d', x => Math.cos(x));
+
+        // Question 5
+        plotFunction('q5a', x => Math.abs(x));
+        plotFunction('q5b', x => x ** 2);
+        plotFunction('q5c', x => Math.sin(x));
+        plotFunction('q5d', x => Math.cos(x));
+
+        // Question 6
+        plotFunction('q6a', x => -1 / x);
+        plotFunction('q6b', x => 1 / x);
+        plotFunction('q6c', x => x ** 2);
+        plotFunction('q6d', x => Math.abs(x));
+
+        // Question 7
+        plotFunction('q7a', x => 1 / x);
+        plotFunction('q7b', x => -1 / x);
+        plotFunction('q7c', x => Math.abs(1 / x));
+        plotFunction('q7d', x => Math.abs(x));
+
+        plotFunction('q8a', x => 2 * x + 3);
+        plotFunction('q8b', x => -2 * x + 3);
+        plotFunction('q8c', x => 2 * x - 3);
+        plotFunction('q8d', x => -2 * x - 3);
+
+        plotFunction('q9a', x => -x + 4);
+        plotFunction('q9b', x => x + 4);
+        plotFunction('q9c', x => -x - 4);
+        plotFunction('q9d', x => x - 4);
+
+        plotFunction('q10a', x => 3 * x - 1);
+        plotFunction('q10b', x => -3 * x - 1);
+        plotFunction('q10c', x => 3 * x + 1);
+        plotFunction('q10d', x => -3 * x + 1);
+
+        plotFunction('q11a', x => Math.abs(x + 2) - 1);
+        plotFunction('q11b', x => -Math.abs(x + 2) + 1);
+        plotFunction('q11c', x => Math.abs(x - 2) + 1);
+        plotFunction('q11d', x => -Math.abs(x - 2) - 1);
+
+        plotFunction('q12a', x => Math.abs(2 * x - 5));
+        plotFunction('q12b', x => Math.abs(2 * x + 5));
+        plotFunction('q12c', x => -Math.abs(2 * x - 5));
+        plotFunction('q12d', x => Math.abs(x - 5));
+
+        plotFunction('q13a', x => -4 * x + 7);
+        plotFunction('q13b', x => 4 * x + 7);
+        plotFunction('q13c', x => -4 * x - 7);
+        plotFunction('q13d', x => 4 * x - 7);
+
+        plotFunction('q14a', x => 5 * x + 2);
+        plotFunction('q14b', x => -5 * x + 2);
+        plotFunction('q14c', x => 5 * x - 2);
+        plotFunction('q14d', x => -5 * x - 2);
+
+        plotFunction('q15a', x => 3 * Math.abs(x) - 1);
+        plotFunction('q15b', x => -3 * Math.abs(x) + 1);
+        plotFunction('q15c', x => 3 * Math.abs(x) + 1);
+        plotFunction('q15d', x => -3 * Math.abs(x) - 1);
+
+        plotFunction('q16a', x => Math.abs(x - 3) + 4);
+        plotFunction('q16b', x => -Math.abs(x - 3) - 4);
+        plotFunction('q16c', x => Math.abs(x + 3) - 4);
+        plotFunction('q16d', x => -Math.abs(x + 3) + 4);
+
+        plotFunction('q17a', x => -3 * Math.abs(x + 1) + 2);
+        plotFunction('q17b', x => 3 * Math.abs(x + 1) - 2);
+        plotFunction('q17c', x => -3 * Math.abs(x - 1) - 2);
+        plotFunction('q17d', x => 3 * Math.abs(x - 1) + 2);
+
+        plotFunction('q18a', x => -2 * x - 4);
+        plotFunction('q18b', x => 2 * x - 4);
+        plotFunction('q18c', x => -2 * x + 4);
+        plotFunction('q18d', x => 2 * x + 4);
+
+        plotFunction('q19a', x => 4 * x - 6);
+        plotFunction('q19b', x => -4 * x - 6);
+        plotFunction('q19c', x => 4 * x + 6);
+        plotFunction('q19d', x => -4 * x + 6);
+
+        plotFunction('q20a', x => Math.abs(x - 1) + 1);
+        plotFunction('q20b', x => -Math.abs(x - 1) + 5);
+        plotFunction('q20c', x => Math.abs(2 * x + 1) - 5);
+        plotFunction('q20d', x => -Math.abs(x + 1) - 1);
+
+        plotFunction('q21a', x => 3 * Math.abs(x + 4) - 2);
+        plotFunction('q21b', x => -3 * Math.abs(x + 4) + 2);
+        plotFunction('q21c', x => 3 * Math.abs(x - 4) + 2);
+        plotFunction('q21d', x => -3 * Math.abs(x - 4) - 2);
+
+        plotFunction('q22a', x => -x + 2);
+        plotFunction('q22b', x => x + 2);
+        plotFunction('q22c', x => -x - 2);
+        plotFunction('q22d', x => x - 2);
+
+        plotFunction('q27a', x => -x + 2);
+        plotFunction('q27b', x => x + 2);
+        plotFunction('q27c', x => -x - 2);
+        plotFunction('q27d', x => x - 2);
+
+        plotFunction('q23a', x => x ** 2 - 4 * x + 3);
+        plotFunction('q23b', x => -(x ** 2) + 4 * x - 3);
+        plotFunction('q23c', x => x ** 2 + 4 * x + 3);
+        plotFunction('q23d', x => -(x ** 2) - 4 * x - 3);
+
+        plotFunction('q24a', x => -2 * x ** 2 + 5 * x - 1);
+        plotFunction('q24b', x => 2 * x ** 2 - 5 * x + 1);
+        plotFunction('q24c', x => -2 * x ** 2 - 5 * x + 1);
+        plotFunction('q24d', x => 2 * x ** 2 + 5 * x - 1);
+
+        plotFunction('q25a', x => x ** 2 + 2 * x);
+        plotFunction('q25b', x => -(x ** 2) + 2 * x);
+        plotFunction('q25c', x => x ** 2 - 2 * x);
+        plotFunction('q25d', x => -(x ** 2) - 2 * x);
+
+        plotFunction('q26a', x => 2 * x ** 2 - 3);
+        plotFunction('q26b', x => -2 * x ** 2 - 3);
+        plotFunction('q26c', x => 2 * x ** 2 + 3);
+        plotFunction('q26d', x => -2 * x ** 2 + 3);
+
+        plotFunction('q27a', x => -((x - 1) ** 2) + 2);
+        plotFunction('q27b', x => (x - 1) ** 2 - 2);
+        plotFunction('q27c', x => -((x + 1) ** 2) + 2);
+        plotFunction('q27d', x => (x + 1) ** 2 - 2);
+    </script>
+
+    <h3>1.1.5 Les fonctions injectives, sujectives et bijectives</h3>
+    <div class="definition">
+        <strong>Définition (Fonction injective)</strong> :<br>
+        Soient \( E \) et \( F \) deux ensembles, et \( f : E \to F \) une fonction.<br>
+        On dit que \( f \) est <strong>injective</strong> si :
+        <div style="margin-left: 20px;">
+            \[
+            \forall x_1, x_2 \in E, \quad f(x_1) = f(x_2) \Rightarrow x_1 = x_2
+            \]
+        </div>
+        Autrement dit, deux éléments distincts de \( E \) ont des images distinctes dans \( F \).
+    </div>
+
+    <div class="definition">
+        <strong>Définition (Fonction surjective)</strong> :<br>
+        Soient \( E \) et \( F \) deux ensembles, et \( f : E \to F \) une fonction.<br>
+        On dit que \( f \) est <strong>surjective</strong> si :
+        <div style="margin-left: 20px;">
+            \[
+            \forall y \in F, \, \exists x \in E \, \text{tel que} \, f(x) = y
+            \]
+        </div>
+        Autrement dit, chaque élément de \( F \) est l’image d’au moins un élément de \( E \).
+    </div>
+
+    <div class="definition">
+        <strong>Définition (Fonction bijective)</strong> :<br>
+        Une fonction est dite <strong>bijective</strong> si elle est à la fois <strong>injective</strong> et
+        <strong>surjective</strong>.<br>
+        Cela signifie que :
+        <div style="margin-left: 20px;">
+            \[
+            \forall y \in F, \, \exists! x \in E \, \text{tel que} \, f(x) = y
+            \]
+        </div>
+        En d’autres termes, chaque élément de \( F \) a une **image unique** dans \( E \), et aucun élément de \( F \)
+        n’est oublié.
+    </div>
+
+
+
+    <h3>1.1.6 La fonction comme transformation</h3>
+    <p>
+        Une fonction peut aussi être vue comme une transformation qui agit sur les éléments de son domaine pour
+        produire des résultats dans son codomaine.
+    </p>
+    <div class="remarque">
+        <strong>Remarque</strong> :<br>
+        Si a = b alors f(a) = f(b). C'est une propriété très intéressante que nous utilisons
+    </div>
+
+    <h3>1.1.7 Conclusion</h3>
+    <p>
+        En résumé, une fonction est une relation qui associe à chaque élément <em>x</em> de son domaine un unique
+        élément <em>f(x)</em> dans son codomaine.
+    </p>
+
+    </div>
+</body>
