@@ -30,12 +30,6 @@ body {
     margin-top: 10px;
 }
 
-/* Par défaut, affichage en colonne */
-.options label {
-    display: block;
-    margin-bottom: 5px;
-}
-
 /* Options en ligne uniquement pour les questions avec .inline-options */
 .inline-options {
     display: flex;
@@ -56,7 +50,8 @@ body {
 .exemple,
 .definition,
 .propriete,
-.demonstration {
+.demonstration,
+.convention {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
@@ -189,4 +184,67 @@ li::before {
 
 #menu-container a:hover {
     text-decoration: underline;
+}
+
+/* Style de base pour les labels */
+.options label {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    margin-left: 8px;
+    /* Un petit espace entre l'input et le texte */
+    line-height: 1.5;
+    /* Assurez-vous que le texte du label est bien centré verticalement */
+}
+
+/* Assurez-vous que chaque option-pair est alignée sur la même ligne */
+.option-pair {
+    display: flex;
+    /* Permet aux éléments d'être sur la même ligne */
+    align-items: center;
+    /* Aligne verticalement l'input et le label */
+    margin-bottom: 8px;
+    /* Espacement entre chaque paire d'éléments */
+}
+
+/* Style pour les inputs */
+.options input {
+    margin: 0;
+    /* Supprimer les marges par défaut des inputs */
+    padding: 0;
+    /* Supprimer les padding par défaut des inputs */
+    vertical-align: middle;
+    /* Assurez-vous que l'input est aligné verticalement au centre */
+}
+
+/* Style pour l'input et son label lorsqu'il est coché */
+.options input:checked+label {
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+    vertical-align: middle;
+    /* Assurez-vous que l'input est aligné verticalement au centre */
+}
+
+/* Style pour les labels associés aux inputs "incorrects" */
+.options input.incorrect:checked+label {
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+    vertical-align: middle;
+    /* Assurez-vous que l'input est aligné verticalement au centre */
+}
+
+/* Style pour les labels associés aux inputs "corrects" */
+.options input.correct:checked+label {
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: bold;
+    vertical-align: middle;
+    /* Assurez-vous que l'input est aligné verticalement au centre */
+}
+
+/* Style au survol des labels */
+.options label:hover {
+    background-color: #f1f1f1;
 }
