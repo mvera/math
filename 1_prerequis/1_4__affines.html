@@ -12,11 +12,15 @@
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
     <link rel="stylesheet" href="../style.css">
     <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
 </head>
 
 <body>
-
     <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
 
     <div class="content">
         <div class="chapter-subtitle">
@@ -35,7 +39,7 @@
         </p>
 
         Le graphique ci-dessous illustre ce que représente la valeur b. Il s'agit de la valeur de le fonction en x = 0.
-        <div id="graph_b" style="width:600px;height:400px;"></div>
+        <div class="graph" id="graph_b"></div>
 
         <script>
             (function () {
@@ -133,7 +137,7 @@
 
         <p>Ce second schéma permet d'interpréter l'effet du paramètre a. a est la pente de la courbe, lorsque a augment
             d'un unité, y augmente de a.</p>
-        <div id="graph_a" style="width:600px;height:400px;"></div>
+        <div id="graph_a" class="graph"></div>
 
         <script>
             (function () {
@@ -245,7 +249,7 @@
         </script>
 
         <p>Lorsque a augmente de dx, y augmente de a * dx.</p>
-        <div id="graph_a2" style="width:600px;height:400px;"></div>
+        <div id="graph_a2" class="graph"></div>
 
         <script>
             (function () {

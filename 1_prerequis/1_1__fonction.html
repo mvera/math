@@ -12,11 +12,15 @@
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
     <link rel="stylesheet" href="../style.css">
     <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
 </head>
 
 <body>
-
     <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
 
     <div class="content">
         <div class="chapter-subtitle">
@@ -54,7 +58,7 @@
             <strong>domaine</strong> de la fonction, et un ensemble d'éléments appelé le <strong>codomaine</strong>.
         </p>
         <p>On écrit cela formellement comme suit :</p>
-        <p style="margin-left: 20rem;">\( f: D \to C \)</p>
+        <p>\[ f: D \to C \]</p>
         <p>Cela signifie que la fonction <strong>f</strong> associe un élément de l'ensemble
             <strong>C</strong> (Codomaine) à chaque
             élément <strong>x</strong> de l'ensemble <strong>D</strong> (Domaine).
@@ -66,10 +70,11 @@
         </ul>
 
         <h3>1.1.2 Exemples simples de fonctions</h3>
-        <ul>
-            <li><strong>Fonction constante :</strong> Une fonction qui associe à chaque valeur de <em>x</em> de \(
-                \mathbb{R} \) une même
-                valeur <em>a</em> de \( \mathbb{R} \).</li>
+
+        <div class="exemple">
+            <strong>Fonction constante :</strong> Une fonction qui associe à chaque valeur de <em>x</em> de \(
+            \mathbb{R} \) une même
+            valeur <em>a</em> de \( \mathbb{R} \).
             <p>
                 \[
                 \begin{aligned}
@@ -78,33 +83,38 @@
                 \end{aligned}
                 \]
             </p>
-            <li><strong>Fonction affine :</strong> Une fonction de la forme <p>
-                    \[
-                    \begin{aligned}
-                    f : \mathbb{R} &\to \mathbb{R} \\
-                    x &\mapsto ax + b
-                    \end{aligned}
-                    \]
-                </p>
-            </li>
-            <li><strong>Fonction quadratique :</strong> Une fonction de la forme <p>
-                    \[
-                    \begin{aligned}
-                    f : \mathbb{R} &\to \mathbb{R} \\
-                    x &\mapsto ax^2 + bx + c
-                    \end{aligned}
-                    \]
-                </p>
-            </li>
-            <li><strong>Fonction trigonométrique :</strong> Par exemple <p>
-                    \[
-                    \begin{aligned}
-                    f : \mathbb{R} &\to \mathbb{R} \\
-                    x &\mapsto \sin(x)
-                    \end{aligned}
-                    \]
-                </p>.</li>
-        </ul>
+        </div>
+
+        <div class="exemple">
+            <strong>Fonction affine :</strong> Une fonction de la forme <p>
+                \[
+                \begin{aligned}
+                f : \mathbb{R} &\to \mathbb{R} \\
+                x &\mapsto ax + b
+                \end{aligned}
+                \]
+            </p>
+        </div>
+        <div class="exemple">
+            <strong>Fonction quadratique :</strong> Une fonction de la forme <p>
+                \[
+                \begin{aligned}
+                f : \mathbb{R} &\to \mathbb{R} \\
+                x &\mapsto ax^2 + bx + c
+                \end{aligned}
+                \]
+            </p>
+        </div>
+        <div class="exemple">
+            <strong>Fonction trigonométrique :</strong> Par exemple <p>
+                \[
+                \begin{aligned}
+                f : \mathbb{R} &\to \mathbb{R} \\
+                x &\mapsto \sin(x)
+                \end{aligned}
+                \]
+            </p>.
+        </div>
 
         <h3>1.1.3 Codomaine et image d’une fonction</h3>
         <div>
@@ -118,7 +128,7 @@
             <p><strong>Exemple</strong> : soit la fonction \( f(x) = x^2 \) définie sur \( \mathbb{R} \).</p>
             <ul>
                 <li>Le codomaine est \( \mathbb{R} \) (on décide que la fonction va dans \( \mathbb{R} \)).</li>
-                <li>L’image est \( \mathbb{R}_+, car le carré d’un nombre réel
+                <li>L’image est \( \mathbb{R}_+\), car le carré d’un nombre réel
                     est toujours positif ou nul.</li>
             </ul>
 
@@ -634,7 +644,7 @@
             \]
         </p>
         <!-- Graphique -->
-        <div id="graph"></div>
+        <div class="graph" id="graph"></div>
 
         <script src="../rep_graphique.js"></script>
 

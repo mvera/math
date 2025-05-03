@@ -12,11 +12,15 @@
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
     <link rel="stylesheet" href="../style.css">
     <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
 </head>
 
 <body>
-
     <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
 
     <div class="content">
         <div class="chapter-subtitle">
@@ -39,8 +43,8 @@
             Soit \( D \subset \mathbb{R} \), \( f : D \to \mathbb{R} \) une fonction, et \( a \in D \).<br>
             On dit que \( f \) est <strong>continue en</strong> \( a \) si et seulement si :
             \[
-            \forall \varepsilon > 0, \, \exists \delta > 0 \, \text{tel que} \, \forall x \in D, \, |x - a| &lt;
-            \delta
+            \forall \varepsilon &gt; 0, \exists \delta &gt; 0 \, \text{tel que} \, \forall x \in D, \, |x - a| &lt;
+            \delta \] \[
             \Rightarrow |f(x) - f(a)| &lt; \varepsilon \]
         </div>
 
@@ -69,7 +73,7 @@
             La fonction f est continue.
         </p>
 
-        <div id="g2"></div>
+        <div class="graph" id="g2"></div>
 
         <script src="../fonc_continue.js">
         </script>
@@ -84,7 +88,7 @@
             La fonction f2 n'est donc pas continue.
         </p>
 
-        <div id="g3"></div>
+        <div class="graph" id="g3"></div>
 
 
         <script src="../fonc_non_continue.js">
@@ -108,8 +112,8 @@
             intervalle.<br>
             On dit que \( f \) est <strong>continue sur</strong> \( I \) si et seulement si :
             \[
-            \forall a \in I, \quad \forall \varepsilon > 0, \, \exists \delta > 0 \, \text{tel que} \, \forall x
-            \in D, \, |x - a| &lt; \delta \Rightarrow |f(x) - f(a)| &lt; \varepsilon \]
+            \forall a \in I, \quad \forall \varepsilon > 0,\] \[ \exists \delta &gt; 0 \, \text{tel que} \, \forall x
+            \in D, \, |x - a| &lt; \delta \] \[ \Rightarrow |f(x) - f(a)| &lt; \varepsilon \]
         </div>
 
         <h3>1.2.3 Exercices</h3>
@@ -358,9 +362,9 @@
                 \(
                 f(x) =
                 \begin{cases}
-                -x + 1 & \text{si } x < 1 \\ 0 & \text{si } x=1 \\ x - 1 & \text{si } x> 1
-                    \end{cases}
-                    \)
+                -x + 1 & \text{si } x &lt; 1 \\ 0 & \text{si } x=1 \\ x - 1 & \text{si } x> 1
+                \end{cases}
+                \)
             </p>
             <div class="options inline-options">
                 <div class="option-pair">

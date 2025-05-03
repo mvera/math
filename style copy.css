@@ -1,0 +1,250 @@
+.content {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    color: #2e86de;
+    text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+.question {
+    background: #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.options {
+    margin-top: 10px;
+}
+
+/* Options en ligne uniquement pour les questions avec .inline-options */
+.inline-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.inline-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 0;
+}
+
+
+.theoreme,
+.exemple,
+.definition,
+.propriete,
+.demonstration,
+.convention {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+#graph {
+    width: 100%;
+    max-width: 800px;
+    margin: 1rem auto;
+}
+
+
+.chapter-code {
+    font-family: 'Courier New', monospace;
+    background-color: #f5f5f5;
+    padding: 15px;
+    border: 2px solid #dcdcdc;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1rem;
+}
+
+
+.chapter-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.chapter-subtitle {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li::before {
+    content: "-";
+    margin-right: 1em;
+}
+
+.plots-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.plot-wrapper {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    text-align: center;
+}
+
+.plot-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.question-plot-container {
+    width: 100%;
+    height: 200px;
+}
+
+.svg-container {
+    width: 50%;
+    /* La largeur sera de 50% de l'élément parent */
+    aspect-ratio: 1;
+    /* Cela garantit que la hauteur est égale à la largeur, donc carré */
+    margin: auto;
+    /* Centre le div dans la page */
+    background: #f9f9f9;
+}
+
+/* SVG à l'intérieur */
+.svg-container svg {
+    width: 100%;
+    /* Prend toute la largeur du conteneur */
+    height: 100%;
+    /* Prend toute la hauteur du conteneur */
+    display: block;
+    /* Pour éviter les marges internes */
+}
+
+#menu-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 20rem;
+    height: 100%;
+    background-color: #f3f3f3;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#menu-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+#menu-container li {
+    margin-bottom: 10px;
+}
+
+#menu-container a {
+    text-decoration: none;
+    color: #333;
+}
+
+#menu-container a:hover {
+    text-decoration: underline;
+}
+
+/* Style de base pour les labels */
+.options label {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    margin-left: 8px;
+    /* Un petit espace entre l'input et le texte */
+    line-height: 1.5;
+    /* Assurez-vous que le texte du label est bien centré verticalement */
+}
+
+/* Assurez-vous que chaque option-pair est alignée sur la même ligne */
+.option-pair {
+    display: flex;
+    /* Permet aux éléments d'être sur la même ligne */
+    align-items: center;
+    /* Aligne verticalement l'input et le label */
+    margin-bottom: 8px;
+    /* Espacement entre chaque paire d'éléments */
+}
+
+/* Style pour les inputs */
+.options input {
+    margin: 0;
+    /* Supprimer les marges par défaut des inputs */
+    padding: 0;
+    /* Supprimer les padding par défaut des inputs */
+    vertical-align: middle;
+    /* Assurez-vous que l'input est aligné verticalement au centre */
+}
+
+/* Style pour l'input et son label lorsqu'il est coché */
+.options input:checked+label {
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+    vertical-align: middle;
+    /* Assurez-vous que l'input est aligné verticalement au centre */
+}
+
+/* Style pour les labels associés aux inputs "incorrects" */
+.options input.incorrect:checked+label {
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+    vertical-align: middle;
+    /* Assurez-vous que l'input est aligné verticalement au centre */
+}
+
+/* Style pour les labels associés aux inputs "corrects" */
+.options input.correct:checked+label {
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: bold;
+    vertical-align: middle;
+    /* Assurez-vous que l'input est aligné verticalement au centre */
+}
+
+/* Style au survol des labels */
+.options label:hover {
+    background-color: #f1f1f1;
+}

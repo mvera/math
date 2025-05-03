@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <!-- Charger MathJax pour les formules mathématiques -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Charger Plotly pour le graphique -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+        <div class="chapter-subtitle">
+            <h2>1.2 La continuité d'une fonction</h2>
+        </div>
+        <h3>1.2.1 La continuité d'une fonction en un point</h3>
+        <p>Nous allons dans ce chapitre définir la continuité d'une fonction. Cette propriété est fondamentale, nous
+            aimons beaucoup les fonctions continues et nous allons beaucoup utiliser plus tard cette propriété. Il est
+            important de la maîtriser.</p>
+        <p>
+            Une fonction est dite <strong>continue</strong> en un point <em>a</em> de son domaine si, intuitivement,
+            il
+            est possible de tracer son graphique autour de ce point sans lever le crayon. Cela signifie qu'il n'y a
+            pas
+            de "sauts" ou de "ruptures" dans la fonction en ce point.
+        </p>
+
+        <div class="definition">
+            <strong>Définition (Continuité en un point)</strong> :<br>
+            Soit \( D \subset \mathbb{R} \), \( f : D \to \mathbb{R} \) une fonction, et \( a \in D \).<br>
+            On dit que \( f \) est <strong>continue en</strong> \( a \) si et seulement si :
+            \[
+            \forall \varepsilon &gt; 0, \exists \delta &gt; 0 \, \text{tel que} \, \forall x \in D, \, |x - a| &lt;
+            \delta \] \[
+            \Rightarrow |f(x) - f(a)| &lt; \varepsilon \]
+        </div>
+
+
+
+
+
+
+    </div>
+
+</body>
