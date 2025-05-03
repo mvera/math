@@ -23,6 +23,9 @@
             <h2>1.2 La continuité d'une fonction</h2>
         </div>
         <h3>1.2.1 La continuité d'une fonction en un point</h3>
+        <p>Nous allons dans ce chapitre définir la continuité d'une fonction. Cette propriété est fondamentale, nous
+            aimons beaucoup les fonctions continues et nous allons beaucoup utiliser plus tard cette propriété. Il est
+            important de la maîtriser.</p>
         <p>
             Une fonction est dite <strong>continue</strong> en un point <em>a</em> de son domaine si, intuitivement,
             il
@@ -116,83 +119,337 @@
         <div class="question">
             <p><strong>Question 1 :</strong> \( f(x) = x^2 + 3x + 1 \) sur \( \mathbb{R} \)</p>
             <div class="options inline-options">
-                <label><input type="radio" name="q1"> Oui</label>
-                <label><input type="radio" name="q1"> Non</label>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
             </div>
         </div>
 
         <div class="question">
-            <p><strong>Question 2 :</strong> \( f(x) = \dfrac{1}{x} \) sur \( \mathbb{R} \)</p>
+            <p><strong>Question 2 :</strong> \( f(x) = \dfrac{1}{x} \) sur \( \mathbb{R}^+ \)</p>
             <div class="options inline-options">
-                <label><input type="radio" name="q1"> Oui</label>
-                <label><input type="radio" name="q1"> Non</label>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
             </div>
         </div>
 
         <div class="question">
             <p><strong>Question 3 :</strong> \( f(x) = \sqrt{x} \) sur \( [0, +\infty[ \)</p>
             <div class="options inline-options">
-                <label><input type="radio" name="q1"> Oui</label>
-                <label><input type="radio" name="q1"> Non</label>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
             </div>
         </div>
 
         <div class="question">
-            <p><strong>Question 4 :</strong> \( f(x) = \sqrt{x} \) sur \( \mathbb{R} \)</p>
+            <p><strong>Question 4 :</strong> \( f(x) = \sqrt{|x|} \) sur \( \mathbb{R} \)</p>
             <div class="options inline-options">
-                <label><input type="radio" name="q1"> Oui</label>
-                <label><input type="radio" name="q1"> Non</label>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
             </div>
         </div>
 
         <div class="question">
             <p><strong>Question 5 :</strong> \( f(x) = |x| \) sur \( \mathbb{R} \)</p>
             <div class="options inline-options">
-                <label><input type="radio" name="q1"> Oui</label>
-                <label><input type="radio" name="q1"> Non</label>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
             </div>
         </div>
 
         <div class="question">
-            <p><strong>Question 6 :</strong> \( f(x) = \dfrac{x^2-1}{x-1} \) sur \( \mathbb{R} \)</p>
+            <p><strong>Question 6 :</strong> \( f(x) = \dfrac{x^2-1}{x-1} \) sur \( [2, +\infty] \)</p>
             <div class="options inline-options">
-                <label><input type="radio" name="q1"> Oui</label>
-                <label><input type="radio" name="q1"> Non</label>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
             </div>
         </div>
 
         <div class="question">
             <p><strong>Question 7 :</strong> \( f(x) = \dfrac{1}{x-2} \) sur \( ]2,+\infty[ \)</p>
             <div class="options inline-options">
-                <label><input type="radio" name="q1"> Oui</label>
-                <label><input type="radio" name="q1"> Non</label>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
             </div>
         </div>
 
         <div class="question">
-            <p><strong>Question 8 :</strong> \( f(x) = \text{partie entière de } x \) sur \( \mathbb{R} \)
+            <p><strong>Question 8 :</strong> \( f(x) = \lfloor x \rfloor \) sur \( \mathbb{R} \)
             </p>
             <div class="options inline-options">
-                <label><input type="radio" name="q1"> Oui</label>
-                <label><input type="radio" name="q1"> Non</label>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Non</label>
+                </div>
             </div>
         </div>
 
         <div class="question">
             <p><strong>Question 9 :</strong> \( f(x) = \sin(x) \) sur \( \mathbb{R} \)</p>
             <div class="options inline-options">
-                <label><input type="radio" name="q1"> Oui</label>
-                <label><input type="radio" name="q1"> Non</label>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
             </div>
         </div>
 
         <div class="question">
             <p><strong>Question 10 :</strong> \( f(x) = \dfrac{1}{x^2+1} \) sur \( \mathbb{R} \)</p>
             <div class="options inline-options">
-                <label><input type="radio" name="q1"> Oui</label>
-                <label><input type="radio" name="q1"> Non</label>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
             </div>
         </div>
+
+        <div class="question">
+            <p><strong>Question 11 :</strong> \(
+                f(x) =
+                \begin{cases}
+                2x + 1 & \text{si } x &lt; 0 \\ x^2 & \text{si } x \geq 0 \end{cases} \)</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 12 :</strong>
+                \( f(x) =
+                \begin{cases}
+                x^2 & \text{si } x \leq 1 \\
+                2x - 1 & \text{si } x > 1
+                \end{cases}
+                \)
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 13 :</strong>
+                f(x) =
+                \(
+                f(x) =
+                \begin{cases}
+                x + 2 & \text{si } x &lt; 1 \\ 3 & \text{si } x=1 \\ x - 1 & \text{si } x> 1
+                \end{cases}
+                \)
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 14 :</strong>
+                \(
+                f(x) =
+                \begin{cases}
+                \frac{x^2 - 1}{x - 1} & \text{si } x \ne 1 \\
+                0 & \text{si } x = 1
+                \end{cases}
+                \)
+            <p>
+                Aide : \( \lim_{x \to 1} \frac{x - 1}{x^2 - 1} = \frac{1}{2} \)</p>
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 15 :</strong>
+                \(
+                f(x) =
+                \begin{cases}
+                \sqrt{1 - x} & \text{si } x \leq 1 \\
+                0 & \text{si } x > 1
+                \end{cases}
+                \)
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 16 :</strong>
+                \(
+                f(x) =
+                \begin{cases}
+                1 & \text{si } x \in \mathbb{Q} \\
+                0 & \text{si } x \notin \mathbb{Q}
+                \end{cases}
+                \)
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 17 :</strong>
+                \(
+                f(x) =
+                \begin{cases}
+                -x + 1 & \text{si } x < 1 \\ 0 & \text{si } x=1 \\ x - 1 & \text{si } x> 1
+                    \end{cases}
+                    \)
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 18 :</strong>
+                \(
+                f(x) =
+                \begin{cases}
+                -x & \text{si } x &lt; 0 \\ x & \text{si } x \geq 0 \end{cases} \) </p>
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 19 :</strong>
+                \(
+                f(x) =
+                \begin{cases}
+                \frac{1}{x} & \text{si } x \ne 0 \\
+                0 & \text{si } x = 0
+                \end{cases}
+                \)
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 20 :</strong>
+                \(
+                f(x) =
+                \begin{cases}
+                x^2 & \text{si } x \leq 2 \\
+                4 & \text{si } x > 2
+                \end{cases}
+                \)
+            </p>
+
+            <p>Aide : \( \lim_{x \to 2^-} f(x) = \lim_{x \to 2^+} f(x) = 4 \).</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 21 :</strong>
+                \(
+                f(x) =
+                \begin{cases}
+                \frac{x^2 - 1}{x - 1} & \text{si } x \ne 1 \\
+                \frac{1}{2} & \text{si } x = 1
+                \end{cases}
+                \)
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </body>
