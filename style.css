@@ -55,7 +55,8 @@ body {
 .theoreme,
 .exemple,
 .definition,
-.propriete {
+.propriete,
+.demonstration {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
@@ -159,4 +160,33 @@ li::before {
     /* Prend toute la hauteur du conteneur */
     display: block;
     /* Pour éviter les marges internes */
+}
+
+#menu-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 20rem;
+    height: 100%;
+    background-color: #f3f3f3;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#menu-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+#menu-container li {
+    margin-bottom: 10px;
+}
+
+#menu-container a {
+    text-decoration: none;
+    color: #333;
+}
+
+#menu-container a:hover {
+    text-decoration: underline;
 }

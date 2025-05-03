@@ -11,12 +11,349 @@
     <!-- Charger Plotly pour le graphique -->
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
     <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
 </head>
 
 <body>
+
+    <div id="menu-container"></div>
+
     <div class="content">
         <div class="chapter-subtitle">
             <h2>1.4 Fonctions affines</h2>
         </div>
+
+        <p>Pour bien aborder les dérivées il est important de bien maîtriser les fonctions affines.</p>
+
+        <p>On rappelle qu'une fonctione affine est du type :
+            \[
+            \begin{aligned}
+            f : \mathbb{R} &\to \mathbb{R} \\
+            x &\mapsto ax + b
+            \end{aligned}
+            \]
+        </p>
+
+        Le graphique ci-dessous illustre ce que représente la valeur b. Il s'agit de la valeur de le fonction en x = 0.
+        <div id="graph_b" style="width:600px;height:400px;"></div>
+
+        <script>
+            (function () {
+                const a = 2;
+                const b = 2;
+
+                // Générer un pas fin
+                const x = [];
+                const step = 0.01;
+                for (let i = -2; i <= 2; i += step) {
+                    x.push(i);
+                }
+                const y = x.map(xi => a * xi + b);
+
+                const trace = {
+                    x: x,
+                    y: y,
+                    mode: 'lines',
+                    name: 'y = ax + b',
+                    line: { color: 'blue' }
+                };
+
+                const layout = {
+                    title: 'Fonction linéaire y = ax + b',
+                    xaxis: { title: 'x', zeroline: true },
+                    yaxis: { title: 'y', zeroline: true },
+                    shapes: [
+
+                        // Ligne horizontale noire de (0, b) à (1, b)
+                        {
+                            type: 'line',
+                            x0: 0,
+                            x1: 1,
+                            y0: b,
+                            y1: b,
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        }
+                    ],
+                    annotations: [
+                        {
+                            x: 1.05,
+                            y: b / 2,
+                            font: {
+                                color: 'red'
+                            },
+                            xref: 'x',
+                            yref: 'y',
+                            text: `b`,
+                            showarrow: false,
+                            xanchor: 'left',
+                            yanchor: 'middle',
+                            ax: 10,
+                            ay: 0
+                        }, // Flèche de bas en haut (0 → b)
+                        {
+                            x: 1,
+                            y: 0,
+                            ax: 1,
+                            ay: b, // échelle de pixels vers le haut
+                            xref: 'x',
+                            yref: 'y',
+                            axref: 'x',
+                            ayref: 'y',
+                            showarrow: true,
+                            arrowhead: 2,
+                            arrowsize: 1,
+                            arrowwidth: 2,
+                            arrowcolor: 'red'
+                        },
+                        // Flèche de haut en bas (b → 0)
+                        {
+                            x: 1,
+                            y: b,
+                            ax: 1,
+                            ay: 0,
+                            xref: 'x',
+                            yref: 'y',
+                            axref: 'x',
+                            ayref: 'y',
+                            showarrow: true,
+                            arrowhead: 2,
+                            arrowsize: 1,
+                            arrowwidth: 2,
+                            arrowcolor: 'red'
+                        }
+                    ]
+                };
+
+                Plotly.newPlot('graph_b', [trace], layout);
+            })();
+        </script>
+
+        <p>Ce second schéma permet d'interpréter l'effet du paramètre a. a est la pente de la courbe, lorsque a augment
+            d'un unité, y augmente de a.</p>
+        <div id="graph_a" style="width:600px;height:400px;"></div>
+
+        <script>
+            (function () {
+                const a = 3;
+                const b = 2;
+
+                // Générer un pas fin
+                const x = [];
+                const step = 0.01;
+                for (let i = -2; i <= 3; i += step) {
+                    x.push(i);
+                }
+                const y = x.map(xi => a * xi + b);
+
+                const trace = {
+                    x: x,
+                    y: y,
+                    mode: 'lines',
+                    name: 'y = ax + b',
+                    line: { color: 'blue' }
+                };
+
+                const layout = {
+                    title: 'Fonction linéaire y = ax + b',
+                    xaxis: { title: 'x', zeroline: true },
+                    yaxis: { title: 'y', zeroline: true },
+                    shapes: [
+
+                        // Ligne horizontale noire de (0, b) à (1, b)
+                        {
+                            type: 'line',
+                            x0: 1,
+                            x1: 2,
+                            y0: b + a,
+                            y1: b + a,
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        }
+                    ],
+                    annotations: [
+                        {
+                            x: 2.05,
+                            y: 6.5,
+                            font: {
+                                color: 'red'
+                            },
+                            xref: 'x',
+                            yref: 'y',
+                            text: `a`,
+                            showarrow: false,
+                            xanchor: 'left',
+                            yanchor: 'middle',
+                            ax: 10,
+                            ay: 0
+                        }, // Flèche de bas en haut (0 → b)
+                        {
+                            x: 1.5 - 0.25,
+                            y: b + a - 0.75,
+                            font: {
+                                color: 'black'
+                            },
+                            xref: 'x',
+                            yref: 'y',
+                            text: `dx = 1`,
+                            showarrow: false,
+                            xanchor: 'left',
+                            yanchor: 'middle',
+                            ax: 10,
+                            ay: 0
+                        }, // Flèche de bas en haut (0 → b)
+                        {
+                            x: 2,
+                            y: 2 * a + b,
+                            ax: 2,
+                            ay: a + b, // échelle de pixels vers le haut
+                            xref: 'x',
+                            yref: 'y',
+                            axref: 'x',
+                            ayref: 'y',
+                            showarrow: true,
+                            arrowhead: 2,
+                            arrowsize: 1,
+                            arrowwidth: 2,
+                            arrowcolor: 'red'
+                        },
+                        // Flèche de haut en bas (b → 0)
+                        {
+                            x: 2,
+                            y: a + b,
+                            ax: 2,
+                            ay: 2 * a + b, // échelle de pixels vers le haut
+                            xref: 'x',
+                            yref: 'y',
+                            axref: 'x',
+                            ayref: 'y',
+                            showarrow: true,
+                            arrowhead: 2,
+                            arrowsize: 1,
+                            arrowwidth: 2,
+                            arrowcolor: 'red'
+                        }
+                    ]
+                };
+
+                Plotly.newPlot('graph_a', [trace], layout);
+            })();
+        </script>
+
+        <p>Lorsque a augmente de dx, y augmente de a * dx.</p>
+        <div id="graph_a2" style="width:600px;height:400px;"></div>
+
+        <script>
+            (function () {
+                const a = 3;
+                const b = 2;
+
+                // Générer un pas fin
+                const x = [];
+                const step = 0.01;
+                for (let i = -2; i <= 3; i += step) {
+                    x.push(i);
+                }
+                const y = x.map(xi => a * xi + b);
+
+                const trace = {
+                    x: x,
+                    y: y,
+                    mode: 'lines',
+                    name: 'y = ax + b',
+                    line: { color: 'blue' }
+                };
+
+                const layout = {
+                    title: 'Fonction linéaire y = ax + b',
+                    xaxis: { title: 'x', zeroline: true },
+                    yaxis: { title: 'y', zeroline: true },
+                    shapes: [
+
+                        // Ligne horizontale noire de (0, b) à (1, b)
+                        {
+                            type: 'line',
+                            x0: 1,
+                            x1: 3,
+                            y0: b + a,
+                            y1: b + a,
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        }
+                    ],
+                    annotations: [
+                        {
+                            x: 3.05,
+                            y: 8.5,
+                            font: {
+                                color: 'red'
+                            },
+                            xref: 'x',
+                            yref: 'y',
+                            text: `a * dx`,
+                            showarrow: false,
+                            xanchor: 'left',
+                            yanchor: 'middle',
+                            ax: 10,
+                            ay: 0
+                        }, // Flèche de bas en haut (0 → b)
+                        {
+                            x: 2 - 0.25,
+                            y: b + a - 0.75,
+                            font: {
+                                color: 'black'
+                            },
+                            xref: 'x',
+                            yref: 'y',
+                            text: `dx`,
+                            showarrow: false,
+                            xanchor: 'left',
+                            yanchor: 'middle',
+                            ax: 10,
+                            ay: 0
+                        }, // Flèche de bas en haut (0 → b)
+                        {
+                            x: 3,
+                            y: 3 * a + b,
+                            ax: 3,
+                            ay: a + b, // échelle de pixels vers le haut
+                            xref: 'x',
+                            yref: 'y',
+                            axref: 'x',
+                            ayref: 'y',
+                            showarrow: true,
+                            arrowhead: 2,
+                            arrowsize: 1,
+                            arrowwidth: 2,
+                            arrowcolor: 'red'
+                        },
+                        // Flèche de haut en bas (b → 0)
+                        {
+                            x: 3,
+                            y: a + b,
+                            ax: 3,
+                            ay: 3 * a + b, // échelle de pixels vers le haut
+                            xref: 'x',
+                            yref: 'y',
+                            axref: 'x',
+                            ayref: 'y',
+                            showarrow: true,
+                            arrowhead: 2,
+                            arrowsize: 1,
+                            arrowwidth: 2,
+                            arrowcolor: 'red'
+                        }
+                    ]
+                };
+
+                Plotly.newPlot('graph_a2', [trace], layout);
+            })();
+        </script>
     </div>
 </body>

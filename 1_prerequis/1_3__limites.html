@@ -11,9 +11,13 @@
     <!-- Charger Plotly pour le graphique -->
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
     <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
 </head>
 
 <body>
+
+    <div id="menu-container"></div>
+
     <div class="content">
         <div class="chapter-subtitle">
             <h2>1.3 Limites d'une fonction</h2>
@@ -245,34 +249,139 @@
                 style="border:1px solid #ccc; background: white;">
                 <!-- Cercle -->
                 <circle cx="0" cy="0" r="1" stroke="black" stroke-width="0.01" fill="none" />
+
                 <!-- Centre O -->
                 <circle cx="0" cy="0" r="0.03" fill="black" />
-                <!-- Texte O à gauche du centre -->
                 <text x="-0.30" y="0.1" font-size="0.2">O</text>
 
                 <!-- point B -->
                 <circle cx="1" cy="0" r="0.03" fill="black" />
                 <text x="1.05" y="0.1" font-size="0.2">B</text>
 
-                <!-- segment O B -->
-                <line x1="0" y1="0" x2="1" y2="0" stroke="blue" stroke-width="0.02" />
-
-                <!-- Segment de O à A -->
-                <line x1="0" y1="0" x2="0.8192" y2="-0.5736" stroke="blue" stroke-width="0.02" />
-
                 <!-- Point A (à 35°) -->
                 <circle cx="0.8192" cy="-0.5736" r="0.03" fill="black" />
+                <text x="0.78" y="-0.7" font-size="0.2">A</text>
 
-                <!-- Texte A (un peu à l'extérieur du cercle) -->
-                <text x="0.85" y="-0.6" font-size="0.2">A</text>
+                <!-- segment OB -->
+                <line x1="0" y1="0" x2="1" y2="0" stroke="blue" stroke-width="0.02" />
+
+                <!-- Segment OA -->
+                <line x1="0" y1="0" x2="0.8192" y2="-0.5736" stroke="blue" stroke-width="0.02" />
+
+                <!-- Segment AT -->
+                <line x1="0.8192" y1="-0.5736" x2="1" y2="-0.7" stroke="black" stroke-width="0.01" />
+
+                <!-- Segment AB -->
+                <line x1="0.8192" y1="-0.5736" x2="1" y2="0" stroke="black" stroke-width="0.01" />
+
+                <!-- point T -->
+                <circle cx="1" cy="-0.7" r="0.03" fill="black" />
+                <text x="1.05" y="-0.7" font-size="0.2">T</text>
+
+                <!-- droite AT -->
+                <line x1="1" y1="2" x2="1" y2="-2" stroke="black" stroke-width="0.01" />
 
                 <!-- A rayon rayon 0:ellipse 0:moinsde180 0:senescontrairemontre x1 y1 -->
                 <path d="M 0.2 0 A 0.2 0.2 0 0 0 0.16384 -0.11472" style="stroke: red; fill:none;stroke-width:0.01;" />
 
+                <!-- Texte teta -->
+                <text x="0.3" y="-0.05" font-size="0.2" fill="red">&#x03B8;</text>
 
-                <circle cx="100" cy="50" r="2" fill="black" />
-                <path d="M 100 50 A 20 20 0 0 0 100 65" style="stroke: orange; fill:none;stroke-width:3;" />
             </svg>
         </div>
+        <br>
+
+        <div class="demonstration">
+            <p>Considérons un cercle de rayon 1 centré en \( O \). Soit \( \theta &gt; 0 \) un angle en radians. Posons
+                :</p>
+            <ul>
+                <li>\( B \) le point \( (1, 0) \) sur le cercle,</li>
+                <li>\( A \) un point du cercle tel que \( \angle BOA = \theta \), \( 0 &lt; \theta &lt; \pi/2 \)</li>
+                <li>\( T \) le point d’intersection de la tangente au cercle en \( B \) avec la droite \( OA \).</li>
+            </ul>
+
+            <p>On considère trois surfaces :</p>
+
+            <ol>
+                <li><strong>Aire du triangle \( OAB \)</strong> :<br>
+                    \[
+                    \text{(1)} \quad \text{Aire}(OAB) = \frac{1}{2} \sin \theta
+                    \]
+                </li>
+
+                <li><strong>Aire du secteur circulaire \( OAB \)</strong> :<br>
+                    \[
+                    \text{(2)} \quad \text{Aire}(Secteur~OAB) = \frac{1}{2} \theta
+                    \]
+                </li>
+
+                <li><strong>Aire du triangle \( OTB \)</strong> :<br>
+                    \[
+                    \text{(3)} \quad \text{Aire}(OTB) = \frac{1}{2} \tan \theta
+                    \]
+                </li>
+            </ol>
+
+            <p><strong>Encadrement géométrique :</strong> Les trois aires vérifient l’inégalité :</p>
+            \[
+            \text{(4)} \quad \frac{1}{2} \sin \theta \leq \frac{1}{2} \theta \leq \frac{1}{2} \tan \theta
+            \]
+
+            <p>En multipliant par 2 (valide puisque 2 &gt; 0), on obtient :</p>
+            \[
+            \text{(5)} \quad \sin \theta \leq \theta \leq \tan \theta
+            \]
+
+            <p>En divisant chaque membre par \( \theta &gt; 0 \), on conserve l’ordre :</p>
+            \[
+            \text{(6)} \quad \frac{\sin \theta}{\theta} \leq 1 \leq \frac{\tan \theta}{\theta}
+            \]
+
+            <p>On utilise l'identité trigonométrique \( \tan \theta = \frac{\sin \theta}{\cos \theta} \), on obtient :
+            </p>
+
+            \[
+            \text{(7a)} \quad \frac{\tan \theta}{\theta} = \frac{1}{\cos \theta} \cdot \frac{\sin \theta}{\theta}
+            \]
+
+            <p>En substituent dans (6) \( 1 \leq \frac{\tan \theta}{\theta} \) par la valeur dans (7a) on obtient :</p>
+
+            \[
+            \text{(7b)} \quad 1 \leq \frac{1}{\cos \theta} \cdot \frac{\sin \theta}{\theta}
+            \]
+
+            <p>En multipliant cette inégalité par \( \cos \theta \) (positif pour \( \theta \in (0, \frac{\pi}{2}) \)),
+                on obtient :</p>
+
+            \[
+            \text{(7c)} \quad \cos \theta \leq \frac{\sin \theta}{\theta}
+            \]
+
+            <p>Et comme déjà vu en (6), on a aussi :</p>
+
+            \[
+            \text{(7d)} \quad \frac{\sin \theta}{\theta} \leq 1
+            \]
+
+            <p>D’où, en combinant (7c) et (7d), on obtient l’encadrement :</p>
+
+            \[
+            \text{(7)} \quad \cos \theta \leq \frac{\sin \theta}{\theta} \leq 1
+            \]
+
+            <p><strong>Passage à la limite :</strong><br>
+                Quand \( \theta \to 0 \), on sait que :</p>
+            \[
+            \text{(8a)} \quad \cos \theta \to 1 \quad \text{et} \quad 1 \to 1
+            \]
+
+            <p>Donc, par le <strong>théorème des gendarmes</strong>, on déduit que :</p>
+            \[
+            \text{(8)} \quad \lim_{\theta \to 0} \frac{\sin \theta}{\theta} = 1
+            \]
+        </div>
+
+        C'est un résultat important à retenir.
+
     </div>
 </body>
