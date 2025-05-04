@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <!-- Charger MathJax pour les formules mathématiques -->
+    <script>
+        window.MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                inlineMath: [['\\(', '\\)']],
+                packages: ['base', 'ams']
+            },
+            chtml: {
+                linebreaks: { automatic: true },
+                displayAlign: 'center' // ou 'center' si tu préfères
+            },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Charger Plotly pour le graphique -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+        <h2>Exercices : Quantificateurs et opérateurs logiques</h2>
+
+        <!-- Questions 1 à 10 : compréhension de la syntaxe -->
+        <div class="question">
+            <p><strong>Question 1 :</strong> Laquelle de ces écritures est correcte ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> \( \exists x,\ x \in \mathbb{R} \geq 0 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> \( \exists x \in \mathbb{R},\ x \geq 0
+                        \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 2 :</strong> Quel quantificateur correspond à : « pour tout élément d’un ensemble » ?
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q2"><label> \( \exists \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q2" class="correct"><label> \( \forall \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 3 :</strong> Lequel de ces symboles signifie « il existe un unique » ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q3"><label> \( \forall! \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q3" class="correct"><label> \( \exists! \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 4 :</strong> Laquelle de ces expressions est correcte ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q4" class="correct"><label> \( \forall x \in \mathbb{N},\ x + 1 > x
+                        \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q4"><label> \( \forall x,\ x \in \mathbb{N} > x \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 5 :</strong> Comment exprimer que tous les éléments d’un ensemble ne vérifient pas une
+                propriété ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q5"><label> \( \exists x \in E,\ \neg P(x) \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q5" class="correct"><label> \( \forall x \in E,\ \neg P(x) \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 6 :</strong> Quelle est la négation de : \( \forall x \in \mathbb{N},\ P(x) \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q6" class="correct"><label> \( \exists x \in \mathbb{N},\ \neg P(x)
+                        \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q6"><label> \( \neg \exists x \in \mathbb{N},\ P(x) \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 7 :</strong> Quelle est la bonne syntaxe pour exprimer qu’un nombre réel est strictement
+                négatif ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q7"><label> \( x \in \mathbb{R}^- \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q7" class="correct"><label> \( x \in \mathbb{R}^{-*} \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 8 :</strong> Que signifie : \( \neg (x > 2) \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q8" class="correct"><label> \( x \leq 2 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q8"><label> \( x > 2 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 9 :</strong> Laquelle de ces expressions est incorrecte ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q9" class="correct"><label> \( \forall \in x,\ \mathbb{R} \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q9"><label> \( \forall x \in \mathbb{R} \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 10 :</strong> Lequel de ces énoncés signifie : « Il n’existe pas d’élément vérifiant
+                P(x) » ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q10" class="correct"><label> \( \neg \exists x,\ P(x) \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q10"><label> \( \forall x,\ P(x) \)</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 11 :</strong> Que signifie l’énoncé suivant ? \( \forall x \in \mathbb{R},\ x^2 \geq 0
+                \)</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q11" class="correct"><label> Tous les réels ont un carré positif ou
+                        nul</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q11"><label> Il existe un réel dont le carré est positif ou nul</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 12 :</strong> L’énoncé \( \exists! x \in \mathbb{N},\ x + 2 = 5 \) est-il vrai ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q12" class="correct"><label> Oui, car un seul entier vérifie cette
+                        équation</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q12"><label> Non, il y en a plusieurs</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 13 :</strong> Que signifie : \( \neg (\exists x \in \mathbb{N},\ x < 0) \)</p>
+                    <div class="options inline-options">
+                        <div class="option-pair">
+                            <input type="radio" name="q13" class="correct"><label> Aucun entier naturel n’est
+                                négatif</label>
+                        </div>
+                        <div class="option-pair">
+                            <input type="radio" name="q13"><label> Il existe un entier naturel négatif</label>
+                        </div>
+                    </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 14 :</strong> Que signifie l’énoncé \( \forall x \in \mathbb{R}^*,\ x \neq -x \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q14"><label> Tous les réels sont opposés d’eux-mêmes</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q14" class="correct"><label> Aucun réel différent de 0 n’est son
+                        opposé</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 15 :</strong> Que signifie \( \exists! x \in \mathbb{R},\ x^2 = 0 \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q15" class="correct"><label> Il n’y a qu’un réel dont le carré vaut
+                        0</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q15"><label> Il y a plusieurs réels dont le carré vaut 0</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions 21 à 30 : raisonnement logique combiné -->
+        <div class="question">
+            <p><strong>Question 21 :</strong> L’énoncé \( \forall x \in \mathbb{R},\ \neg(x < 0) \Rightarrow x \geq 0 \)
+                    est-il vrai ?</p>
+                    <div class="options inline-options">
+                        <div class="option-pair">
+                            <input type="radio" name="q21" class="correct"><label> Oui, c’est une reformulation
+                                correcte</label>
+                        </div>
+                        <div class="option-pair">
+                            <input type="radio" name="q21"><label> Non, c’est incorrect</label>
+                        </div>
+                    </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 22 :</strong> Quel est l’équivalent logique de \( \neg (\forall x \in \mathbb{R},\ P(x))
+                \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q22" class="correct"><label> \( \exists x \in \mathbb{R},\ \neg P(x)
+                        \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q22"><label> \( \neg P(x) \Rightarrow \exists x \in \mathbb{R} \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 23 :</strong> Quel est le sens de : \( \exists x \in \mathbb{N},\ \forall y \in
+                \mathbb{N},\ x <= y \) ?</p>
+                    <div class="options inline-options">
+                        <div class="option-pair">
+                            <input type="radio" name="q23"><label> Il existe un entier qui est plus grand que tous les
+                                autres</label>
+                        </div>
+                        <div class="option-pair">
+                            <input type="radio" name="q23" class="correct"><label> Il existe un entier qui est inférieur
+                                ou égale à tous les
+                                entiers</label>
+                        </div>
+                    </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 24 :</strong> Quel est le sens de : \( \forall x \in \mathbb{N},\ \exists y \in
+                \mathbb{N},\ y > x \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q24" class="correct"><label> Pour tout entier, il existe un entier plus
+                        grand</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q24"><label> Il existe un entier plus grand que tous les autres</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 25 :</strong> Quelle est la négation de : « Il existe un unique x tel que P(x) » ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q25" class="correct"><label> Il n’existe pas de x tel que P(x), ou bien il
+                        en existe plusieurs</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q25"><label> Aucun x ne vérifie P(x) mais un seul pourrait le
+                        faire</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 26 :</strong> Quelle est la négation de l'expression suivante : \( \exists x \in
+                \mathbb{R},\ P(x) \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q26" class="correct"><label> \( \forall x \in \mathbb{R},\ \neg P(x)
+                        \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q26"><label> \( \exists x \in \mathbb{R},\ \neg P(x) \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 27 :</strong> Quelle est la forme correcte pour exprimer que tous les entiers naturels
+                non nuls
+                sont strictement positifs ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q27"><label> \( \forall x \in \mathbb{N},\ x > 0 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q27" class="correct"><label> \( \forall x \in \mathbb{N}^*,\ x > 0
+                        \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 28 :</strong> L'expression \( \exists x \in \mathbb{R},\ x^2 = -1 \) est-elle vraie ?
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q28" class="correct"><label> Non, il n'y a pas de réel \( x \) tel que \(
+                        x^2 = -1 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q28"><label> Oui, il existe un réel \( x \) tel que \( x^2 = -1 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 29 :</strong> Quelle est la forme correcte pour exprimer que pour tous les entiers \( n
+                \), \( n^2 \geq 0 \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q30" class="correct"><label> \( \forall n \in \mathbb{Z},\ n^2 \geq 0
+                        \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q30"><label> \( \exists n \in \mathbb{Z},\ n^2 \geq 0 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 30 :</strong> Que signifie l’énoncé suivant :
+                \( \forall x \in \mathbb{R},\ \exists y \in \mathbb{R},\ \forall z \in \mathbb{R},\ \neg(x = y + z) \)
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q30" class="correct">
+                    <label> Pour tout réel \( x \), il existe un réel \( y \) tel que, pour tout \( z \), \( x \neq y +
+                        z
+                        \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q30">
+                    <label> Il existe un réel \( y \) tel que, pour tout \( x \) et tout \( z \), \( x = y + z
+                        \)</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>

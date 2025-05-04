@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <!-- Charger MathJax pour les formules mathématiques -->
+    <script>
+        window.MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                inlineMath: [['\\(', '\\)']],
+                packages: ['base', 'ams']
+            },
+            chtml: {
+                linebreaks: { automatic: true },
+                displayAlign: 'center' // ou 'center' si tu préfères
+            },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Charger Plotly pour le graphique -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+
+        <!-- 1. Compréhension du quantificateur ∃ -->
+        <div class="question">
+            <p><strong>Question 1 :</strong> Quelle est la signification de \( \exists x \in \mathbb{N} \) tel que \( x
+                \) est pair ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Il existe au moins un nombre naturel
+                        pair.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Tous les nombres naturels sont pairs.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 2 :</strong> Lequel de ces énoncés est équivalent à : « Il existe un réel strictement
+                positif » ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q2"><label> Tous les réels sont strictement positifs.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q2" class="correct"><label> Il y a au moins un réel qui est strictement
+                        positif.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 3 :</strong> Le quantificateur « il existe » implique-t-il l’unicité ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q3"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q3" class="correct"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 4 :</strong> Laquelle de ces affirmations est correcte ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q4" class="correct"><label> \( \exists x \in \mathbb{Z},\ x^2 = 4 \) est
+                        vraie.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q4"><label> \( \exists x \in \mathbb{Z},\ x^2 = -1 \) est vraie.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 5 :</strong> Une proposition de la forme \( \exists x \in A,\ P(x) \) signifie :</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q5" class="correct"><label> Il y a au moins un élément de A qui vérifie
+                        P.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q5"><label> Tous les éléments de A vérifient P.</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Compréhension du quantificateur ∃! -->
+        <div class="question">
+            <p><strong>Question 6 :</strong> Que signifie le quantificateur \( \exists ! \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q6" class="correct"><label> Il existe un unique élément qui vérifie la
+                        propriété.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q6"><label> Il existe plusieurs éléments qui vérifient la
+                        propriété.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 7 :</strong> Quelle est la différence entre \( \exists \) et \( \exists ! \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q7" class="correct"><label> \( \exists ! \) affirme l’unicité, \( \exists
+                        \) non.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q7"><label> Aucun, ce sont des synonymes.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 8 :</strong> Laquelle de ces propositions est correcte ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q8"><label> \( \exists ! x \in \mathbb{N},\ x = 0 \) est fausse.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q8" class="correct"><label> \( \exists ! x \in \mathbb{N},\ x = 0 \) est
+                        vraie.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 9 :</strong> Laquelle des traductions suivantes correspond à \( \exists ! x \in
+                \mathbb{R} \) tel que \( x^2 = 0 \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q9" class="correct"><label> Il existe un unique réel tel que \( x^2 = 0
+                        \).</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q9"><label> Il existe plusieurs réels tels que \( x^2 = 0 \).</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 10 :</strong> L’énoncé « il existe un unique entier strictement positif inférieur à 2 »
+                est :</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q10" class="correct"><label> Vrai</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q10"><label> Faux</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Application du quantificateur ∃ -->
+        <div class="question">
+            <p><strong>Question 11 :</strong> \( \exists x \in \mathbb{Z} \) tel que \( x + 3 = 7 \).</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q11" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q11"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 12 :</strong> \( \exists x \in \mathbb{N} \) tel que \( x < 0 \).</p>
+                    <div class="options inline-options">
+                        <div class="option-pair">
+                            <input type="radio" name="q12"><label> Oui</label>
+                        </div>
+                        <div class="option-pair">
+                            <input type="radio" name="q12" class="correct"><label> Non</label>
+                        </div>
+                    </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 13 :</strong> \( \exists x \in \mathbb{R} \) tel que \( x^2 = 2 \).</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q13" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q13"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 14 :</strong> \( \exists x \in \mathbb{Z} \) tel que \( x \mod 2 = 1 \).</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q14" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q14"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 15 :</strong> \( \exists x \in \mathbb{Q} \) tel que \( x = \frac{3}{4} \).</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q15" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q15"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Application du quantificateur ∃! -->
+        <div class="question">
+            <p><strong>Question 16 :</strong> \( \exists ! x \in \mathbb{R} \) tel que \( x^2 = 0 \).</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q16" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q16"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 17 :</strong> \( \exists ! x \in \mathbb{R} \) tel que \( x = 1 \).</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q17" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q17"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 18 :</strong> \( \exists ! x \in \mathbb{N} \) tel que \( x + 1 = 2 \).</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q18" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q18"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 19 :</strong> \( \exists ! x \in \mathbb{Z} \) tel que \( x^2 = 1 \).</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q19"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q19" class="correct"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 20 :</strong> \( \exists ! x \in \mathbb{N} \) tel que \( x = 0 \).</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q20" class="correct"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q20"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>

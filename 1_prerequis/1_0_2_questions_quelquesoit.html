@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <!-- Charger MathJax pour les formules mathématiques -->
+    <script>
+        window.MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                inlineMath: [['\\(', '\\)']],
+                packages: ['base', 'ams']
+            },
+            chtml: {
+                linebreaks: { automatic: true },
+                displayAlign: 'center' // ou 'center' si tu préfères
+            },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Charger Plotly pour le graphique -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+
+        <!-- Compréhension du quantificateur ∀ -->
+        <div class="question">
+            <p><strong>Question 1 :</strong> Que signifie le quantificateur \( \forall \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Pour tout élément d’un ensemble donné, la
+                        propriété est vraie.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Il existe au moins un élément qui vérifie la
+                        propriété.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 2 :</strong> Laquelle de ces phrases traduit correctement : \( \forall x \in
+                \mathbb{R},\ x^2 \geq 0 \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q2" class="correct"><label> Tout réel a un carré supérieur ou égal à
+                        zéro.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q2"><label> Il existe un réel dont le carré est supérieur ou égal à
+                        zéro.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 3 :</strong> Si une propriété est vraie pour tous les entiers naturels, on utilise :</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q3" class="correct"><label> \( \forall x \in \mathbb{N} \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q3"><label> \( \exists x \in \mathbb{N} \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 4 :</strong> Quelle est la bonne interprétation de : « Pour tout entier pair, son carré
+                est pair » ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q4" class="correct"><label> \( \forall x \in \mathbb{Z},\ x\ \text{pair}
+                        \Rightarrow x^2\ \text{pair} \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q4"><label> \( \exists x \in \mathbb{Z},\ x\ \text{pair} \Rightarrow x^2\
+                        \text{pair} \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 5 :</strong> Quelle phrase exprime correctement <strong>qu’il n’est pas vrai que tous
+                    les éléments de \( E \) vérifient la propriété \( P(x) \)</strong> ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q5" class="correct"><label> Il existe un élément \( x \in E \) tel que \(
+                        P(x) \) est faux.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q5"><label> Aucun élément de \( E \) ne vérifie \( P(x) \).</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q5"><label> Tous les éléments de \( E \) vérifient \( \neg P(x)
+                        \).</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 6 :</strong> Si une propriété est fausse pour un seul élément d’un ensemble, alors :</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q6" class="correct"><label> Il est faux qu'elle est vraie pour tout
+                        élément.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q6"><label> Elle est toujours vraie.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 7 :</strong> \( \forall x \in \mathbb{Z},\ x + 0 = x \) est :</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q7" class="correct"><label> Vraie</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q7"><label> Fausse</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 8 :</strong> Dans quel cas peut-on conclure que \( \forall x \in E,\ P(x) \) est faux ?
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q8" class="correct"><label> Si on trouve un contre-exemple à P dans
+                        E.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q8"><label> Si on n’arrive pas à prouver P pour tous les éléments.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 9 :</strong> L’énoncé : « tous les nombres premiers sont impairs » est-il correct ? (2
+                est premier)</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q9"><label> Oui</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q9" class="correct"><label> Non</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 10 :</strong> Que peut-on dire de \( \forall x \in \mathbb{N},\ x \geq 0 \) ?</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q10" class="correct"><label> C’est vrai car les entiers naturels sont
+                        positifs ou nuls.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q10"><label> C’est faux car les entiers naturels peuvent être
+                        négatifs.</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Application du quantificateur ∀ -->
+        <div class="question">
+            <p><strong>Question 11 :</strong> \( \forall x \in \mathbb{R},\ x^2 \geq 0 \) est :</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q11" class="correct"><label> Vrai</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q11"><label> Faux</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 12 :</strong> \( \forall x \in \mathbb{Z},\ x + 1 > x \) est :</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q12" class="correct"><label> Vrai</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q12"><label> Faux</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 13 :</strong> \( \forall x \in \mathbb{Q},\ x + x = 2x \) est :</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q13" class="correct"><label> Vrai</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q13"><label> Faux</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 14 :</strong> \( \forall x \in \mathbb{R},\ \sin^2(x) + \cos^2(x) = 1 \)</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q14" class="correct"><label> Vrai</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q14"><label> Faux</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 15 :</strong> \( \forall x \in \mathbb{N},\ x - 1 \in \mathbb{N} \)</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q15"><label> Vrai</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q15" class="correct"><label> Faux</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 16 :</strong> \( \forall x \in \mathbb{R}^+,\ \frac{1}{x} > 0 \)</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q16" class="correct"><label> Vrai</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q16"><label> Faux</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 17 :</strong> \( \forall x \in \mathbb{Z},\ x \cdot 0 = 0 \)</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q17" class="correct"><label> Vrai</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q17"><label> Faux</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 18 :</strong> \( \forall x \in \mathbb{Z},\ x \mod 2 \in \{0,1\} \)</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q18" class="correct"><label> Vrai</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q18"><label> Faux</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 19 :</strong> \( \forall x \in \mathbb{Q},\ x^2 \in \mathbb{Q} \)</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q19" class="correct"><label> Vrai</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q19"><label> Faux</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 20 :</strong> \( \forall x \in \mathbb{Z},\ x^2 \geq x \)</p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q20"><label> Vrai</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q20" class="correct"><label> Faux</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 21 :</strong> Comment exprimer en une seule phrase la négation de l’énoncé :
+                <em>« Tous les élèves de la classe aiment les maths »</em> ?
+            </p>
+            <div class="options inline-options">
+                <div class="option-pair">
+                    <input type="radio" name="q21" class="correct"><label> Il existe au moins un élève dans la classe
+                        qui n’aime pas les maths.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q21"><label> Aucun élève n’aime les maths.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q21"><label> Tous les élèves n’aiment pas les maths.</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
