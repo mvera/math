@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <!-- Charger MathJax pour les formules mathématiques -->
+    <script>
+        window.MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                inlineMath: [['\\(', '\\)']],
+                packages: ['base', 'ams']
+            },
+            chtml: {
+                linebreaks: { automatic: true },
+                displayAlign: 'center' // ou 'center' si tu préfères
+            },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Charger Plotly pour le graphique -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+        <h2>Implication</h2>
+
+        <h3>« Si... alors... »</h3>
+        <p>
+            Une implication est un raisonnement de la forme « Si une propriété P est vraie, alors une propriété Q est
+            vraie ».
+            Elle exprime un lien logique entre deux affirmations : la première (l’hypothèse) entraîne la seconde (la
+            conclusion).
+        </p>
+        <div class="exemple">
+            <strong>Exemple 1</strong> : Si un nombre est divisible par 4, alors il est pair.
+        </div>
+        <div class="exemple">
+            <strong>Exemple 2</strong> : Si un triangle est équilatéral, alors ses angles mesurent 60°.
+        </div>
+        <div class="exemple">
+            <strong>Exemple 3</strong> : Si \( n \) est impair, alors \( n^2 \) est impair.
+        </div>
+
+        <h3>Le symbole « ⇒ »</h3>
+        <p>
+            En logique, l'implication s'écrit avec le symbole \( \Rightarrow \), qui se lit « implique ».
+            L'expression \( P \Rightarrow Q \) signifie : « Si P est vraie, alors Q est vraie ».
+        </p>
+        <div class="exemple">
+            <strong>Exemple 1</strong> : \( x > 2 \Rightarrow x^2 > 4 \)
+        </div>
+        <div class="exemple">
+            <strong>Exemple 2</strong> : \( n \) divisible par 10 \( \Rightarrow n \) divisible par 5
+        </div>
+        <div class="exemple">
+            <strong>Exemple 3</strong> : \( \Delta < 0 \Rightarrow \) le polynôme n’a pas de solution réelle </div>
+
+                <h2>Équivalence</h2>
+
+                <h3>« Si et seulement si »</h3>
+                <p>
+                    Une équivalence est une double implication : « P implique Q » et « Q implique P ».
+                    Cela signifie que les deux affirmations sont vraies ou fausses ensemble.
+                </p>
+                <div class="exemple">
+                    <strong>Exemple 1</strong> : Un entier est divisible par 3 si et seulement si la somme de ses
+                    chiffres l’est aussi.
+                </div>
+                <div class="exemple">
+                    <strong>Exemple 2</strong> : Un quadrilatère est un carré si et seulement si il a quatre côtés égaux
+                    et quatre angles droits.
+                </div>
+                <div class="exemple">
+                    <strong>Exemple 3</strong> : \( x^2 = 4 \) si et seulement si \( x = 2 \) ou \( x = -2 \).
+                </div>
+
+                <h3>Le symbole « ⇔ »</h3>
+                <p>
+                    L'équivalence logique s’écrit avec le symbole \( \Leftrightarrow \), qui se lit « équivaut à » ou «
+                    si et seulement si ».
+                    L'expression \( P \Leftrightarrow Q \) signifie que les deux propositions sont vraies ou fausses
+                    ensemble.
+                </p>
+                <div class="exemple">
+                    <strong>Exemple 1</strong> : \( x \) est pair \( \Leftrightarrow \) il existe un entier \( k \) tel
+                    que \( x = 2k \)
+                </div>
+                <div class="exemple">
+                    <strong>Exemple 2</strong> : Un nombre est multiple de 6 \( \Leftrightarrow \) il est multiple de 2
+                    et de 3
+                </div>
+                <div class="exemple">
+                    <strong>Exemple 3</strong> : \( a^2 = b^2 \Leftrightarrow a = b \) ou \( a = -b \)
+                </div>
+
+                <p>
+                    Comprendre ces structures logiques est fondamental : elles t’aideront à construire des raisonnements
+                    rigoureux, rédiger des démonstrations et mieux analyser les énoncés mathématiques.
+                </p>
+        </div>
+
+
+
+
+</body>

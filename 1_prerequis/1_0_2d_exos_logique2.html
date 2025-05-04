@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <!-- Charger MathJax pour les formules mathématiques -->
+    <script>
+        window.MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                inlineMath: [['\\(', '\\)']],
+                packages: ['base', 'ams']
+            },
+            chtml: {
+                linebreaks: { automatic: true },
+                displayAlign: 'center' // ou 'center' si tu préfères
+            },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Charger Plotly pour le graphique -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+        <div class="question">
+            <p><strong>Question 1 :</strong> Quelle affirmation est une <strong>équivalence</strong> correcte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label>Si un triangle est équilatéral, alors il est isocèle.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label>Un triangle est équilatéral <strong>si et
+                            seulement si</strong> ses trois côtés sont égaux.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label>Si un triangle a deux côtés égaux, alors il est
+                        équilatéral.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 2 :</strong> Quelle affirmation est une <strong>équivalence</strong> correcte concernant
+                les triangles rectangles ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q2"><label>Si un triangle est rectangle, alors il vérifie le théorème de
+                        Pythagore.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q2" class="correct"><label>Un triangle est rectangle <strong>si et
+                            seulement si</strong> le carré de la longueur de l'hypoténuse est égal à la somme des carrés
+                        des longueurs des deux autres côtés.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q2"><label>Si le carré de la longueur de l'hypoténuse est égal à la somme
+                        des carrés des longueurs des deux autres côtés, alors le triangle est rectangle.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 3 :</strong> Quelle affirmation est une <strong>équivalence</strong> correcte concernant
+                les triangles isocèles ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q3"><label>Si un triangle a deux côtés égaux, alors il est
+                        isocèle.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q3" class="correct"><label>Un triangle est isocèle <strong>si et seulement
+                            si</strong> il a deux côtés de même longueur.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q3"><label>Si un triangle est isocèle, alors il a deux angles
+                        égaux.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 4 :</strong> Quelle affirmation est une <strong>équivalence</strong> correcte concernant
+                les triangles équilatéraux ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q4"><label>Si un triangle a trois angles égaux, alors il est
+                        équilatéral.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q4" class="correct"><label>Un triangle est équilatéral <strong>si et
+                            seulement si</strong> ses trois angles mesurent 60°.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q4"><label>Si un triangle est équilatéral, alors ses trois côtés sont
+                        égaux.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 5 :</strong> Quelle affirmation est une <strong>équivalence</strong> correcte concernant
+                les triangles rectangles ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q5"><label>Si un triangle a un angle droit, alors il est
+                        rectangle.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q5" class="correct"><label>Un triangle est rectangle <strong>si et
+                            seulement si</strong> il a un angle de 90°.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q5"><label>Si un triangle est rectangle, alors il a un angle
+                        droit.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 6 :</strong> Quelle est une équivalence correcte concernant un triangle équilatéral ?
+            </p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q6"><label>Un triangle est équilatéral &rarr; tous ses angles mesurent
+                        60°.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q6"><label>Tous ses angles mesurent 60° &rarr; c'est un triangle
+                        équilatéral.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q6" class="correct"><label>Un triangle est équilatéral <strong>si et
+                            seulement si</strong> tous ses angles mesurent 60°.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 7 :</strong> Laquelle de ces affirmations est <strong>incorrecte</strong> comme
+                équivalence logique ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q7"><label>Un entier naturel est pair <strong>si et seulement si</strong>
+                        son dernier chiffre est 2.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q7" class="correct"><label>Un triangle est isocèle <strong>si et seulement
+                            si</strong> il a deux côtés de même longueur.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q7"><label>Un triangle est équilatéral <strong>si et seulement si</strong>
+                        il a un axe de symétrie.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 8 :</strong> Laquelle des propositions suivantes est une équivalence ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q8"><label>Un nombre est divisible par 6 &rarr; il est divisible par 2 et
+                        par 3.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q8" class="correct"><label>Un nombre est divisible par 6 <strong>si et
+                            seulement si</strong> il est divisible par 2 et par 3.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q8"><label>Un nombre est divisible par 2 et 3 &rarr; il est divisible par
+                        6.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 9 :</strong> Quelle affirmation est une vraie équivalence concernant un carré ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q9"><label>Un carré a quatre côtés égaux &rarr; il a quatre angles
+                        droits.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q9"><label>Un carré a quatre angles droits &rarr; ses côtés sont
+                        égaux.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q9" class="correct"><label>Une figure est un carré <strong>si et seulement
+                            si</strong> elle a quatre côtés égaux et quatre angles droits.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 10 :</strong> Quelle phrase illustre une <strong>fausse</strong> équivalence ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q10"><label>Un objet est mouillé &rarr; il a peut-être pris la
+                        pluie.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q10"><label>Il pleut &rarr; les objets dehors peuvent être
+                        mouillés.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q10" class="correct"><label>Un objet est mouillé <strong>si et seulement
+                            si</strong> il a pris la pluie.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 11 :</strong> Quelle affirmation est <strong>incorrecte</strong> en tant qu'équivalence
+                ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q11" class="correct"><label>Un élève est en retard <strong>si et seulement
+                            si</strong> il a manqué son bus.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q11"><label>Un triangle est équilatéral <strong>si et seulement
+                            si</strong> il a trois côtés égaux.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q11"><label>Une fonction est linéaire <strong>si et seulement si</strong>
+                        son graphique est une droite passant par l’origine.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 12 :</strong> Laquelle des propositions est une équivalence mathématiquement correcte ?
+            </p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q12"><label>\( x^2 = 9 \rightarrow x = 3 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q12"><label>\( x = 3 \rightarrow x^2 = 9 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q12" class="correct"><label>\( x^2 = 9 \) <strong>si et seulement
+                            si</strong> \( x = 3 \) ou \( x = -3 \)</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 13 :</strong> Laquelle de ces affirmations est <strong>fausse</strong> comme équivalence
+                ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q13"><label>Une figure est un carré <strong>si et seulement si</strong>
+                        elle a quatre côtés égaux et quatre angles droits.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q13" class="correct"><label>Un triangle est équilatéral <strong>si et
+                            seulement si</strong> ses angles font 90°.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q13"><label>Un angle est droit <strong>si et seulement si</strong> il
+                        mesure 90°.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 14 :</strong> Laquelle est une <strong>équivalence</strong> correcte selon le théorème
+                de Pythagore ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q14"><label>Un triangle est rectangle &rarr; \( a^2 + b^2 = c^2 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q14"><label>\( a^2 + b^2 = c^2 \) &rarr; le triangle est
+                        rectangle.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q14" class="correct"><label>Un triangle est rectangle <strong>si et
+                            seulement si</strong> \( a^2 + b^2 = c^2 \)</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 15 :</strong> Quelle équivalence est <strong>incorrecte</strong> ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q15"><label>Deux droites sont parallèles <strong>si et seulement
+                            si</strong> elles ont la même pente.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q15"><label>Un quadrilatère est un losange <strong>si et seulement
+                            si</strong> ses diagonales sont perpendiculaires et de même longueur.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q15" class="correct"><label>Un nombre est impair <strong>si et seulement
+                            si</strong> il est divisible par 2.</label>
+                </div>
+            </div>
+        </div>
+        <div class="question">
+            <p><strong>Question 16 :</strong> Quelle équivalence est mathématiquement <strong>fausse</strong> ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q16"><label>\( a^2 = b^2 \) <strong>si et seulement si</strong> \( a = b
+                        \) ou \( a = -b \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q16" class="correct"><label>\( a + b = 0 \) <strong>si et seulement
+                            si</strong> \( a = b \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q16"><label>\( x \) est pair <strong>si et seulement si</strong> il existe
+                        un entier \( k \) tel que \( x = 2k \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 17 :</strong> On sait que : « Un entier est divisible par 4 <strong>si et seulement
+                    si</strong> le nombre formé par ses deux derniers chiffres est divisible par 4. » Que peut-on en
+                conclure ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q17"><label>Un nombre est divisible par 4 uniquement s’il est
+                        pair.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q17"><label>Si 312 est divisible par 4, alors ses deux derniers chiffres
+                        forment un nombre divisible par 4, mais pas l’inverse.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q17" class="correct"><label>Le nombre 312 est divisible par 4 car 12 est
+                        divisible par 4.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 18 :</strong> « Si un nombre est divisible par 10, alors il se termine par 0. » Peut-on
+                en déduire que tout nombre qui se termine par 0 est divisible par 10 ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q18"><label>Oui, car c’est toujours vrai pour les entiers
+                        naturels.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q18" class="correct"><label>Non, on ne peut pas conclure car la réciproque
+                        n’est pas donnée.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q18"><label>Oui, car si une implication est vraie, sa réciproque l’est
+                        aussi.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 19 :</strong> « Un triangle est équilatéral <strong>si et seulement si</strong> ses
+                trois angles mesurent 60°. » Laquelle des affirmations suivantes est correcte ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q19"><label>Si un triangle a trois angles égaux, alors il est
+                        rectangle.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q19" class="correct"><label>Si un triangle a trois angles de 60°, alors il
+                        est équilatéral.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q19"><label>Un triangle équilatéral peut avoir des angles de 90°.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 20 :</strong> « Si un quadrilatère est un carré, alors il a quatre côtés égaux et quatre
+                angles droits. » Laquelle des affirmations suivantes est vraie ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q20" class="correct"><label>La propriété n’est pas une équivalence car on
+                        ne peut pas en déduire qu’un quadrilatère à quatre côtés égaux et quatre angles droits est
+                        nécessairement un carré.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q20"><label>On peut conclure que tous les rectangles sont des
+                        carrés.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q20"><label>La réciproque d'une ilplication est toujours vraie même si
+                        elle n’est pas
+                        énoncée, la preuve avec cet exemple.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 21 :</strong> « Un nombre est pair <strong>si et seulement si</strong> il est divisible
+                par 2. » Que peut-on en conclure ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q21"><label>Un nombre divisible par 2 n’est pas toujours pair.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q21" class="correct"><label>Les deux propriétés sont équivalentes, l’une
+                        implique l’autre et réciproquement.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q21"><label>Un nombre pair est divisible uniquement par 4.</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions 22 à 31 à suivre dans le prochain message pour ne pas dépasser la limite de contenu -->
+        <div class="question">
+            <p><strong>Question 22 :</strong> « Si deux droites sont perpendiculaires, alors elles se coupent. » Que
+                peut-on conclure ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q22"><label>Les droites qui se coupent sont toujours
+                        perpendiculaires.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q22" class="correct"><label>On ne peut pas conclure que des droites qui se
+                        coupent sont perpendiculaires, car la réciproque n’est pas vraie.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q22"><label>La réciproque est toujours vraie.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 23 :</strong> « Un nombre est multiple de 3 <strong>si et seulement si</strong> la somme
+                de ses chiffres est multiple de 3. » Lequel des énoncés suivants est une conséquence correcte ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q23"><label>Si la somme des chiffres d’un nombre est multiple de 3, alors
+                        ce nombre n’est pas divisible par 3.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q23"><label>Un nombre est divisible par 3 uniquement si ses chiffres sont
+                        tous des multiples de 3.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q23" class="correct"><label>Si la somme des chiffres est un multiple de 3,
+                        alors le nombre est un multiple de 3, et réciproquement.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 24 :</strong> « Si un triangle est rectangle isocèle, alors il a deux angles de 45°. »
+                Que peut-on en conclure ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q24" class="correct"><label>On ne peut pas déduire la réciproque : un
+                        triangle ayant deux angles de 45° est peut-être rectangle isocèle, mais ce n’est pas affirmé
+                        ici.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q24"><label>Tout triangle avec deux angles de 45° n’est pas
+                        rectangle.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q24"><label>La réciproque est forcément vraie.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 25 :</strong> Soit : « Un quadrilatère est un losange <strong>si et seulement
+                    si</strong> ses diagonales sont perpendiculaires et se coupent en leur milieu. » Que peut-on en
+                conclure ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q25" class="correct"><label>Un quadrilatère dont les diagonales sont
+                        perpendiculaires et se coupent en leur milieu est nécessairement un losange.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q25"><label>Un losange a des diagonales égales.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q25"><label>Les losanges n’ont pas forcément de diagonales qui se coupent
+                        en leur milieu.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 26 :</strong> « Si un nombre est un carré parfait, alors il est positif. » Que peut-on
+                dire de cette propriété ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q26"><label>Tout nombre positif est un carré parfait.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q26" class="correct"><label>La propriété est une implication, pas une
+                        équivalence.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q26"><label>La réciproque est automatiquement vraie.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 27 :</strong> « Un triangle est isocèle <strong>si et seulement si</strong> il a deux
+                côtés de même longueur. » Quelle affirmation en découle ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q27"><label>Un triangle ayant deux côtés égaux n’est pas isocèle.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q27" class="correct"><label>Si un triangle a deux côtés égaux, alors il
+                        est isocèle.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q27"><label>Tout triangle isocèle a trois côtés égaux.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 28 :</strong> « Si un nombre est divisible par 6, alors il est divisible par 2 et par 3.
+                » Peut-on en conclure que :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q28"><label>Un nombre divisible par 2 et 3 est toujours divisible par
+                        6.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q28" class="correct"><label>La propriété donnée n’est pas une équivalence,
+                        donc on ne peut pas affirmer la réciproque.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q28"><label>Un nombre divisible par 6 n’est jamais pair.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 29 :</strong> « Un polynôme de degré 2 s’annule en x = 3 et x = 5 <strong>si et
+                    seulement si</strong> il peut s’écrire (x – 3)(x – 5). » Que peut-on en conclure ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q29" class="correct"><label>Si un polynôme s’écrit (x – 3)(x – 5), alors
+                        ses racines sont 3 et 5, et réciproquement.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q29"><label>Un polynôme peut s’écrire ainsi même s’il n’a pas ces
+                        racines.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q29"><label>Un polynôme de degré 2 n’a jamais deux racines.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 30 :</strong> « Si une fonction est dérivable, alors elle est continue. » Que peut-on
+                dire de cette propriété ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q30"><label>Elle est une équivalence.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q30" class="correct"><label>Ce n’est qu’une implication ; la réciproque
+                        est fausse.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q30"><label>Toute fonction continue est dérivable.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 31 :</strong> « Un quadrilatère est un rectangle <strong>si et seulement si</strong> ses
+                angles sont droits. » Que peut-on conclure ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q31" class="correct"><label>Si un quadrilatère a quatre angles droits,
+                        alors c’est un rectangle.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q31"><label>Un rectangle peut avoir des angles quelconques.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q31"><label>La réciproque n’est pas vraie.</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>Question 32 :</strong> On considère la proposition suivante : <strong>« A ⇔ B »</strong> est
+                    vraie. Que peut-on dire si B est vraie ?</p>
+                <div class="options">
+                    <div class="option-pair">
+                        <input type="radio" name="q32"><label>On ne peut rien conclure sur A.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q32"><label>A peut être fausse ou vraie, on ne sait pas.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q32" class="correct"><label>A est vraie aussi, car A ⇔ B est
+                            vraie.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>Question 33 :</strong> On suppose que la proposition <strong>« P ⇔ Q »</strong> est vraie. Si
+                    P est fausse, que peut-on affirmer ?</p>
+                <div class="options">
+                    <div class="option-pair">
+                        <input type="radio" name="q33" class="correct"><label>Q est aussi fausse, car les deux doivent
+                            avoir la même valeur de vérité.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q33"><label>Q est nécessairement vraie.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q33"><label>On ne peut rien conclure sur Q.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>Question 34 :</strong> Soit Q la proposition <strong>« M ⇔ N »</strong>. Si M est vraie et
+                    N est fausse, que peut-on dire de cette proposition Q ?</p>
+                <div class="options">
+                    <div class="option-pair">
+                        <input type="radio" name="q34"><label>Elle est vraie car une des deux propositions M et N est
+                            vraie.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q34" class="correct"><label>Elle est fausse car M et N n'ont pas la
+                            même valeur de vérité.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q34"><label>Elle est vraie uniquement si M implique N.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>Question 35 :</strong> La proposition <strong>« S ⇔ T »</strong> est fausse. Que peut-on en
+                    conclure ?</p>
+                <div class="options">
+                    <div class="option-pair">
+                        <input type="radio" name="q35" class="correct"><label>Les propositions S et T ont des valeurs de
+                            vérité différentes.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q35"><label>S et T sont toutes les deux vraies.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q35"><label>S et T sont toutes les deux fausses.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>Question 36 :</strong> On sait que la proposition <strong>« X ⇔ Y »</strong> est vraie, et
+                    que Y est fausse. Que peut-on conclure ?</p>
+                <div class="options">
+                    <div class="option-pair">
+                        <input type="radio" name="q36"><label>On ne peut rien dire de X.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q36" class="correct"><label>X est aussi fausse.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q36"><label>X est nécessairement vraie.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>Question 37 :</strong> Si la proposition <strong>« A ⇔ B »</strong> est fausse et que A est
+                    vraie, que peut-on dire de B ?</p>
+                <div class="options">
+                    <div class="option-pair">
+                        <input type="radio" name="q37"><label>B est vraie également.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q37"><label>B est indéterminée.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q37" class="correct"><label>B est fausse.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>Question 38 :</strong> On suppose que la proposition <strong>« P ⇔ Q »</strong> est vraie. Si
+                    P et Q sont toutes deux vraies, peut-on en conclure que P ⇒ Q est vraie ?</p>
+                <div class="options">
+                    <div class="option-pair">
+                        <input type="radio" name="q38"><label>Non, ce n’est pas suffisant.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q38" class="correct"><label>Oui, car si P ⇔ Q est vraie, alors P ⇒ Q
+                            est aussi vraie.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q38"><label>Non, P ⇒ Q est fausse car Q est vrai.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>Question 39 :</strong> Si la proposition <strong>« R ⇔ S »</strong> est vraie et que R est
+                    fausse, alors :</p>
+                <div class="options">
+                    <div class="option-pair">
+                        <input type="radio" name="q39"><label>S peut être vraie ou fausse, on ne sait pas.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q39"><label>S est nécessairement vraie.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q39" class="correct"><label>S est également fausse.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>Question 40 :</strong> Si la proposition <strong>« T ⇔ U »</strong> est fausse, laquelle des
+                    situations suivantes est possible ?</p>
+                <div class="options">
+                    <div class="option-pair">
+                        <input type="radio" name="q40" class="correct"><label>T est vraie et U est fausse.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q40"><label>T et U sont toutes deux vraies.</label>
+                    </div>
+                    <div class="option-pair">
+                        <input type="radio" name="q40"><label>T et U sont toutes deux fausses.</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+</body>

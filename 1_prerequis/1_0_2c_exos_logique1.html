@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <!-- Charger MathJax pour les formules mathématiques -->
+    <script>
+        window.MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                inlineMath: [['\\(', '\\)']],
+                packages: ['base', 'ams']
+            },
+            chtml: {
+                linebreaks: { automatic: true },
+                displayAlign: 'center' // ou 'center' si tu préfères
+            },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Charger Plotly pour le graphique -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+        <h2>Exercices – Implication</h2>
+
+        <h3>Partie 1 – Implication en langage naturel</h3>
+
+        <div class="question">
+            <p><strong>Question 1 :</strong> Quelle phrase exprime correctement une implication ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Si un animal est un chat, alors il a quatre
+                        pattes.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Un animal est un chat s’il a quatre pattes.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 2 :</strong> Quelle phrase illustre une implication correcte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q2"><label> Si je suis mouillé, alors il pleut.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q2" class="correct"><label> S’il pleut, alors je suis mouillé.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 3 :</strong> Quelle phrase est une implication vraie dans tous les cas ? On suppose que
+                la fumée provient toujours d'un feu (il n'y a pas de fumée sans feu), mais que des feux peuvent ne pas
+                produire de fumée, comme un gazinière.</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q3" class="correct"><label> S’il y a de la fumée, alors il y a du
+                        feu.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q3"><label> Il y a du feu s’il y a de la fumée.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 4 :</strong> Quelle phrase illustre une implication fausse ? On suppose que toutes les
+                ferrai sont rouges.</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q4"><label> Si une voiture est une Ferrari, alors elle est rouge.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q4" class="correct"><label> Si une voiture est rouge, alors c’est une
+                        Ferrari.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 5 :</strong> Quelle phrase exprime correctement une implication ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q5"><label> Si je suis heureux, alors j’ai mangé du chocolat.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q5" class="correct"><label> Si je mange du chocolat, alors je suis
+                        heureux.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 6 :</strong> La voiture en panne. Quelle phrase est une implication correcte ? </p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q6" class="correct"><label> Si je pars trop tard, je suis en retard à
+                        l'école.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q6"><label> Si je suis en retard à l'école c'est que je suis parti trop
+                        tard.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 7 :</strong> Quelle phrase est une implication vraie ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q7"><label> Si une boisson est chaude, alors c’est du café.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q7" class="correct"><label> Si c’est du café, alors la boisson est
+                        chaude.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 8 :</strong> Quelle phrase représente une implication incorrecte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q8" class="correct"><label> Si je suis mouillé, alors il a plu.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q8"><label> S’il a plu, alors je suis mouillé.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 9 :</strong> Quelle phrase est une implication logique ? (dans la forme de la
+                formulation)</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q9"><label> Une plante est verte si elle est vivante.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q9" class="correct"><label> Si une plante est verte, alors elle est
+                        vivante.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 10 :</strong> Quelle implication est toujours vraie ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q10" class="correct"><label> Si un nombre est divisible par 4, alors il
+                        est pair.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q10"><label> Si un nombre est pair, alors il est divisible par 4.</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions 11 à 20 similaires -->
+        <div class="question">
+            <p><strong>Question 11 :</strong> Quelle phrase illustre une mauvaise implication ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q11" class="correct"><label> Si un fruit est jaune, alors c’est une
+                        banane.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q11"><label> Si une banane est mûre, alors elle est jaune.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 12 :</strong> Laquelle de ces phrases est une implication correcte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q12"><label> Je suis en forme le matin si je dors bien.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q12" class="correct"><label> Si je dors bien, alors je suis en forme le
+                        matin.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 13 :</strong> L'ampoule grillée. Quelle est l'implication correcte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q13" class="correct"><label> Si l’ampoule éclaire, alors on en déduit que
+                        le courant
+                        passe.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q13"><label> Si l’ampoule n'éclaire pas, alors on en déduit qu'il y a une
+                        coupure de courant.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 14 :</strong> Ce n'est pas toujours la faute de Paul. Quelle phrase est une implication
+                vraie ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q14" class="correct"><label> Si Paul pète, alors ça pue.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q14"><label> Si ça pue alors Paul à pété.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 15 :</strong> Quelle phrase illustre une implication incorrecte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q15"><label> Si je suis en retard, alors mon réveil n’a pas sonné.</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q15" class="correct"><label> Si mon réveil n’a pas sonné, alors je suis en
+                        retard.</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partie 2 : Notation formelle -->
+        <h3>Partie 2 – Implication en notation formelle</h3>
+
+        <div class="question">
+            <p><strong>Question 21 :</strong> Laquelle de ces implications est toujours vraie ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q21"><label> \( x &gt; 3 \Rightarrow x &lt; 2 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q21" class="correct"><label> \( x &gt; 3 \Rightarrow x &gt; 2 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 22 :</strong> Quelle implication est correcte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q22"><label> \( x = 5 \Rightarrow x^2 = 10 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q22" class="correct"><label> \( x = 5 \Rightarrow x^2 = 25 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suite logique des questions jusqu'à la 40 -->
+        <div class="question">
+            <p><strong>Question 23 :</strong> Quelle implication est fausse ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q23"><label> \( x = 2 \Rightarrow x^2 = 4 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q23" class="correct"><label> \( x^2 = 4 \Rightarrow x = 2 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 24 :</strong> Laquelle est une implication incorrecte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q24" class="correct"><label> \( x^2 &ge; 0 \Rightarrow x &ge; 0 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q24"><label> \( x &lt; 0 \Rightarrow x^2 &gt; 0 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 25 :</strong> Laquelle des implications suivantes est correcte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q25"><label> \( x &gt; 0 \Rightarrow x^2 &lt; 0 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q25" class="correct"><label> \( x &lt; 0 \Rightarrow x^2 &gt; 0 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 26 :</strong> Quelle implication est toujours vraie pour tout entier \( n \) ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q26"><label> \( n \) impair \( \Rightarrow n^2 \) pair</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q26" class="correct"><label> \( n \) pair \( \Rightarrow n^2 \)
+                        pair</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 27 :</strong> Quelle implication est fausse ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q27" class="correct"><label> \( x^2 &gt; 1 \Rightarrow x &gt; 1 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q27"><label> \( x &gt; 1 \Rightarrow x^2 &gt; 1 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 28 :</strong> Laquelle est une implication correcte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q28"><label> \( x = -1 \Rightarrow x^2 = -1 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q28" class="correct"><label> \( x = -1 \Rightarrow x^2 = 1 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 29 :</strong> Quelle implication est correcte pour tout réel \( x \) ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q29" class="correct"><label> \( x = 0 \Rightarrow x^2 = 0 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q29"><label> \( x^2 = 0 \Rightarrow x = 1 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 30 :</strong> Quelle implication est fausse ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q30"><label> \( x^2 = 4 \Rightarrow x = 2 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q30" class="correct"><label> \( x = 2 \Rightarrow x^2 = -4 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 31 :</strong> Laquelle est toujours vraie ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q31" class="correct"><label> \( a &gt; b \Rightarrow a + c &gt; b + c
+                        \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q31"><label> \( a \times c &gt; b \times c \Rightarrow a &gt; b \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 32 :</strong> Quelle implication est correcte pour tous réels \( x \) ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q32"><label> \( x &lt; 0 \Rightarrow \sqrt{x} \in \mathbb{R} \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q32" class="correct"><label> \( x \geq 0 \Rightarrow \sqrt{x} \in
+                        \mathbb{R} \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 33 :</strong> Laquelle des implications suivantes est correcte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q33" class="correct"><label> \( a = b \Rightarrow a \times c = b \times c
+                        \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q33"><label> \( a \times c = b \times c \Rightarrow a = b \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 34 :</strong> Quelle implication est fausse ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q34"><label> \( x = 0 \Rightarrow x^2 = 0 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q34" class="correct"><label> \( x^2 = 1 \Rightarrow x = 1 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 35 :</strong> Quelle implication est valide pour tous réels \( x \) ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q35"><label> \( x &gt; 0 \Rightarrow x^3 &lt; 0 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q35" class="correct"><label> \( x &lt; 0 \Rightarrow x^3 &lt; 0 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 36 :</strong> Quelle est une bonne utilisation de l’implication ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q36"><label> \( x &lt; -1 \Rightarrow x^2 &lt; 1 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q36" class="correct"><label> \( x &gt; 1 \Rightarrow x^2 &gt; 1 \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 37 :</strong> Quelle implication est toujours vraie ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q37"><label> \( a &gt; b \Rightarrow a - c &lt; b - c \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q37" class="correct"><label> \( a &gt; b \Rightarrow a - c &gt; b - c
+                        \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 38 :</strong> Quelle implication est vraie ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q38"><label> \( x &lt; -1 \Rightarrow x^2 &lt; 1 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q38" class="correct"><label> \( -1 &lt; x &lt; 0 \Rightarrow x^2 &lt; 1>
+                        \)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 39 :</strong> Quelle implication est vraie pour tous entiers \( n \) ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q39"><label> \( n \) impair \( \Rightarrow n^2 \) pair</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q39" class="correct"><label> \( n \) impair \( \Rightarrow n^2 \)
+                        impair</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 40 :</strong> Quelle implication est juste ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q40"><label> \( x &gt; 0 \Rightarrow \frac{1}{x} &lt; 0 \)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q40" class="correct"><label> \( x &gt; 0 \Rightarrow \frac{1}{x} &gt; 0
+                        \)</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>

@@ -1,4 +1,4 @@
-/* Styles communs */
+/* layout global et responsive */
 :root {
     --mobile-menu-height: 2rem;
     --mobile-menu-padding: 1rem;
@@ -14,7 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Styles PC */
 #menu-container {
     width: var(--PC-menu-width);
     position: fixed;
@@ -28,9 +27,26 @@ body {
     flex-direction: column;
 }
 
+#menu-bar {
+    display: none;
+}
+
+.content {
+    margin-left: calc(var(--PC-menu-width) + 2 * var(--PC-menu-padding));
+    padding: 1rem;
+    max-width: 50rem;
+    background-color: #f5f5f5;
+}
+
+/* menu */
 #menu-container ul {
     list-style: none;
     padding: 0;
+}
+
+#menu-container ul ul {
+    margin-left: 1.5rem;
+    /* ou padding-left */
 }
 
 #menu-container li {
@@ -46,16 +62,7 @@ body {
     text-decoration: underline;
 }
 
-#menu-bar {
-    display: none;
-}
-
-.content {
-    margin-left: calc(var(--PC-menu-width) + 2 * var(--PC-menu-padding));
-    padding: 1rem;
-    max-width: 50rem;
-    background-color: #f5f5f5;
-}
+/* textes */
 
 .theoreme,
 .exemple,
@@ -74,6 +81,12 @@ body {
     break-inside: avoid;
 }
 
+.math-container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* exercices */
 .question {
     background: #ffffff;
     padding: 0.5rem;
@@ -88,7 +101,6 @@ body {
     margin-top: 10px;
 }
 
-/* Options en ligne uniquement pour les questions avec .inline-options */
 .inline-options {
     display: flex;
     justify-content: center;
@@ -103,69 +115,52 @@ body {
     margin-bottom: 0;
 }
 
-/* Style de base pour les labels */
 .options label {
     font-size: 16px;
     color: #333;
     cursor: pointer;
     margin-left: 8px;
-    /* Un petit espace entre l'input et le texte */
     line-height: 1.5;
-    /* Assurez-vous que le texte du label est bien centré verticalement */
 }
 
-/* Assurez-vous que chaque option-pair est alignée sur la même ligne */
 .option-pair {
     display: flex;
-    /* Permet aux éléments d'être sur la même ligne */
     align-items: center;
-    /* Aligne verticalement l'input et le label */
     margin-bottom: 8px;
-    /* Espacement entre chaque paire d'éléments */
 }
 
-/* Style pour les inputs */
 .options input {
     margin: 0;
-    /* Supprimer les marges par défaut des inputs */
     padding: 0;
-    /* Supprimer les padding par défaut des inputs */
     vertical-align: middle;
-    /* Assurez-vous que l'input est aligné verticalement au centre */
 }
 
-/* Style pour l'input et son label lorsqu'il est coché */
 .options input:checked+label {
     background-color: #f8d7da;
     color: #721c24;
     font-weight: bold;
     vertical-align: middle;
-    /* Assurez-vous que l'input est aligné verticalement au centre */
 }
 
-/* Style pour les labels associés aux inputs "incorrects" */
 .options input.incorrect:checked+label {
     background-color: #f8d7da;
     color: #721c24;
     font-weight: bold;
     vertical-align: middle;
-    /* Assurez-vous que l'input est aligné verticalement au centre */
 }
 
-/* Style pour les labels associés aux inputs "corrects" */
 .options input.correct:checked+label {
     background-color: #d4edda;
     color: #155724;
     font-weight: bold;
     vertical-align: middle;
-    /* Assurez-vous que l'input est aligné verticalement au centre */
 }
 
-/* Style au survol des labels */
 .options label:hover {
     background-color: #f1f1f1;
 }
 
+/* plots */
 .plots-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -193,40 +188,24 @@ body {
     height: 200px;
 }
 
-/* Ce style est-il nécxessaire ? Il n'est utilsé que dans le chapitre fonction */
 .graph {
     width: 100%;
     max-width: 800px;
     margin: 1rem auto;
 }
 
-/* idem nécessaire ? */
+/* svg */
 .svg-container {
     width: 50%;
-    /* La largeur sera de 50% de l'élément parent */
     aspect-ratio: 1;
-    /* Cela garantit que la hauteur est égale à la largeur, donc carré */
     margin: auto;
-    /* Centre le div dans la page */
     background: #f9f9f9;
 }
 
-/* idem nécessaire ? */
-/* SVG à l'intérieur */
 .svg-container svg {
     width: 100%;
-    /* Prend toute la largeur du conteneur */
     height: 100%;
-    /* Prend toute la hauteur du conteneur */
     display: block;
-    /* Pour éviter les marges internes */
-}
-
-.math-container {
-    max-width: 100%;
-    /* Empêche le débordement */
-    overflow-x: auto;
-    /* Permet un défilement horizontal si nécessaire */
 }
 
 /* Style pour mobile */
