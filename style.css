@@ -222,6 +222,13 @@ body {
     /* Pour éviter les marges internes */
 }
 
+.math-container {
+    max-width: 100%;
+    /* Empêche le débordement */
+    overflow-x: auto;
+    /* Permet un défilement horizontal si nécessaire */
+}
+
 /* Style pour mobile */
 @media (max-width: 48rem) {
 

@@ -7,6 +7,24 @@
     <title>Théorème Fondamental de l'Analyse</title>
 
     <!-- Charger MathJax pour les formules mathématiques -->
+    <script>
+        window.MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                inlineMath: [['\\(', '\\)']],
+                packages: ['base', 'ams']
+            },
+            chtml: {
+                linebreaks: { automatic: true },
+                displayAlign: 'center' // ou 'center' si tu préfères
+            },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Charger Plotly pour le graphique -->
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
