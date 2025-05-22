@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <!-- Charger MathJax pour les formules mathématiques -->
+    <script>
+        window.MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                inlineMath: [['\\(', '\\)']],
+                packages: ['base', 'ams']
+            },
+            chtml: {
+                linebreaks: { automatic: true },
+                displayAlign: 'center' // ou 'center' si tu préfères
+            },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Charger Plotly pour le graphique -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+        <h1>L'égalité</h1>
+        Nous avons manipulé jusqu'à maintenant le symbole \( = \) sans vraiment le définir. Il est temps de le faire.
+        <p>On définit l'égalité entre deux objets mathématiques. L'égalité est une relation binaire qui associe
+            deux objets mathématiques. On dit que deux objets \( a \) et \( b \) sont égaux si et seulement si ce sont
+            les mêmes éléments d'un ensemble.</p>
+
+        <div class="exemple">
+            <p><strong>Exemple 1</strong> : Si \( a = b \) a et b sont les même éléments d'un ensemble.</p>
+        </div>
+
+        <p>
+            Ces élements peuvent être des entiers, des rationnels, des fonctions, des propositions ... Rappelez-vous
+            bien de
+            ce concept, deux objets sont dits égaux si ce sont les mêmes éléments d'un ensemble. Il ne faut pas
+            confondre
+            égalité et équivalence.
+        </p>
+
+        <div class="propriete">
+            <strong>Réflexivité [REFEG]</strong> : L'égalité est réflexive.
+            \[
+            \forall a \in E, \; a = a
+            \]
+        </div>
+
+        <div class="propriete">
+            <strong>Symétrie [SYMEG]</strong> : L'égalité est symétrique.
+            \[
+            \forall a, b \in E, \; (a = b \implies b = a)
+            \]
+        </div>
+
+        <div class="propriete">
+            <strong>Transitivité [SYMEG]</strong> : L'égalité est transitive. \[
+            \forall a, b, c \in E, \; \left( a = b \land b = c \implies a = c \right)
+            \]
+        </div>
+
+        <div class="propriete">
+            <strong>Substitution [SUBEG]</strong> : Si \( a = b \), alors on peut remplacer \( a \) par \( b \) dans
+            toute expression mathématique.
+        </div>
+
+        <div class="exemple">
+            <strong>Exemple</strong> : si les propositions suivantes sont vraies:
+            \[ (1) \ a = b \]
+            \[ (2) \ c = a + d\]
+
+            on peut substituer b à a et la proposition (2) devient la proposition (3) qui est elle-même vraie.
+            \[ (3) \ c = b + d \]
+        </div>
+
+        La substitution est une propriété très importante, car elle nous permet de manipuler les égalités et de
+        simplifier les expressions mathématiques. Elle est souvent utilisée dans les démonstrations et les calculs
+        algébriques.
+
+        <h1>Opérateurs sur les ensembles \( \mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R} \)</h1>
+
+        <h2>Opérateur \( + \) : Addition</h2>
+        <p>
+            L'addition \( + \) est un opérateur qui associe à deux éléments d'un ensemble un élément du même ensemble.
+            Par exemple :
+        </p>
+        <ul>
+            <li>Si \( a, b \in \mathbb{N} \), alors \( a + b \in \mathbb{N} \).</li>
+            <li>Si \( a, b \in \mathbb{Z} \), alors \( a + b \in \mathbb{Z} \).</li>
+            <li>Si \( a, b \in \mathbb{Q} \), alors \( a + b \in \mathbb{Q} \).</li>
+            <li>Si \( a, b \in \mathbb{R} \), alors \( a + b \in \mathbb{R} \).</li>
+        </ul>
+
+        <h3>Propriétés de l'addition</h3>
+        <div class="definition">
+            <p><strong>Définition de l'élément neutre pour l'addition : </strong></p>
+            <p>
+                On dit qu'il existe un élément neutre pour l'addition sur un ensemble \(E\) si il existe un élément \(0
+                \in E\) qui vérifie la propriété
+                suivante :
+                \[
+                \forall a \in E,
+                a + 0 = a \quad \text{et} \quad 0 + a = a
+                \]
+            </p>
+        </div>
+
+        <div class="propriete">
+            <strong>Propriété [ELT0] : </strong>Il existe un élément neutre pour l'addition pour tous les ensembles \(
+            \mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R} \).
+        </div>
+
+        <div class="definition">
+            <p><strong>Definition de la commutativité : </strong>
+                On dit qu'une opération \(op\) est commutative si pour tous les éléments \( a \) et \( b \) d'un
+                ensemble \( E \), on a :
+                \[
+                a op b = b op a
+                \]
+            </p>
+        </div>
+        <div class="propriete">
+            <strong>Propriété [COM+] : </strong>L'addition est commutative pour tous les ensembles \( \mathbb{N},
+            \mathbb{Z}, \mathbb{Q}, \mathbb{R} \).
+        </div>
+
+        <h2>Opérateur \( \times \) : Multiplication</h2>
+        <p>
+            La multiplication \( \times \) est un autre opérateur qui est aussi défini sur les ensembles \( \mathbb{N},
+            \mathbb{Z}, \mathbb{Q}, \mathbb{R} \). Par exemple :
+        </p>
+        <ul>
+            <li>Si \( a, b \in \mathbb{N} \), alors \( a \times b \in \mathbb{N} \).</li>
+            <li>Si \( a, b \in \mathbb{Z} \), alors \( a \times b \in \mathbb{Z} \).</li>
+            <li>Si \( a, b \in \mathbb{Q} \), alors \( a \times b \in \mathbb{Q} \).</li>
+            <li>Si \( a, b \in \mathbb{R} \), alors \( a \times b \in \mathbb{R} \).</li>
+        </ul>
+
+        <h3>Propriétés de la multiplication</h3>
+        <div class="definition">
+            <p><strong>Définition de l'élément neutre pour la multiplication: </strong></p>
+            <p>
+                On dit qu'il existe un élément neutre pour la multiplication sur un ensemble \(E\) si il existe un
+                élément \(1 |in E\) qui vérifie la
+                propriété suivante :
+                \[
+                \forall a \in E,
+                a \times 1 = a \quad \text{et} \quad 1 \times a = a
+                \]
+            </p>
+        </div>
+
+        <div class="propriete">
+            <strong>Propriété [ELT1] : </strong>Il existe un élément neutre pour la multiplication pour tous ensembles
+            \( \mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R} \).
+        </div>
+
+        <div class="propriete">
+            <strong>Propriété [COMx] : </strong>La multiplication est comutative pour tous les ensembles \( \mathbb{N},
+            \mathbb{Z}, \mathbb{Q}, \mathbb{R} \).
+        </div>
+
+        <div class="propriete">
+            <p><strong>Propriété de la distributivité [DIST+x]: </strong>
+                La multiplication est distributive par rapport à l'addition. Pour tous les éléments \( a, b, c \) d'un
+                ensemble \( E \in \{ \mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R} \} \), on a :
+                \[
+                a \times (b + c) = a \times b + a \times c
+                \]
+            </p>
+        </div>
+
+        <h2>L'Opposé et la Soustraction</h2>
+        <div class="definition">
+            <p>
+                L'opposé d'un nombre \( a \) est l'élément \( -a \) qui, lorsqu'on l'additionne à \( a \), donne
+                l'élément
+                neutre 0 :
+                \[
+                a + (-a) = 0
+                \]
+            </p>
+        </div>
+
+        <div class="propriete">
+            <p><strong>Propriété de l'opposé' [OPP]: </strong>
+                Il existe un opposé pour tout a pour l'addition sur les ensembles \( \mathbb{Z}, \mathbb{Q},
+                \mathbb{R} \).
+            </p>
+        </div>
+
+        <div class="remarque">
+            <p>
+                L'opposé existe dans les ensembles \( \mathbb{Z}, \mathbb{Q}, \mathbb{R} \), mais pas dans \( \mathbb{N}
+                \),
+                car il n'existe pas d'élément \( -a \in \mathbb{N} \) pour \( a \neq 0 \).
+            </p>
+        </div>
+
+        <h3>Soustraction</h3>
+        <div class="definition">
+            <p>
+                La soustraction peut être définie comme l'addition de l'opposé. Par exemple, pour \( a, b \in
+                \mathbb{Z}, \mathbb{Q}, \mathbb{R} \), on peut définir :
+                \[
+                a - b = a + (-b)
+                \]
+            </p>
+        </div>
+
+        <div class="remarque">
+            <p>
+                La soustraction n'est pas définie sur \( \mathbb{N} \).
+            </p>
+        </div>
+
+        <h2>L'Inverse et la Division</h2>
+        <div class="definition">
+            <p><strong>Définition de l'inverse : </strong>
+                L'inverse d'un nombre \( a \) est l'élément noté \( \frac{1}{a} \) tel que :
+                \[
+                a \times \frac{1}{a} = 1
+                \]
+            </p>
+        </div>
+        <div class="propriete">
+            <p><strong>Propriété de l'inverse [INV]: </strong>
+                L'inverse existe dans \( \mathbb{Q} \) et \( \mathbb{R} \), mais pas dans \( \mathbb{N} \) et \(
+                \mathbb{Z} \).
+            </p>
+        </div>
+
+        <h3>Division</h3>
+        <div class="definition">
+            <p><strong>Définition de la division : </strong>
+                La division peut être définie comme la multiplication par l'inverse. Par exemple, pour \( a, b \in
+                \mathbb{Q}, \mathbb{R} \), on peut écrire :
+                \[
+                a \div b = a \times \frac{1}{b}
+                \]
+
+                La division n'est pas définie pour \( b = 0 \), on ne peut pas diviser par zéro.
+            </p>
+            <p>
+                La division est définie dans \( \mathbb{Q} \) et \( \mathbb{R} \), mais pas dans \( \mathbb{N} \) et \(
+                \mathbb{Z} \).
+            </p>
+            <p>
+                La division n'est pas définie dans \( \mathbb{N} \) et \( \mathbb{Z} \).
+            </p>
+        </div>
+    </div>
+</body>

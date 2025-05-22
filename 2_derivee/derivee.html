@@ -4,19 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Théorème Fondamental de l'Analyse</title>
+    <title>Fonctions dérivées</title>
 
     <!-- Charger MathJax pour les formules mathématiques -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Charger Plotly pour le graphique -->
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
     <link rel="stylesheet" href="../style.css">
-</head>
-
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
 <body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
     <div class="content">
         <div class="chapter-title">
-            <h2>2. Définition de la dérivée</h2>
+            <h2>Introduction aux fonctions dérivées</h2>
+        </div>
+
+<p>
+La dérivée d'une fonction mesure comment une grandeur varie localement. Elle représente le taux de variation instantané ou la pente de la tangente en un point. Les fonctions dérivées sont essentielles en mathématiques pour modéliser des phénomènes changeants, comme le mouvement, la croissance ou les variations économiques.
+</p>
+
+        <div class="chapter-title">
+            <h3>Exemple de variation 1</h3>
+        </div>
+
+
+<p>
+Le graphique ci-dessous représente la position d'un point sur une droite. L'axe des abscisses représente le temps en secondes, l'axe des ordonnées la distance à l'origine de la droite en mètres.On y lit par exemple que le point se trouve à 0 mètres de l'origine au temps 0. Il se trouve à 4,5m  de l'origine au temps 1,5s.
+</p>
+
+        <div class="graph" id="graph"></div>
+
+        <script src="./vitesse_moyenne_1.js"></script>
+
+
+<p>
+On rappelle que la formule pour calculer la vitesse moyenne d'un point qui a parcouru une distance \(d\) en mètres en un temps \(t\) en secondes on utilise la formule: 
+
+\[ v = \frac{d}{t} \]
+
+Pour calculer la vitesse moyenne d'un point sur un intervalle de temps \([t_1, t_2]\) de notre point on utilise donc la formule
+
+\[ v = \frac{f(t_2) - f(t_1)}{t_2 - t_1} \]
+
+</p>
+
+<p>
+Calculer la vitesse moyenne du point entre le temps 0s et le temps 1s.
+</p>
+
+<p>
+Calculer la vitesse moyenne du point entre le temps 1s et le temps 1,5s.
+</p>
+
+<p>
+En déduire la pente de la droite.
+</p>
+
+<p>
+On comprend que la variation de la distance est représentée par la pente de cette droite.
+</p>
+
+        <div class="chapter-title">
+            <h3>Exemple de variation 2</h3>
+        </div>
+
+        <div class="graph" id="graph2"></div>
+
+        <script src="./vitesse_moyenne_2.js"></script>
+
+<p>
+Calculer la vitesse du point sur l'intervalle \( [0, 2] \).
+</p>
+
+<p>
+Calculer la vitesse du point sur l'intervalle \( [3, 4] \).
+</p>
+
+<p>
+Calculer la vitesse du point sur l'intervalle \( [5, 8] \).
+</p>
+
+        <div class="chapter-title">
+            <h2>Définition de la dérivée</h2>
         </div>
         <p>La dérivée d'une fonction en un point est le taux de variation de cette fonction...
         </p>

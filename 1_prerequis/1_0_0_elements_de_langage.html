@@ -39,7 +39,6 @@
     <div id="menu-bar" class="menu-bar">
         <button id="menu-toggle" class="menu-toggle">☰</button>
     </div>
-
     <div class="content">
         <h2>Introduction aux fondements des mathématiques</h2>
         <p>
@@ -72,10 +71,8 @@
             variable.
         </p>
 
-        <ul>
-            <li><strong>Propriété</strong> : Une phrase mathématique qui dépend d'une variable, souvent notée \( P(x)
-                \).</li>
-        </ul>
+        <div class="definition"><strong>Propriété</strong> : Une phrase mathématique qui dépend d'une variable, souvent
+            notée \( P(x) \).</div>
 
         <div class="exemple">Exemple 1 : \( P(x) \) : « \( x \) est pair »</div>
         <div class="exemple">Exemple 2 : \( P(x) \) : « \( x^2 \geq 0 \) »</div>
@@ -83,49 +80,78 @@
 
         <h3>Les quantificateurs logiques</h3>
         <p>Trois quantificateurs fondamentaux sont souvent utilisés :</p>
-        <ul>
-            <li><strong>« Il existe »</strong> (noté \( \exists \)) : signifie qu'au moins un élément vérifie une
-                propriété.</li>
-        </ul>
 
+        <div class="definition"><strong>« Il existe »</strong> (noté \( \exists \)) : signifie qu'au moins un élément
+            vérifie une propriété.</div>
         <div class="exemple">Exemple 1 : \( \exists x \in \mathbb{N} \) tel que \( x \) est pair.</div>
         <div class="exemple">Exemple 2 : \( \exists x \in \mathbb{Z} \) tel que \( x^2 = 4 \).</div>
         <div class="exemple">Exemple 3 : \( \exists n \in \mathbb{N} \) tel que \( 2^n = 16 \).</div>
 
-        <ul>
-            <li><strong>« Quel que soit »</strong> (noté \( \forall \)) : signifie que tous les éléments d'un ensemble
-                vérifient une propriété.</li>
-        </ul>
-
+        <div class="definition"><strong>« Quel que soit »</strong> (noté \( \forall \)) : signifie que tous les éléments
+            d'un ensemble vérifient une propriété.</div>
         <div class="exemple">Exemple 1 : \( \forall x \in \mathbb{R},\ x^2 \geq 0 \).</div>
-        <div class="exemple">Exemple 2 : \( \forall n \in \mathbb{N},\ n + 1 > n \).</div>
+        <div class="exemple">Exemple 2 : \( \forall n \in \mathbb{N},\ n + 1 &gt; n \).</div>
         <div class="exemple">Exemple 3 : \( \forall x \in \mathbb{R},\ \cos^2(x) + \sin^2(x) = 1 \).</div>
 
-        <ul>
-            <li><strong>« Il existe un unique »</strong> (noté \( \exists! \)) : signifie qu’un seul et unique élément
-                vérifie la propriété.</li>
-        </ul>
-
+        <div class="definition"><strong>« Il existe un unique »</strong> (noté \( \exists! \)) : signifie qu’un seul et
+            unique élément vérifie la propriété.</div>
         <div class="exemple">Exemple 1 : \( \exists! x \in \mathbb{R} \) tel que \( x + 2 = 5 \).</div>
         <div class="exemple">Exemple 2 : \( \exists! n \in \mathbb{N} \) tel que \( n(n-1) = 6 \).</div>
         <div class="exemple">Exemple 3 : \( \exists! x \in \mathbb{R} \) tel que \( x^2 = 0 \).</div>
 
         <h3>Les opérateurs logiques</h3>
-        <ul>
-            <li><strong>« Non »</strong> (noté \( \neg \)) : indique que l’on nie (ou inverse) la vérité d’une propriété
-                ou d’un énoncé.</li>
-        </ul>
 
-        <div class="exemple">Exemple 1 : \( \neg (x > 0) \) signifie « \( x \) n’est pas strictement positif », soit \(
-            x \leq 0 \).</div>
+        <div class="definition"><strong>« Non »</strong> (noté \( \neg \)) : indique que l’on nie (ou inverse) la vérité
+            d’une propriété ou d’un énoncé.</div>
+        <div class="exemple">Exemple 1 : \( \neg (x &gt; 0) \) signifie « \( x \) n’est pas strictement positif », soit
+            \( x \leq 0 \).</div>
         <div class="exemple">Exemple 2 : \( \neg (x \in \mathbb{N}) \) signifie « \( x \) n’est pas un entier naturel ».
         </div>
         <div class="exemple">Exemple 3 : \( \neg (x^2 \geq 0) \) est toujours faux, car \( x^2 \geq 0 \) est toujours
             vrai pour \( x \in \mathbb{R} \).</div>
 
+        <div class="definition"><strong>« Et »</strong> (noté \( \land \)) : indique que deux propriétés doivent être
+            toutes les deux vraies.</div>
+        <div class="exemple">Exemple 1 : \( (x &gt; 0) \land (x &lt; 5) \) signifie « \( x \) est strictement positif et
+            \( x \) est inférieur à 5 ».</div>
+        <div class="exemple">Exemple 2 : \( (n \in \mathbb{N}) \land (n \text{ est pair}) \) signifie « \( n \) est un
+            entier naturel et \( n \) est pair ».</div>
+        <div class="exemple">Exemple 3 : \( (x \geq 0) \land (x^2 \geq 0) \) est toujours vrai, car \( x^2 \geq 0 \) est
+            toujours vrai pour \( x \in \mathbb{R} \).</div>
+
+        <div class="definition"><strong>« Ou »</strong> (noté \( \lor \)) : indique que l'une des deux propriétés doit
+            être vraie.</div>
+        <div class="exemple">Exemple 1 : \( (x &gt; 0) \lor (x = 0) \) signifie « \( x \) est strictement positif ou \(
+            x \) est nul ».</div>
+        <div class="exemple">Exemple 2 : \( (n \in \mathbb{N}) \lor (n \in \mathbb{Z}^*) \) signifie « \( n \) est un
+            entier naturel ou un entier relatif non nul ».</div>
+        <div class="exemple">Exemple 3 : \( (x &gt; 0) \lor (x &lt; 0) \) signifie « \( x \) est strictement positif ou
+            \( x \) est strictement négatif » (mais pas 0).</div>
 
 
+        <h3>Proposition</h3>
+
+        <p>
+            En mathématiques, une <strong>proposition</strong> est une affirmation qui peut être vraie ou fausse.
+            Toutefois, par convention, lorsque l'on énonce une proposition dans un cours ou un texte mathématique, cela
+            signifie implicitement que cette proposition est <strong>vraie</strong>.
+        </p>
+
+        <div class="exemple">
+            <p><strong>Exemple de proposition (réflexivité de l'égalité) que l'on nomme Q :</strong></p>
+            <p>
+                Pour tout élément \( a \) d’un ensemble \( E \), on a :
+            </p>
+            <p>
+                \[ (Q)
+                \forall a \in E, \; a = a
+                \]
+            </p>
+        </div>
+
+        <div class="exemple">
+            <p><strong>Exemple de proposition que l'on numérote (2):</strong></p>
+            \[ (2) x = 4 + c]
+        </div>
     </div>
-
-
 </body>
