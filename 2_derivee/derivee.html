@@ -79,21 +79,279 @@ On comprend que la variation de la distance est représentée par la pente de ce
         <script src="./vitesse_moyenne_2.js"></script>
 
 <p>
-Calculer la vitesse du point sur l'intervalle \( [0, 2] \).
+Calculer la vitesse du point sur l'intervalle \( [1.5, 2] \).
 </p>
 
 <p>
-Calculer la vitesse du point sur l'intervalle \( [3, 4] \).
+Calculer la vitesse du point sur l'intervalle \( [1.5, 1.6] \).
 </p>
 
 <p>
-Calculer la vitesse du point sur l'intervalle \( [5, 8] \).
+Calculer la vitesse du point sur l'intervalle \( [1.5, 1.5001] \).
 </p>
 
+<p>
+Calculer la vitesse du point sur l'intervalle \( [4, 5] \).
+</p>
+
+<p>
+Calculer la vitesse du point sur l'intervalle \( [4, 5.5] \).
+</p>
+
+<p>
+Calculer la vitesse du point sur l'intervalle \( [4, 5.01] \).
+</p>
+
+<p>
+Tu as compris que calculer la vitesse moyenne d'un point dans ce cas de figure, la position du point est une fonction linéaire du temps, est simple. On peut même deviner que la vitesse est constante et que la vitesse est la pente de la droite.
+</p>
+
+<p>
+Mais quand la fonction de la position du point en fonction du temps n'est pas une fonction affine, comment calculer sa vitesse ? Nous allons le voir dans l'exemple suivant.
+</p>
+        <div class="chapter-title">
+            <h3>Exemple de variation 3</h3>
+        </div>
+
+<p>
+Dans l'exemple suivant, la vitesse du point n'est pas constante, la distance du point à l'origine varie en fonction du carré du temps. C'est un phénomène que l'on rencontre en physique.
+</p>
+
+        <div class="graph" id="graph3"></div>
+
+        <script src="./vitesse_moyenne_3.js"></script>
+
+<p>
+Quelle peut bien être la vitesse du point quand \(t\) vaut 4 secondes ? Nous allons l'étudier ensemble.
+</p>
+
+<p>
+Jusqu'à maintenant nous avons utiliser la formule 
+\[ v = \frac{f(t_2) - f(t_1)}{t_2 - t_1} \]
+pour calculer la vitesse moyenne sur un intervalle de temps.
+</p>
+
+<p>
+Nous allons utiliser un formule légèrement différente. Plutôt que de définir l'intervalle sur lequel nous souhaitons calculer la vitesse moyenne par \( [t_1, t_2] \), nous allons le définir comme ceci : \( [t_1, t_1 + dt] \). Nous définissons l'intervalle par son temps de début \(t1\) et par sa durée \(dt\), et donc l'intervalle se termine en \(t1 + dt\).
+</p>
+
+<p>
+ En remplaçant \(t_2\) par \(t_1 + dt\), la formule pour calculer la vitesse moyenne du point sur un intervalle devient:
+\[ v = \frac{f(t_1 + dt) - f(t_1)}{t_1 + dt - t_1} \]
+En simplifiant elle devient
+\[ v = \frac{f(t_1 + dt) - f(t_1)}{dt} \]
+</p>
+
+<p>
+Calculer la vitesse du point sur l'intervalle \( [4, 10] \) (\(dt\) vaut 6).
+</p>
+
+<p>
+Calculer la vitesse du point sur l'intervalle \( [4, 8] \) (\(dt\) vaut 4).
+</p>
+
+<p>
+Calculer la vitesse du point sur l'intervalle \( [4, 6] \).
+</p>
+
+<p>
+Nous voyons qu'en fonction de la longueur de l'intervalle choisi, la vitesse moyenne varie. Nous ne pouvons donc pas en déduire la vitesse instantannée du point au temps 4 secondes à partir d'une vitesse moyenne.
+</p>
+
+<p>
+Mais nous pouvons nous poser la quiestion de la variation de cette vitesse moyenne quand \(dt\) devient tout petit. Que devient cette vitesse moyenne quand \(dt\) tend vers 0 ? Existe-t-il une limite ? Voyons si cette limite existe : 
+\[
+L = \lim_{dt \to 0} \frac{f(4 + dt) - f(4)}{dt}
+\]
+
+\[
+L = \lim_{dt \to 0} \frac{(4 + dt)^2 - (4)^2}{dt}
+\]
+
+\[
+L = \lim_{dt \to 0} \frac{4^2 + 2*4*dt + dt^2 - 4^2}{dt}
+\]
+
+\[
+L = \lim_{dt \to 0} \frac{8*dt + dt^2}{dt}
+\]
+
+\[
+L = \lim_{dt \to 0} 8 + dt
+\]
+
+\[
+L = \lim_{dt \to 0} 8
+\]
+
+\[
+L = 8
+\]
+
+La limite existe bien et vaut 8. Si nous calculons la vitesse moyenne sur un intervalle de plus en plus petit, nous arriverons à la limite \(L = 8\text{m/s}\). Si tu reprends la définition de la limite, tu verras que plus l'intervalle de temps utilisé est petit, plus la vitesse moyenne se rapproche de \(8\text{m/s}\). Nous pouvons en déduire qu'au temps 4s la vitesse \(v\) vaut \(8\text{m/s}\).
+</p>
+
+<p>
+Nous allons généraliser ce résultat et introduire la notion de fonction dérivée au chapitre suivant.
+</p>
         <div class="chapter-title">
             <h2>Définition de la dérivée</h2>
+						
         </div>
-        <p>La dérivée d'une fonction en un point est le taux de variation de cette fonction...
-        </p>
+				 <div class="definition">
+				    <p>Soit une fonction \( f \) définie sur un intervalle contenant le point \( a \). On dit que \( f \) est dérivable en \( a \) si les deux limites suivantes existent et sont égales :</p>
+
+    <p>
+        <strong>Dérivabilité à droite :</strong><br>
+        \[
+        L_+ = \lim_{h \to 0^+} \frac{f(a + h) - f(a)}{h}
+        \]
+    </p>
+
+    <p>
+        <strong>Dérivabilité à gauche :</strong><br>
+        \[
+        L_- = \lim_{h \to 0^-} \frac{f(a + h) - f(a)}{h}
+        \]
+    </p>
+
+    <p>
+        <strong>Condition de dérivabilité de  \( f \) en  \( a \):</strong><br>
+        \[
+        L_+ = L_- = L
+        \]
+    </p>
+
+    <p>Si ces deux dérivées latérales existent mais ne sont pas égales, alors la fonction n'est <em>pas dérivable</em> en \( a \).</p>
+
+    <p>Si ces deux dérivées latérales existent et sont égales, alors la fonction est <em>dérivable</em> en \( a \) et sa dérivée en a vaut \( L \).</p>
+
+</div>
+
+<div class="definition">
+    <p><strong>Dérivabilité sur un intervalle :</strong></p>
+    <p>Une fonction \( f \) est dite dérivable sur un intervalle \( I \) si elle est dérivable en tout point \( x \in I \).</p>
+</div>
+
+<div class="definition">
+    <p><strong>Fonction dérivée :</strong></p>
+    <p>Si une fonction \( f \) est dérivable sur un intervalle \( I \) alors on appelle fonction dérivée de \(f\) la fonction \(f'\) définie comme ceci :
+		            \[
+            \begin{aligned}
+            f' : I &\to \mathbb{R} \\
+            x &\mapsto \lim_{dx \to 0} \frac{f(x + dx) - f(x)}{dx}
+            \end{aligned}
+            \]
+		</p>
+</div>
+
+
+        <div class="chapter-title">
+            <h2>Dérivées communes : </h2>
+        </div>
+
+<div class="propriete">
+    <p><strong>Constante :</strong></p>
+    \[
+    \text{Si } f(x) = c, \text{ alors } f'(x) = 0
+    \]
+</div>
+
+<div class="propriete">
+    <p><strong>Identité :</strong></p>
+    \[
+    \text{Si } f(x) = x, \text{ alors } f'(x) = 1
+    \]
+</div>
+
+<div class="propriete">
+    <p><strong>Puissance :</strong></p>
+    \[
+    \text{Si } f(x) = x^n \text{ avec } n \in \mathbb{N}, \text{ alors } f'(x) = nx^{n-1}
+    \]
+</div>
+
+<div class="propriete">
+    <p><strong>Racine carrée :</strong></p>
+    \[
+    \text{Si } f(x) = \sqrt{x}, \text{ alors } f'(x) = \frac{1}{2\sqrt{x}}, \quad \text{pour } x > 0
+    \]
+</div>
+
+<div class="propriete">
+    <p><strong>Sinus :</strong></p>
+    \[
+    \text{Si } f(x) = \sin(x), \text{ alors } f'(x) = \cos(x)
+    \]
+</div>
+
+<div class="propriete">
+    <p><strong>Cosinus :</strong></p>
+    \[
+    \text{Si } f(x) = \cos(x), \text{ alors } f'(x) = -\sin(x)
+    \]
+</div>
+
+<div class="propriete">
+    <p><strong>Tangente :</strong></p>
+    \[
+    \text{Si } f(x) = \tan(x), \text{ alors } f'(x) = \frac{1}{\cos^2(x)}, \quad \text{pour } x \notin \left\{ \frac{\pi}{2} + k\pi \right\}
+    \]
+</div>
+
+<div class="propriete">
+    <p><strong>Inverse :</strong></p>
+    \[
+    \text{Si } f(x) = \frac{1}{x}, \text{ alors } f'(x) = -\frac{1}{x^2}, \quad \text{pour } x \ne 0
+    \]
+</div>
+
+
+        <div class="chapter-title">
+            <h2>Propriétés des dérivées</h2>
+        </div>
+
+<div class="propriete">
+    <p><strong>Scalaire :</strong></p>
+    \[
+    (a \cdot f)'(x) = a \cdot f'(x)
+    \]
+</div>
+
+<div class="propriete">
+    <p><strong>Addition :</strong></p>
+    \[
+    (f + g)'(x) = f'(x) + g'(x)
+    \]
+</div>
+
+<div class="propriete">
+    <p><strong>Multiplication :</strong></p>
+    \[
+    (f \cdot g)'(x) = f'(x)g(x) + f(x)g'(x)
+    \]
+</div>
+
+<div class="propriete">
+    <p><strong>Division :</strong></p>
+    \[
+    \left( \frac{f}{g} \right)'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}, \quad \text{si } g(x) \ne 0
+    \]
+</div>
+
+<div class="propriete">
+    <p><strong>Inverse :</strong></p>
+    \[
+    \left( \frac{1}{f} \right)'(x) = -\frac{f'(x)}{f(x)^2}, \quad \text{si } f(x) \ne 0
+    \]
+</div>
+
+<div class="propriete">
+    <p><strong>Composition (formule de la chaîne) :</strong></p>
+    \[
+    (f \circ g)'(x) = f'(g(x)) \cdot g'(x)
+    \]
+</div>
+
     </div>
 </body>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices de dérivées</title>
+		
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Charger Plotly pour le graphique -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+        <div class="chapter-title">
+            <h2>Exercices : Calcul de dérivées</h2>
+        </div>
+
+ 
+    <div class="question">
+        <p><strong>Question 1 :</strong> \( f(x) = 1cos(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q1" class="correct"><label> \( -1sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q1"><label> \( 1sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q1"><label> \( 5cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q1"><label> \( 4cos(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 2 :</strong> \( f(x) = 5cos(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q2"><label> \( 2tan(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q2"><label> \( 3tan(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q2"><label> \( 1tan(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q2" class="correct"><label> \( -5sin(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 3 :</strong> \( f(x) = 5cos(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q3" class="correct"><label> \( -5sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q3"><label> \( 4cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q3"><label> \( 5tan(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q3"><label> \( 2cos(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 4 :</strong> \( f(x) = 5cos(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q4"><label> \( 1tan(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q4" class="correct"><label> \( -5sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q4"><label> \( 3tan(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q4"><label> \( 4sin(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 5 :</strong> \( f(x) = 1x^4 \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q5"><label> \( 5x^3 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q5"><label> \( 3x^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q5"><label> \( 6x \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q5" class="correct"><label> \( 4x^3 \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 6 :</strong> \( f(x) = 1cos(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q6"><label> \( 5sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q6"><label> \( 3cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q6"><label> \( 5cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q6" class="correct"><label> \( -1sin(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 7 :</strong> \( f(x) = 4tan(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q7"><label> \( 4sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q7"><label> \( 1cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q7" class="correct"><label> \( 4/cos(x)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q7"><label> \( 3cos(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 8 :</strong> \( f(x) = 4sin(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q8"><label> \( 5sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q8"><label> \( 1cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q8"><label> \( 3cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q8" class="correct"><label> \( 4cos(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 9 :</strong> \( f(x) = 2sin(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q9"><label> \( 1cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q9" class="correct"><label> \( 2cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q9"><label> \( 2tan(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q9"><label> \( 5cos(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 10 :</strong> \( f(x) = 2x^2 \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q10"><label> \( 3x^3 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q10"><label> \( 5x \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q10"><label> \( 2x \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q10" class="correct"><label> \( 4x \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 11 :</strong> \( f(x) = 5x^3 \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q11"><label> \( 3x^3 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q11"><label> \( 4x \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q11" class="correct"><label> \( 15x^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q11"><label> \( 6x^3 \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 12 :</strong> \( f(x) = 4cos(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q12"><label> \( 3cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q12"><label> \( 4sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q12"><label> \( 3tan(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q12" class="correct"><label> \( -4sin(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 13 :</strong> \( f(x) = 2tan(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q13"><label> \( 5sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q13"><label> \( 1cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q13" class="correct"><label> \( 2/cos(x)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q13"><label> \( 1sin(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 14 :</strong> \( f(x) = 1sin(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q14"><label> \( 4cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q14" class="correct"><label> \( 1cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q14"><label> \( 1sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q14"><label> \( 2sin(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 15 :</strong> \( f(x) = 3tan(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q15" class="correct"><label> \( 3/cos(x)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q15"><label> \( 1tan(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q15"><label> \( 4cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q15"><label> \( 3sin(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 16 :</strong> \( f(x) = 1cos(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q16"><label> \( 1cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q16"><label> \( 1sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q16" class="correct"><label> \( -1sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q16"><label> \( 5cos(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 17 :</strong> \( f(x) = 4x^4 \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q17"><label> \( 6x^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q17"><label> \( 2x^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q17" class="correct"><label> \( 16x^3 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q17"><label> \( 3x \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 18 :</strong> \( f(x) = 2tan(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q18"><label> \( 2sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q18"><label> \( 1cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q18" class="correct"><label> \( 2/cos(x)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q18"><label> \( 3sin(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 19 :</strong> \( f(x) = 4tan(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q19"><label> \( 2sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q19"><label> \( 4sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q19" class="correct"><label> \( 4/cos(x)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q19"><label> \( 4cos(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 20 :</strong> \( f(x) = 4x^2 \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q20" class="correct"><label> \( 8x \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q20"><label> \( 4x \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q20"><label> \( 3x^3 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q20"><label> \( 5x \)</label>
+            </div>
+        
+        </div>
+    </div></div>    
+
+</body>
+</html>

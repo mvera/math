@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices de dérivées</title>
+		
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Charger Plotly pour le graphique -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+        <div class="chapter-title">
+            <h2>Exercices : Calcul de dérivées complexes</h2>
+        </div>
+    <div class="question">
+        <p><strong>Question 21 :</strong> \( f(x) = x*sin(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q21"><label> \( x*sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q21"><label> \( cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q21" class="correct"><label> \( sin(x) + x*cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q21"><label> \( x*sin(x) + cos(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 22 :</strong> \( f(x) = sin(x^2) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q22"><label> \( 2*cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q22"><label> \( cos(x^2) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q22"><label> \( 2x*sin(x^2) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q22" class="correct"><label> \( 2x*cos(x^2) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 23 :</strong> \( f(x) = 1/x \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q23" class="correct"><label> \( -1/x^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q23"><label> \( 1/x^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q23"><label> \( -1/x \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q23"><label> \( x^(-1) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 24 :</strong> \( f(x) = (x^2 + 1)/x \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q24"><label> \( (x^2 + 1)/x^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q24"><label> \( 2x/x \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q24"><label> \( 2x/x^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q24" class="correct"><label> \( (x^2 - 1)/x^2 \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 25 :</strong> \( f(x) = x*cos(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q25"><label> \( x*cos(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q25"><label> \( -x*sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q25" class="correct"><label> \( cos(x) - x*sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q25"><label> \( cos(x) + x*sin(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 26 :</strong> \( f(x) = cos(3x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q26"><label> \( -3*cos(3x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q26" class="correct"><label> \( -3*sin(3x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q26"><label> \( 3*cos(3x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q26"><label> \( -sin(3x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 27 :</strong> \( f(x) = 1/(x+1) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q27"><label> \( -2/(x+1)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q27"><label> \( 1/(x+1)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q27" class="correct"><label> \( -1/(x+1)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q27"><label> \( -1/(x+1) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 28 :</strong> \( f(x) = (x^2 - 1)/(x + 1) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q28"><label> \( (x^2 - 1)/(x + 1)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q28"><label> \( (x^2 + 1)/(x + 1)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q28" class="correct"><label> \( (x^2 + 2x - 1)/(x + 1)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q28"><label> \( (x^2 + 2x)/(x + 1)^2 \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 29 :</strong> \( f(x) = tan(2x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q29"><label> \( 2*tan(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q29"><label> \( 1/cos(2x)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q29" class="correct"><label> \( 2/cos(2x)^2 \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q29"><label> \( 2*sin(2x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Question 30 :</strong> \( f(x) = x^2*sin(x) \). Quelle est sa dérivée ?</p>
+        <div class="options">
+    
+            <div class="option-pair">
+                <input type="radio" name="q30"><label> \( 2x*sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q30"><label> \( 2x*cos(x) + x^2*sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q30"><label> \( x^2*sin(x) \)</label>
+            </div>
+        
+            <div class="option-pair">
+                <input type="radio" name="q30" class="correct"><label> \( 2x*sin(x) + x^2*cos(x) \)</label>
+            </div>
+        
+        </div>
+    </div>
+	</div>    
+
+</body>
+</html>

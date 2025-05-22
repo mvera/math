@@ -34,7 +34,7 @@ body {
 .content {
     margin-left: calc(var(--PC-menu-width) + 2 * var(--PC-menu-padding));
     padding: 1rem;
-    max-width: 50rem;
+    width: 50rem;
     background-color: #f5f5f5;
 }
 
