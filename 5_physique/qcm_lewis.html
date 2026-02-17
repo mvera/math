@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <script>
+        window.MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                inlineMath: [['\\(', '\\)']],
+                packages: ['base', 'ams']
+            },
+            chtml: {
+                linebreaks: { automatic: true },
+                displayAlign: 'center'
+            },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+        <h2>QCM – Schéma de Lewis des entités chimiques</h2>
+
+        <!-- ===== Q1-8 : RAPPELS DE BASE ===== -->
+
+        <div class="question">
+            <p><strong>Question 1 :</strong> Quelle est la configuration électronique de l'atome de carbone \(\text{C}\) (\(Z = 6\)) ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> \(1s^2\,2s^2\,2p^2\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> \(1s^2\,2s^2\,2p^4\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 2 :</strong> Combien d'électrons peut contenir au maximum la sous-couche \(2p\) ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q2"><label> 2</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q2" class="correct"><label> 6</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 3 :</strong> L'atome d'azote \(\text{N}\) (\(Z = 7\)) possède combien d'électrons de valence ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q3" class="correct"><label> 5</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q3"><label> 7</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 4 :</strong> Le noyau de l'isotope \({}^{35}_{17}\text{Cl}\) contient :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q4"><label> 35 protons et 17 neutrons</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q4" class="correct"><label> 17 protons et 18 neutrons</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 5 :</strong> Les éléments de la colonne 17 du tableau périodique sont appelés :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q5" class="correct"><label> Les halogènes</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q5"><label> Les alcalins</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 6 :</strong> Deux atomes appartenant à la même colonne du tableau périodique ont en commun :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q6"><label> Le même nombre total d'électrons</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q6" class="correct"><label> Le même nombre d'électrons de valence</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 7 :</strong> Combien d'électrons de valence possède l'atome d'oxygène \(\text{O}\) (\(Z = 8\), configuration \(1s^2\,2s^2\,2p^4\)) ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q7" class="correct"><label> 6</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q7"><label> 8</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 8 :</strong> La règle de l'octet stipule qu'un atome (de numéro atomique \(Z > 4\)) tend à s'entourer de :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q8"><label> 6 électrons sur sa couche de valence</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q8" class="correct"><label> 8 électrons sur sa couche de valence</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Q9-16 : APPLICATION ===== -->
+
+        <div class="question">
+            <p><strong>Question 9 :</strong> Dans le schéma de Lewis de l'atome d'azote \(\text{N}\) (5 électrons de valence), combien y a-t-il d'électrons célibataires ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q9" class="correct"><label> 3 électrons célibataires et 1 doublet non-liant</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q9"><label> 1 électron célibataire et 2 doublets non-liants</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 10 :</strong> D'après la règle de Lewis (jusqu'à 4 \(e^-\) : tous célibataires ; au-delà : on forme des doublets), quel est le schéma de Lewis de l'atome de fluor \(\text{F}\) (7 électrons de valence) ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q10"><label> 3 électrons célibataires et 2 doublets non-liants</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q10" class="correct"><label> 1 électron célibataire et 3 doublets non-liants</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 11 :</strong> L'hydrogène \(\text{H}\) suit la règle du duet. Combien de liaison(s) covalente(s) forme-t-il dans une molécule ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q11" class="correct"><label> 1 seule liaison covalente</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q11"><label> 2 liaisons covalentes</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 12 :</strong> Dans la molécule d'eau \(\text{H}_2\text{O}\), combien de doublets non-liants porte l'atome d'oxygène ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q12"><label> 1 doublet non-liant</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q12" class="correct"><label> 2 doublets non-liants</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 13 :</strong> L'atome de carbone \(\text{C}\) possède 4 électrons de valence, tous célibataires. Combien de liaisons covalentes forme-t-il typiquement ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q13" class="correct"><label> 4 liaisons covalentes</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q13"><label> 2 liaisons covalentes</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 14 :</strong> Dans la molécule de diazote \(\text{N}_2\), chaque atome d'azote doit former combien de liaisons pour respecter la règle de l'octet ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q14"><label> 2 liaisons (une double liaison \(\text{N}=\text{N}\))</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q14" class="correct"><label> 3 liaisons (une triple liaison \(\text{N}\equiv\text{N}\))</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 15 :</strong> Une liaison covalente correspond à la mise en commun de :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q15" class="correct"><label> 2 électrons (un doublet liant)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q15"><label> 1 électron</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 16 :</strong> Dans la molécule d'ammoniac \(\text{NH}_3\), combien de doublets (liants + non-liants) entourent l'atome d'azote ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q16"><label> 3 doublets (3 liants, 0 non-liant)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q16" class="correct"><label> 4 doublets (3 liants, 1 non-liant)</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Q17-22 : COMPLEXE ===== -->
+
+        <div class="question">
+            <p><strong>Question 17 :</strong> Dans le schéma de Lewis de \(\text{CO}_2\), combien de doublets liants y a-t-il au total entre le carbone et les deux oxygènes ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q17" class="correct"><label> 4 doublets liants (2 doubles liaisons \(\text{O}=\text{C}=\text{O}\))</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q17"><label> 2 doublets liants (2 liaisons simples \(\text{O}-\text{C}-\text{O}\))</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 18 :</strong> Dans l'ion ammonium \(\text{NH}_4^+\), l'azote est entouré de 4 doublets liants. Quelle est la charge formelle portée par l'azote ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q18"><label> La charge formelle de l'azote est \(0\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q18" class="correct"><label> La charge formelle de l'azote est \(+1\) car il partage 4 liaisons au lieu de 3 à l'état isolé</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 19 :</strong> Dans l'ion hydroxyde \(\text{HO}^-\), l'oxygène porte 3 doublets non-liants et 1 doublet liant. Quelle est la charge formelle de l'oxygène ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q19" class="correct"><label> \(-1\), car l'oxygène est entouré de 7 électrons au lieu de 6 à l'état isolé</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q19"><label> \(0\), car l'oxygène a déjà 6 électrons de valence</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 20 :</strong> Dans l'ion oxonium \(\text{H}_3\text{O}^+\), l'oxygène forme 3 liaisons covalentes avec les hydrogènes et possède 1 doublet non-liant. Quelle est la charge formelle de l'oxygène ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q20"><label> \(0\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q20" class="correct"><label> \(+1\), car l'oxygène n'est entouré que de 5 électrons (3 partagés + 2 non-liants) au lieu de 6</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 21 :</strong> D'après la règle 5, la charge globale d'une entité chimique est égale à :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q21" class="correct"><label> La somme de toutes les charges formelles des atomes</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q21"><label> La charge formelle de l'atome central uniquement</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 22 :</strong> Dans le schéma de Lewis de \(\text{CO}_2\), combien de doublets non-liants porte chaque atome d'oxygène ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q22"><label> 1 doublet non-liant</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q22" class="correct"><label> 2 doublets non-liants</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Q23-25 : PIÈGE / EXPERT ===== -->
+
+        <div class="question">
+            <p><strong>Question 23 :</strong> La molécule \(\text{BH}_3\) (le bore \(\text{B}\) a 3 électrons de valence) présente une lacune électronique. Cela signifie que :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q23" class="correct"><label> Le bore n'a que 6 électrons autour de lui (3 doublets liants) au lieu de 8 : il lui manque un doublet pour atteindre l'octet</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q23"><label> Le bore a 8 électrons autour de lui et respecte la règle de l'octet, il n'y a pas de lacune</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 24 :</strong> Calculer la masse du noyau de \({}^{23}_{11}\text{Na}\). On donne \(u = 1{,}66 \times 10^{-27}\;\text{kg}\).</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q24"><label> \(m = 11 \times 1{,}66 \times 10^{-27} = 1{,}83 \times 10^{-26}\;\text{kg}\) (on utilise \(Z\))</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q24" class="correct"><label> \(m = 23 \times 1{,}66 \times 10^{-27} = 3{,}82 \times 10^{-26}\;\text{kg}\) (on utilise \(A\), le nombre de nucléons)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 25 :</strong> Un élève propose le schéma de Lewis suivant pour \(\text{NH}_3\) : l'azote forme 3 liaisons avec les hydrogènes et ne porte <em>aucun</em> doublet non-liant. L'azote serait alors entouré de 6 électrons. Ce schéma est-il correct ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q25"><label> Oui, 6 électrons suffisent car l'azote est sur la 2\(^\text{e}\) période et peut se contenter de 6 électrons</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q25" class="correct"><label> Non, l'azote a 5 électrons de valence dont 3 célibataires et 1 doublet non-liant. Sans ce doublet, l'octet n'est pas respecté et un doublet d'électrons disparaît</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

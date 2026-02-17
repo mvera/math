@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <script>
+        window.MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                inlineMath: [['\\(', '\\)']],
+                packages: ['base', 'ams']
+            },
+            chtml: {
+                linebreaks: { automatic: true },
+                displayAlign: 'center'
+            },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+        <h2>QCM – Interactions microscopiques</h2>
+
+        <!-- ===== Q1-8 : BASIQUE ===== -->
+
+        <div class="question">
+            <p><strong>Question 1 :</strong> Comment appelle-t-on la liaison qui résulte de la mise en commun d'électrons entre deux atomes ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> La liaison covalente</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> La liaison ionique</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 2 :</strong> La liaison ionique met en jeu des forces entre :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q2"><label> Deux atomes partageant des électrons</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q2" class="correct"><label> Un cation et un anion (forces électrostatiques)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 3 :</strong> Une interaction est dite « forte » lorsque son énergie de liaison est :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q3" class="correct"><label> Supérieure à \(100\;\text{kJ/mol}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q3"><label> Supérieure à \(10\;\text{kJ/mol}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 4 :</strong> Une interaction de longue portée décroît en \(\dfrac{1}{r^n}\) avec :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q4"><label> \(n > 2\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q4" class="correct"><label> \(n \leq 2\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 5 :</strong> Les liaisons intra-moléculaires sont responsables :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q5" class="correct"><label> De la stabilité des entités chimiques (elles lient les atomes au sein d'une molécule)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q5"><label> Des propriétés physiques comme la température d'ébullition</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 6 :</strong> Les liaisons inter-moléculaires déterminent principalement :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q6"><label> La formule brute de la molécule</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q6" class="correct"><label> Les propriétés physico-chimiques (température d'ébullition, solubilité...)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 7 :</strong> L'énergie typique d'une interaction de Van der Waals est de l'ordre de :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q7" class="correct"><label> \(1\;\text{kJ/mol}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q7"><label> \(10\;\text{kJ/mol}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 8 :</strong> L'interaction ion-dipôle intervient lors de :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q8"><label> La formation d'une liaison covalente entre deux atomes</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q8" class="correct"><label> L'hydratation des ions en solution aqueuse</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Q9-16 : APPLICATION ===== -->
+
+        <div class="question">
+            <p><strong>Question 9 :</strong> Classez ces interactions de la plus forte à la plus faible : liaison covalente, liaison hydrogène, Van der Waals, liaison ionique.</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q9"><label> Ionique (\(\sim 500\;\text{kJ/mol}\)) > Covalente (\(\sim 500\;\text{kJ/mol}\)) > Van der Waals (\(\sim 1\;\text{kJ/mol}\)) > Liaison H (\(\sim 10\;\text{kJ/mol}\))</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q9" class="correct"><label> Covalente (\(\sim 500\;\text{kJ/mol}\)) \(\approx\) Ionique (\(\sim 500\;\text{kJ/mol}\)) > Liaison H (\(\sim 10\;\text{kJ/mol}\)) > Van der Waals (\(\sim 1\;\text{kJ/mol}\))</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 10 :</strong> Pour qu'une liaison hydrogène se forme, il faut un atome d'hydrogène lié à un atome très électronégatif et :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q10" class="correct"><label> Un atome très électronégatif (N, O, F, Cl) porteur d'un doublet non-liant sur la molécule voisine</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q10"><label> N'importe quel autre atome, à condition qu'il soit dans une molécule polaire</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 11 :</strong> La cohésion d'un solide ionique comme \(\text{NaCl}\) est assurée par :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q11"><label> Des interactions de Van der Waals entre les ions \(\text{Na}^+\) et \(\text{Cl}^-\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q11" class="correct"><label> Des interactions ioniques (électrostatiques) attractives entre cations et anions, équilibrées par des interactions répulsives</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 12 :</strong> Un solide moléculaire comme la glace est maintenu par :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q12" class="correct"><label> Des interactions intermoléculaires (liaisons hydrogène et Van der Waals)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q12"><label> Des liaisons covalentes entre les différentes molécules d'eau</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 13 :</strong> L'interaction ionique décroît en \(\dfrac{1}{r^2}\). Cela signifie que :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q13"><label> C'est une interaction de courte portée car \(n = 2\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q13" class="correct"><label> C'est une interaction de longue portée car \(n \leq 2\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 14 :</strong> Les interactions de Van der Waals existent :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q14" class="correct"><label> Entre toutes les molécules, qu'elles soient polaires ou apolaires</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q14"><label> Uniquement entre les molécules polaires</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 15 :</strong> La liaison hydrogène est représentée dans un schéma par :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q15"><label> Un trait plein, comme une liaison covalente</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q15" class="correct"><label> Des pointillés, pour la distinguer des liaisons covalentes</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 16 :</strong> L'interaction ion-dipôle décroît en \(\dfrac{1}{r^4}\). Son énergie est de l'ordre de :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q16" class="correct"><label> \(\sim 10\;\text{kJ/mol}\) — c'est une interaction faible et de courte portée</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q16"><label> \(\sim 500\;\text{kJ/mol}\) — c'est une interaction forte et de longue portée</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Q17-22 : COMPLEXE ===== -->
+
+        <div class="question">
+            <p><strong>Question 17 :</strong> L'eau (\(\text{H}_2\text{O}\), \(M = 18\;\text{g/mol}\)) bout à \(100\;°\text{C}\), tandis que le sulfure d'hydrogène (\(\text{H}_2\text{S}\), \(M = 34\;\text{g/mol}\)) bout à \(-60\;°\text{C}\). Quelle est l'explication principale ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q17"><label> \(\text{H}_2\text{O}\) est plus légère donc plus difficile à vaporiser</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q17" class="correct"><label> \(\text{H}_2\text{O}\) forme des liaisons hydrogène (O très électronégatif) bien plus fortes que les interactions de Van der Waals dans \(\text{H}_2\text{S}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 18 :</strong> Lors de la dissolution de \(\text{NaCl}\) dans l'eau, les interactions mises en jeu sont :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q18" class="correct"><label> Rupture des interactions ioniques dans le cristal, puis formation d'interactions ion-dipôle entre les ions et les molécules d'eau</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q18"><label> Rupture de liaisons covalentes dans \(\text{NaCl}\), puis formation de liaisons hydrogène entre \(\text{Na}^+\) et l'eau</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 19 :</strong> On veut extraire un soluté apolaire dissous dans l'eau. Quel solvant d'extraction faut-il choisir ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q19"><label> Un solvant polaire comme l'éthanol, car il est miscible à l'eau</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q19" class="correct"><label> Un solvant apolaire et non miscible à l'eau (comme le cyclohexane), car « le semblable dissout le semblable »</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 20 :</strong> La liaison hydrogène décroît en \(\dfrac{1}{r^7}\) et les interactions de Van der Waals également en \(\dfrac{1}{r^7}\). Pourquoi la liaison H est-elle cependant plus forte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q20" class="correct"><label> Même dépendance en distance, mais la liaison H a une énergie caractéristique plus élevée (\(\sim 10\;\text{kJ/mol}\) contre \(\sim 1\;\text{kJ/mol}\)) car elle implique une interaction directionnelle avec un doublet non-liant</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q20"><label> La liaison H a en réalité une portée plus longue (décroissance en \(\dfrac{1}{r^2}\)), ce qui la rend plus forte</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 21 :</strong> L'éthanol (\(\text{C}_2\text{H}_5\text{OH}\)) est miscible à l'eau, mais le pentane (\(\text{C}_5\text{H}_{12}\)) ne l'est pas. Pourquoi ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q21"><label> Le pentane est trop lourd pour se dissoudre dans l'eau</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q21" class="correct"><label> L'éthanol, grâce à son groupe \(\text{–OH}\), peut former des liaisons hydrogène avec l'eau (polaire dissout polaire), tandis que le pentane est apolaire</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 22 :</strong> Entre deux alcanes linéaires, celui de plus grande masse molaire a une température d'ébullition plus élevée. Cela s'explique par :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q22" class="correct"><label> Plus la chaîne carbonée est longue, plus les interactions de Van der Waals entre molécules sont intenses (surface de contact plus grande)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q22"><label> Plus la chaîne est longue, plus les liaisons covalentes C–C sont difficiles à rompre</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Q23-25 : EXPERT / PIÈGE ===== -->
+
+        <div class="question">
+            <p><strong>Question 23 :</strong> Le diamant est l'un des matériaux les plus durs connus. Cela s'explique par le fait que :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q23"><label> Le diamant est un solide moléculaire dont les interactions de Van der Waals sont exceptionnellement fortes grâce à la symétrie du cristal</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q23" class="correct"><label> Le diamant est un cristal covalent : chaque atome de carbone est lié à 4 voisins par des liaisons covalentes (\(\sim 500\;\text{kJ/mol}\)) formant une « molécule géante » tridimensionnelle</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 24 :</strong> L'eau (\(M = 18\;\text{g/mol}\)) a une température d'ébullition de \(100\;°\text{C}\), anormalement élevée comparée à des molécules de taille similaire comme \(\text{CH}_4\) (\(M = 16\;\text{g/mol}\), \(T_{éb} = -161\;°\text{C}\)). Quelle affirmation est correcte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q24" class="correct"><label> Les fortes liaisons hydrogène entre molécules d'eau (interactions inter-moléculaires \(\sim 10\;\text{kJ/mol}\) chacune, et chaque molécule peut en former jusqu'à 4) expliquent cette température élevée ; les liaisons covalentes O–H (intra) ne sont pas rompues lors de l'ébullition</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q24"><label> Les liaisons covalentes O–H dans l'eau sont très difficiles à rompre, ce qui explique la température d'ébullition élevée de l'eau par rapport à \(\text{CH}_4\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 25 :</strong> Dans un métal comme le cuivre, les atomes sont maintenus ensemble par la liaison métallique. Quelle description est correcte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q25"><label> Chaque atome de cuivre forme des liaisons covalentes localisées avec ses voisins immédiats, comme dans le diamant</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q25" class="correct"><label> Les électrons de valence sont délocalisés sur l'ensemble du cristal (« mer d'électrons »), assurant la cohésion entre les cations métalliques ; c'est ce qui confère aux métaux leur conductivité électrique</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <script>
+        window.MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                inlineMath: [['\\(', '\\)']],
+                packages: ['base', 'ams']
+            },
+            chtml: {
+                linebreaks: { automatic: true },
+                displayAlign: 'center'
+            },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+        <h2>QCM – Géométrie et polarité des molécules</h2>
+
+        <!-- ============================================ -->
+        <!-- Q1-Q8 : BASIQUE                              -->
+        <!-- ============================================ -->
+
+        <div class="question">
+            <p><strong>Question 1 :</strong> Quelle est la géométrie d'une molécule possédant 4 proches voisins et 0 doublet non-liant autour de l'atome central ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Pyramide à base triangulaire</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Tétraèdre</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 2 :</strong> Quel est l'angle approximatif entre les liaisons dans une molécule de géométrie tétraédrique ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q2" class="correct"><label> \(109{,}5°\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q2"><label> \(120°\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 3 :</strong> Comment appelle-t-on la grandeur qui mesure la tendance d'un atome à attirer les électrons d'une liaison ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q3"><label> L'énergie d'ionisation</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q3" class="correct"><label> L'électronégativité</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 4 :</strong> Dans l'échelle de Pauling, quel est l'élément le plus électronégatif ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q4" class="correct"><label> Le fluor \(\text{F}\) avec \(\chi = 3{,}98\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q4"><label> L'oxygène \(\text{O}\) avec \(\chi = 3{,}44\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 5 :</strong> Quelle est la géométrie d'une molécule linéaire ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q5"><label> 3 proches voisins, 0 doublet non-liant, angle de \(120°\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q5" class="correct"><label> 2 proches voisins, 0 doublet non-liant, angle de \(180°\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 6 :</strong> Une liaison est considérée comme polarisée si la différence d'électronégativité entre les deux atomes est :</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q6" class="correct"><label> Supérieure à \(0{,}4\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q6"><label> Supérieure à \(1{,}0\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 7 :</strong> Quelle est la géométrie de la molécule de méthane \(\text{CH}_4\) ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q7"><label> Trigonale plane</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q7" class="correct"><label> Tétraédrique</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 8 :</strong> Comment évolue l'électronégativité dans le tableau périodique en se déplaçant vers la droite d'une période ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q8" class="correct"><label> Elle augmente</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q8"><label> Elle diminue</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- Q9-Q16 : APPLICATION                         -->
+        <!-- ============================================ -->
+
+        <div class="question">
+            <p><strong>Question 9 :</strong> L'atome d'azote dans \(\text{NH}_3\) possède 3 proches voisins et 1 doublet non-liant. Quelle est la géométrie de cette molécule ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q9"><label> Trigonale plane</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q9" class="correct"><label> Pyramide à base triangulaire</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 10 :</strong> Calculer la différence d'électronégativité de la liaison \(\text{O–H}\). On donne \(\chi(\text{O}) = 3{,}44\) et \(\chi(\text{H}) = 2{,}20\). La liaison est-elle polarisée ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q10" class="correct"><label> \(|\Delta\chi| = 1{,}24 > 0{,}4\) donc la liaison est polarisée</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q10"><label> \(|\Delta\chi| = 0{,}24 < 0{,}4\) donc la liaison n'est pas polarisée</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 11 :</strong> Dans la liaison \(\text{C–Cl}\), avec \(\chi(\text{C}) = 2{,}55\) et \(\chi(\text{Cl}) = 3{,}16\), quel atome porte la charge partielle \(\delta^-\) ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q11"><label> Le carbone \(\text{C}\), car il a moins d'électrons</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q11" class="correct"><label> Le chlore \(\text{Cl}\), car il est plus électronégatif</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 12 :</strong> L'oxygène dans \(\text{H}_2\text{O}\) possède 2 proches voisins et 2 doublets non-liants. Quelle est la géométrie de l'eau ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q12" class="correct"><label> Coudée avec un angle d'environ \(104{,}5°\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q12"><label> Linéaire avec un angle de \(180°\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 13 :</strong> La liaison \(\text{C–H}\) est-elle polarisée ? On donne \(\chi(\text{C}) = 2{,}55\) et \(\chi(\text{H}) = 2{,}20\).</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q13"><label> Oui, car \(|\Delta\chi| = 0{,}35 > 0{,}4\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q13" class="correct"><label> Non, car \(|\Delta\chi| = 0{,}35 < 0{,}4\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 14 :</strong> L'ion \(\text{NH}_4^+\) possède 4 proches voisins et 0 doublet non-liant sur l'azote. Quelle est sa géométrie ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q14" class="correct"><label> Tétraédrique, comme \(\text{CH}_4\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q14"><label> Pyramide à base triangulaire, comme \(\text{NH}_3\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 15 :</strong> L'ion \(\text{H}_3\text{O}^+\) possède 3 proches voisins et 1 doublet non-liant sur l'oxygène. Quelle est sa géométrie ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q15"><label> Trigonale plane avec un angle de \(120°\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q15" class="correct"><label> Pyramide à base triangulaire avec un angle d'environ \(109°\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 16 :</strong> Calculer \(|\Delta\chi|\) pour la liaison \(\text{N–H}\). On donne \(\chi(\text{N}) = 3{,}04\) et \(\chi(\text{H}) = 2{,}20\). La liaison est-elle polarisée ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q16" class="correct"><label> \(|\Delta\chi| = 0{,}84 > 0{,}4\) donc la liaison est polarisée, avec \(\delta^-\) sur \(\text{N}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q16"><label> \(|\Delta\chi| = 0{,}84 > 0{,}4\) donc la liaison est polarisée, avec \(\delta^-\) sur \(\text{H}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- Q17-Q22 : COMPLEXE                           -->
+        <!-- ============================================ -->
+
+        <div class="question">
+            <p><strong>Question 17 :</strong> La molécule de \(\text{CO}_2\) possède deux liaisons \(\text{C=O}\) polarisées (\(|\Delta\chi| = 0{,}89\)). Est-elle polaire ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q17"><label> Oui, car les liaisons \(\text{C=O}\) sont polarisées</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q17" class="correct"><label> Non, car la géométrie linéaire rend les barycentres \(G^+\) et \(G^-\) confondus (symétrie)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 18 :</strong> La molécule \(\text{H}_2\text{O}\) possède des liaisons \(\text{O–H}\) polarisées et une géométrie coudée. Est-elle polaire ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q18" class="correct"><label> Oui, car la géométrie coudée fait que \(G^+ \neq G^-\), créant un dipôle électrique</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q18"><label> Non, car les deux liaisons \(\text{O–H}\) identiques se compensent</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 19 :</strong> La molécule de \(\text{NH}_3\) a une géométrie pyramidale à base triangulaire. Pourquoi est-elle polaire ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q19"><label> Parce que les liaisons \(\text{N–H}\) ne sont pas polarisées mais le doublet non-liant crée un dipôle</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q19" class="correct"><label> Parce que les liaisons \(\text{N–H}\) sont polarisées et la géométrie pyramidale empêche la compensation des dipôles (\(G^+ \neq G^-\))</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 20 :</strong> Entre l'eau \(\text{H}_2\text{O}\) (polaire) et le méthane \(\text{CH}_4\) (apolaire, masses molaires proches), laquelle a la température d'ébullition la plus élevée ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q20" class="correct"><label> \(\text{H}_2\text{O}\), car les interactions entre molécules polaires sont plus fortes</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q20"><label> \(\text{CH}_4\), car sa géométrie tétraédrique maximise les interactions</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 21 :</strong> L'éthylène \(\text{C}_2\text{H}_4\) a une géométrie trigonale plane autour de chaque carbone. Les liaisons \(\text{C–H}\) ont \(|\Delta\chi| = 0{,}35\). Cette molécule est-elle polaire ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q21"><label> Oui, car la molécule possède des liaisons polarisées \(\text{C–H}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q21" class="correct"><label> Non, car \(|\Delta\chi| = 0{,}35 < 0{,}4\) donc les liaisons \(\text{C–H}\) ne sont pas polarisées</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 22 :</strong> Une molécule polaire se dissout-elle mieux dans un solvant polaire ou apolaire ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q22"><label> Dans un solvant apolaire, car les contraires s'attirent</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q22" class="correct"><label> Dans un solvant polaire, car « le semblable dissout le semblable »</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- Q23-Q25 : EXPERT / PIÈGE                     -->
+        <!-- ============================================ -->
+
+        <div class="question">
+            <p><strong>Question 23 :</strong> La molécule de \(\text{SO}_2\) possède 2 proches voisins (les \(\text{O}\)) et 1 doublet non-liant sur le soufre. Quelle est sa géométrie et est-elle polaire ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q23"><label> Linéaire et apolaire, car les deux liaisons \(\text{S=O}\) se compensent par symétrie comme dans \(\text{CO}_2\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q23" class="correct"><label> Coudée (angle \(\approx 120°\)) et polaire, car le doublet non-liant brise la linéarité et \(G^+ \neq G^-\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 24 :</strong> On compare \(\text{CO}_2\) et \(\text{SO}_2\). Les deux molécules possèdent des liaisons polarisées (\(|\Delta\chi_{\text{C=O}}| = 0{,}89\) et \(|\Delta\chi_{\text{S=O}}| = 0{,}86\)). Pourtant, l'une est polaire et l'autre non. Quelle est l'explication correcte ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q24" class="correct"><label> \(\text{CO}_2\) est linéaire (pas de doublet non-liant sur \(\text{C}\)) donc les dipôles se compensent ; \(\text{SO}_2\) est coudée (1 doublet non-liant sur \(\text{S}\)) donc les dipôles ne se compensent pas</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q24"><label> \(\text{CO}_2\) est apolaire car \(|\Delta\chi| < 1\) tandis que \(\text{SO}_2\) est polaire car le soufre est plus gros que le carbone</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 25 :</strong> On réalise une extraction liquide-liquide avec de l'eau (polaire) et du cyclohexane (apolaire). On cherche à extraire l'acide éthanoïque \(\text{CH}_3\text{COOH}\) (polaire) d'un mélange aqueux. Dans quelle phase se trouvera majoritairement l'acide éthanoïque ?</p>
+            <div class="options ">
+                <div class="option-pair">
+                    <input type="radio" name="q25"><label> Dans la phase organique (cyclohexane), car l'acide éthanoïque contient une chaîne carbonée</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q25" class="correct"><label> Dans la phase aqueuse (eau), car l'acide éthanoïque est polaire et se dissout préférentiellement dans un solvant polaire</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

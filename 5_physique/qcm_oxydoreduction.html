@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème Fondamental de l'Analyse</title>
+
+    <script>
+        window.MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                inlineMath: [['\\(', '\\)']],
+                packages: ['base', 'ams']
+            },
+            chtml: {
+                linebreaks: { automatic: true },
+                displayAlign: 'center'
+            },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../menu-loader.js"></script>
+    <script src="../menu-manager.js" defer></script>
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <div id="menu-bar" class="menu-bar">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+
+    <div class="content">
+        <h2>QCM – Modéliser une réaction d'oxydo-réduction</h2>
+
+        <!-- ===== Q1-8 : DÉFINITIONS ET BASES ===== -->
+
+        <div class="question">
+            <p><strong>Question 1 :</strong> Un oxydant est une espèce chimique capable de :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q1"><label> Céder des électrons</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q1" class="correct"><label> Gagner des électrons</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 2 :</strong> Un réducteur est une espèce chimique capable de :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q2" class="correct"><label> Céder des électrons</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q2"><label> Gagner des électrons</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 3 :</strong> La réduction est la transformation au cours de laquelle :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q3"><label> Un réducteur perd des électrons et devient un oxydant</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q3" class="correct"><label> Un oxydant gagne des électrons et devient un réducteur</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 4 :</strong> L'oxydation est la transformation au cours de laquelle :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q4" class="correct"><label> Un réducteur perd des électrons et devient un oxydant</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q4"><label> Un oxydant gagne des électrons et devient un réducteur</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 5 :</strong> Quel moyen mnémotechnique permet de retenir qu'un oxydant gagne des électrons ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q5"><label> RéductEur pErd, OxydAnt pArt</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q5" class="correct"><label> OxydAnt gAgne, RéductEur pErd</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 6 :</strong> Dans le couple \(\text{Cu}^{2+}/\text{Cu}\), quel est l'oxydant ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q6" class="correct"><label> \(\text{Cu}^{2+}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q6"><label> \(\text{Cu}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 7 :</strong> Dans le couple \(\text{Zn}^{2+}/\text{Zn}\), quel est le réducteur ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q7"><label> \(\text{Zn}^{2+}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q7" class="correct"><label> \(\text{Zn}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 8 :</strong> Dans le tableau périodique, les éléments à caractère réducteur se situent plutôt :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q8" class="correct"><label> À gauche du tableau (métaux alcalins, alcalino-terreux)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q8"><label> À droite du tableau (halogènes, gaz nobles)</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Q9-16 : APPLICATION ===== -->
+
+        <div class="question">
+            <p><strong>Question 9 :</strong> Quelle est la demi-équation électronique du couple \(\text{Cu}^{2+}/\text{Cu}\) ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q9"><label> \(\text{Cu} \rightarrow \text{Cu}^{2+} + 2\,e^-\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q9" class="correct"><label> \(\text{Cu}^{2+} + 2\,e^- = \text{Cu}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 10 :</strong> Quelle est la demi-équation électronique du couple \(\text{Zn}^{2+}/\text{Zn}\) ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q10" class="correct"><label> \(\text{Zn}^{2+} + 2\,e^- = \text{Zn}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q10"><label> \(\text{Zn}^{2+} + e^- = \text{Zn}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 11 :</strong> Quelle est la demi-équation électronique du couple \(\text{Ag}^+/\text{Ag}\) ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q11"><label> \(\text{Ag}^+ + 2\,e^- = \text{Ag}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q11" class="correct"><label> \(\text{Ag}^+ + e^- = \text{Ag}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 12 :</strong> Dans le couple \(\text{Fe}^{3+}/\text{Fe}^{2+}\), combien d'électrons sont échangés dans la demi-équation ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q12" class="correct"><label> 1 électron : \(\text{Fe}^{3+} + e^- = \text{Fe}^{2+}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q12"><label> 2 électrons : \(\text{Fe}^{3+} + 2\,e^- = \text{Fe}^{2+}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 13 :</strong> Quelle est la demi-équation du couple \(\text{I}_2/\text{I}^-\) ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q13"><label> \(\text{I}_2 + e^- = 2\,\text{I}^-\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q13" class="correct"><label> \(\text{I}_2 + 2\,e^- = 2\,\text{I}^-\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 14 :</strong> Lors de la réaction entre \(\text{Cu}^{2+}\) et \(\text{Zn}\), quelle espèce subit une oxydation ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q14" class="correct"><label> \(\text{Zn}\), car il cède des électrons</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q14"><label> \(\text{Cu}^{2+}\), car il gagne des électrons</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 15 :</strong> Dans une réaction d'oxydo-réduction, les réactifs sont :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q15"><label> L'oxydant et le réducteur du même couple</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q15" class="correct"><label> L'oxydant d'un couple et le réducteur d'un autre couple</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 16 :</strong> Dans l'équation bilan d'une réaction d'oxydo-réduction :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q16" class="correct"><label> Les électrons ne doivent pas apparaître</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q16"><label> Les électrons apparaissent du côté des produits</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Q17-22 : COMPLEXE ===== -->
+
+        <div class="question">
+            <p><strong>Question 17 :</strong> On combine les couples \(\text{Cu}^{2+}/\text{Cu}\) et \(\text{Zn}^{2+}/\text{Zn}\). Quelle est l'équation bilan de la réaction entre \(\text{Cu}^{2+}\) et \(\text{Zn}\) ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q17"><label> \(\text{Cu}^{2+} + \text{Zn}^{2+} = \text{Cu} + \text{Zn}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q17" class="correct"><label> \(\text{Cu}^{2+} + \text{Zn} = \text{Cu} + \text{Zn}^{2+}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 18 :</strong> On fait réagir \(\text{Fe}\) avec \(\text{Ag}^+\). Les couples sont \(\text{Ag}^+/\text{Ag}\) et \(\text{Fe}^{2+}/\text{Fe}\). Quelle est l'équation bilan ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q18" class="correct"><label> \(\text{Fe} + 2\,\text{Ag}^+ = \text{Fe}^{2+} + 2\,\text{Ag}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q18"><label> \(\text{Fe} + \text{Ag}^+ = \text{Fe}^{2+} + \text{Ag}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 19 :</strong> Quelle est la demi-équation du couple \(\text{MnO}_4^-/\text{Mn}^{2+}\) en milieu acide ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q19"><label> \(\text{MnO}_4^- + 5\,e^- = \text{Mn}^{2+} + 4\,\text{O}^{2-}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q19" class="correct"><label> \(\text{MnO}_4^- + 8\,\text{H}^+ + 5\,e^- = \text{Mn}^{2+} + 4\,\text{H}_2\text{O}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 20 :</strong> Pour écrire la demi-équation du couple \(\text{MnO}_4^-/\text{Mn}^{2+}\), dans quel ordre procède-t-on ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q20" class="correct"><label> 1. Équilibrer Mn, 2. Équilibrer O avec \(\text{H}_2\text{O}\), 3. Équilibrer H avec \(\text{H}^+\), 4. Équilibrer les charges avec \(e^-\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q20"><label> 1. Équilibrer les charges avec \(e^-\), 2. Équilibrer O avec \(\text{H}_2\text{O}\), 3. Équilibrer H avec \(\text{H}^+\), 4. Équilibrer Mn</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 21 :</strong> On fait réagir \(\text{Fe}^{3+}\) avec \(\text{Fe}\). Les couples impliqués sont \(\text{Fe}^{3+}/\text{Fe}^{2+}\) et \(\text{Fe}^{2+}/\text{Fe}\). Quelle est l'équation bilan ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q21"><label> \(\text{Fe}^{3+} + \text{Fe} = 3\,\text{Fe}^{2+}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q21" class="correct"><label> \(2\,\text{Fe}^{3+} + \text{Fe} = 3\,\text{Fe}^{2+}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 22 :</strong> Lors de la réaction entre \(\text{I}^-\) et \(\text{Fe}^{3+}\), les couples sont \(\text{Fe}^{3+}/\text{Fe}^{2+}\) et \(\text{I}_2/\text{I}^-\). Quelle est l'équation bilan ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q22" class="correct"><label> \(2\,\text{Fe}^{3+} + 2\,\text{I}^- = 2\,\text{Fe}^{2+} + \text{I}_2\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q22"><label> \(\text{Fe}^{3+} + 2\,\text{I}^- = \text{Fe}^{2+} + \text{I}_2\)</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Q23-25 : EXPERT / PIÈGE ===== -->
+
+        <div class="question">
+            <p><strong>Question 23 :</strong> On fait réagir \(\text{MnO}_4^-\) avec \(\text{Fe}^{2+}\) en milieu acide. Les couples sont \(\text{MnO}_4^-/\text{Mn}^{2+}\) et \(\text{Fe}^{3+}/\text{Fe}^{2+}\). Quelle est l'équation bilan ?</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q23"><label> \(\text{MnO}_4^- + 5\,\text{Fe}^{2+} + 8\,\text{H}^+ = \text{Mn}^{2+} + 5\,\text{Fe}^{3+} + 4\,\text{H}_2\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q23" class="correct"><label> \(\text{MnO}_4^- + 5\,\text{Fe}^{2+} + 8\,\text{H}^+ = \text{Mn}^{2+} + 5\,\text{Fe}^{3+} + 4\,\text{H}_2\text{O}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 24 :</strong> La demi-équation du couple \(\text{Cr}_2\text{O}_7^{2-}/\text{Cr}^{3+}\) en milieu acide est :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q24" class="correct"><label> \(\text{Cr}_2\text{O}_7^{2-} + 14\,\text{H}^+ + 6\,e^- = 2\,\text{Cr}^{3+} + 7\,\text{H}_2\text{O}\)</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q24"><label> \(\text{Cr}_2\text{O}_7^{2-} + 7\,\text{H}^+ + 6\,e^- = 2\,\text{Cr}^{3+} + 7\,\text{H}_2\text{O}\)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 25 :</strong> Un élève écrit l'équation bilan suivante pour la réaction entre \(\text{Zn}\) et \(\text{Ag}^+\) :
+                \(\text{Zn} + \text{Ag}^+ = \text{Zn}^{2+} + \text{Ag}\). Cette équation est :</p>
+            <div class="options">
+                <div class="option-pair">
+                    <input type="radio" name="q25"><label> Correcte, car les éléments et les charges sont conservés</label>
+                </div>
+                <div class="option-pair">
+                    <input type="radio" name="q25" class="correct"><label> Incorrecte, car les charges ne sont pas équilibrées : il faut écrire \(\text{Zn} + 2\,\text{Ag}^+ = \text{Zn}^{2+} + 2\,\text{Ag}\)</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
